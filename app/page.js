@@ -1,13 +1,12 @@
 "use client";
-
 import { useState } from "react";
-import Header from "@/components/Header";
-import HomePage from "@/app/page";
-import AboutPage from "@/app/tanisalim/page";
-import WorkAreasPage from "@/app/calisma-alanlarim/page";
-import ArticlesPage from "@/app/yazilarim/page";
-import ContactPage from "@/app/iletisim/page";
-import { AppProvider } from "@/context/AppContext";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
+import HomeContent from "@/app/components/HomeContent";
+import AboutPage from "@/app/about/page";
+import WorkAreasPage from "@/app/workAreas/page";
+import ArticlesPage from "@/app/articles/page";
+import ContactPage from "@/app/contact/page";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -15,7 +14,7 @@ export default function Home() {
   const renderPage = () => {
     switch (currentPage) {
       case "home":
-        return <HomePage />;
+        return <HomeContent />;
       case "about":
         return <AboutPage />;
       case "work":
@@ -25,16 +24,15 @@ export default function Home() {
       case "contact":
         return <ContactPage />;
       default:
-        return <HomePage />;
+        return <HomeContent />;
     }
   };
 
   return (
-    <AppProvider>
-      <div className="min-h-screen">
-        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        {renderPage()}
-      </div>
-    </AppProvider>
+    <div className="min-h-screen flex flex-col">
+      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <main className="flex-1">{renderPage()}</main>
+      <Footer />
+    </div>
   );
 }

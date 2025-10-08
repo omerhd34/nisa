@@ -14,21 +14,14 @@ export const useAppContext = () => {
 
 export const AppProvider = ({ children }) => {
  const [theme, setTheme] = useState('light');
- const [language, setLanguage] = useState('tr');
 
  const toggleTheme = () => {
   setTheme(prev => prev === 'light' ? 'dark' : 'light');
  };
 
- const toggleLanguage = () => {
-  setLanguage(prev => prev === 'tr' ? 'en' : 'tr');
- };
-
  const value = {
   theme,
   toggleTheme,
-  language,
-  toggleLanguage
  };
 
  return (

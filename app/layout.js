@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AppProvider } from "@/context/AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,6 @@ export const metadata = {
   openGraph: {
     title: "Uzman Klinik Psikolog Nisa Demir",
     description: "Bireysel ve Online Terapi Hizmetleri",
-    type: "website",
     locale: "tr_TR",
   },
 };
@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   );
 }
