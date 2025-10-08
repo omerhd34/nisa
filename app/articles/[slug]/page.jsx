@@ -1,35 +1,75 @@
-import { notFound } from "next/navigation";
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeft } from "lucide-react";
+import { useAppContext } from "@/context/AppContext";
+import { notFound } from "next/navigation";
 import { data } from "@/data/data";
 
-export default function ArticleDetail({ params }) {
- const slug = params.slug;
- const article = data.articles.article8.find((a) => a.slug === slug);
+export default function ArticleDetailPage({ params }) {
+ const { theme } = useAppContext();
+ const isDark = theme === "dark";
+
+ const article = data.articles.list.find((a) => a.slug === params.slug);
+
  if (!article) {
-  return notFound();
+  notFound();
  }
+
  return (
-  <div className="min-h-screen flex flex-col">
-   <main className="flex-grow bg-gray-50 dark:bg-gray-900 py-16 px-6">
-    <div className="max-w-3xl mx-auto">
-     <h1 className="relative text-4xl font-bold mb-6 text-white/90 px-4 py-2 rounded-lg backdrop-blur-sm bg-black/30">
-      {data.articles.article8.title}
+  <div
+   className={`min-h-screen ${isDark
+     ? "bg-gray-900"
+     : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    } py-16 md:py-24 transition-colors duration-300`}
+  >
+   <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto">
+     {/* Back Button */}
+     <Link
+      href="/articles"
+      className={`flex items-center gap-2 mb-8 ${isDark ? "text-teal-400" : "text-teal-700"
+       } hover:gap-3 transition-all duration-300 font-semibold`}
+     >
+      <ArrowLeft className="w-5 h-5" />
+      Yazılara Dön
+     </Link>
+
+     {/* Article Title */}
+     <h1
+      className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"
+       } mb-8`}
+     >
+      {article.title}
      </h1>
 
-     <div className="relative w-full h-80 mb-8 rounded-2xl overflow-hidden shadow-lg">
+     {/* Article Image */}
+     <div className="relative w-full h-96 mb-8 rounded-2xl overflow-hidden shadow-2xl">
       <Image
-       src={data.articles.article8.image}
-       alt={data.articles.article8.title}
+       src={article.image}
+       alt={article.title}
        fill
        className="object-cover"
       />
      </div>
 
-     <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-      {data.articles.article8.content}
-     </p>
+     {/* Article Content */}
+     <div
+      className={`${isDark
+        ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
+        : "bg-white/90 backdrop-blur-sm"
+       } rounded-3xl shadow-2xl p-8 md:p-12`}
+     >
+      <p
+       className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"
+        }`}
+      >
+       {article.content}
+      </p>
+     </div>
     </div>
-   </main>
+   </div>
   </div>
  );
 }

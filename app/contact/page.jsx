@@ -1,10 +1,11 @@
 "use client";
+
 import { useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
 
-const ContactPage = () => {
+export default function ContactPage() {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
 
@@ -67,7 +68,7 @@ const ContactPage = () => {
        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
         } max-w-2xl mx-auto`}
       >
-       Size nasıl yardımcı olabilirim? Benimle iletişime geçin.
+       {data.contact.subtitle}
       </p>
       <div
        className={`w-24 h-1 ${isDark ? "bg-teal-400" : "bg-teal-600"
@@ -94,7 +95,7 @@ const ContactPage = () => {
         {submitted && (
          <div className="mb-8 p-5 bg-green-500/20 border border-green-500 text-green-400 rounded-xl flex items-center gap-3 animate-fadeIn">
           <CheckCircle2 className="w-6 h-6 flex-shrink-0" />
-          <span className="font-semibold">{data.contact.sending}</span>
+          <span className="font-semibold">{data.contact.sent}</span>
          </div>
         )}
 
@@ -117,7 +118,7 @@ const ContactPage = () => {
             ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
             : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
             } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-lg`}
-           placeholder="Adınız Soyadınız"
+           placeholder={data.contact.namePlaceholder}
           />
          </div>
 
@@ -139,7 +140,7 @@ const ContactPage = () => {
             ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
             : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
             } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-lg`}
-           placeholder="ornek@email.com"
+           placeholder={data.contact.emailPlaceholder}
           />
          </div>
 
@@ -161,7 +162,7 @@ const ContactPage = () => {
             ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
             : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
             } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none transition-all duration-300 text-lg`}
-           placeholder="Mesajınızı buraya yazın..."
+           placeholder={data.contact.messagePlaceholder}
           ></textarea>
          </div>
 
@@ -175,7 +176,7 @@ const ContactPage = () => {
             } text-white px-8 py-5 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
           >
            <Send className="w-5 h-5" />
-           {isSubmitting ? "Gönderiliyor..." : data.contact.send}
+           {isSubmitting ? data.contact.sending : data.contact.send}
           </button>
          </div>
         </div>
@@ -216,10 +217,7 @@ const ContactPage = () => {
            {info.content}
           </a>
          ) : (
-          <p
-           className={`${isDark ? "text-gray-400" : "text-gray-600"
-            }`}
-          >
+          <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
            {info.content}
           </p>
          )}
@@ -231,6 +229,4 @@ const ContactPage = () => {
    </div>
   </div>
  );
-};
-
-export default ContactPage;
+}

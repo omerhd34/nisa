@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
 
-const WorkPage = ({ setCurrentPage }) => {
+export default function WorkPage() {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
 
@@ -29,7 +30,7 @@ const WorkPage = ({ setCurrentPage }) => {
        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
         } max-w-3xl mx-auto`}
       >
-       Size en uygun terapi yöntemini birlikte keşfedelim.
+       {data.work.subtitle}
       </p>
       <div
        className={`w-24 h-1 ${isDark ? "bg-teal-400" : "bg-teal-600"
@@ -82,7 +83,7 @@ const WorkPage = ({ setCurrentPage }) => {
             className={`text-xl font-semibold ${isDark ? "text-teal-400" : "text-teal-700"
              } mb-4`}
            >
-            Kapsadığı Alanlar:
+            {data.work.topicsLabel}
            </h3>
            <div className="grid sm:grid-cols-2 gap-3">
             {area.topics.map((topic, idx) => (
@@ -117,7 +118,7 @@ const WorkPage = ({ setCurrentPage }) => {
        className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-10 text-center`}
       >
-       Neden Benimle Çalışmalısınız?
+       {data.work.benefitsTitle}
       </h2>
       <div className="grid md:grid-cols-3 gap-6 md:gap-8">
        {data.work.benefits.map((benefit, index) => (
@@ -142,9 +143,7 @@ const WorkPage = ({ setCurrentPage }) => {
          >
           {benefit.title}
          </h3>
-         <p
-          className={`${isDark ? "text-gray-400" : "text-gray-600"}`}
-         >
+         <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
           {benefit.description}
          </p>
         </div>
@@ -162,23 +161,21 @@ const WorkPage = ({ setCurrentPage }) => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       <div className="relative z-10">
        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-        {data.work.ctaTitle}
+        {data.work.cta.title}
        </h3>
        <p className="mb-8 text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-        {data.work.ctaText}
+        {data.work.cta.text}
        </p>
-       <button
-        onClick={() => setCurrentPage("contact")}
-        className="bg-white text-teal-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 shadow-2xl"
+       <Link
+        href="/contact"
+        className="inline-block bg-white text-teal-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 shadow-2xl"
        >
-        {data.work.ctaButton}
-       </button>
+        {data.work.cta.button}
+       </Link>
       </div>
      </div>
     </div>
    </div>
   </div>
  );
-};
-
-export default WorkPage;
+}

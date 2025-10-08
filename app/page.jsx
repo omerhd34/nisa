@@ -1,38 +1,270 @@
 "use client";
-import { useState } from "react";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
-import HomeContent from "@/app/components/HomeContent";
-import AboutPage from "@/app/about/page";
-import WorkPage from "@/app/work/page";
-import ArticlesPage from "@/app/articles/page";
-import ContactPage from "@/app/contact/page";
 
-export default function Home() {
- const [currentPage, setCurrentPage] = useState("home");
+import { Heart, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { useAppContext } from "@/context/AppContext";
+import { data } from "@/data/data";
 
- const renderPage = () => {
-  switch (currentPage) {
-   case "home":
-    return <HomeContent />;
-   case "about":
-    return <AboutPage />;
-   case "work":
-    return <WorkPage setCurrentPage={setCurrentPage} />;
-   case "articles":
-    return <ArticlesPage />;
-   case "contact":
-    return <ContactPage />;
-   default:
-    return <HomeContent />;
-  }
- };
+export default function HomePage() {
+
+ const { theme } = useAppContext();
+ const isDark = theme === "dark";
 
  return (
-  <div className="min-h-screen flex flex-col">
-   <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-   <main className="flex-1">{renderPage()}</main>
-   <Footer />
+  <div
+   className={`min-h-screen ${isDark
+    ? "bg-gray-900"
+    : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    } transition-colors duration-300`}
+  >
+   {/* Hero Section - Enhanced */}
+   <section className="relative overflow-hidden py-20 md:py-28 lg:py-36">
+    <div className="absolute inset-0 overflow-hidden">
+     <div
+      className={`absolute top-20 left-10 w-72 h-72 ${isDark ? "bg-teal-900/20" : "bg-teal-200/40"
+       } rounded-full blur-3xl animate-pulse`}
+     ></div>
+     <div
+      className={`absolute bottom-20 right-10 w-96 h-96 ${isDark ? "bg-purple-900/20" : "bg-purple-200/40"
+       } rounded-full blur-3xl animate-pulse`}
+      style={{ animationDelay: "1s" }}
+     ></div>
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
+     <div className="max-w-5xl mx-auto text-center">
+      <div
+       className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${isDark
+        ? "bg-teal-900/30 border border-teal-700"
+        : "bg-white/80 border border-teal-200"
+        } mb-8 animate-fadeIn shadow-lg`}
+      >
+       <Star
+        className={`w-5 h-5 ${isDark ? "text-teal-400" : "text-teal-600"
+         }`}
+        fill="currentColor"
+       />
+       <span
+        className={`text-sm font-semibold ${isDark ? "text-teal-300" : "text-teal-700"
+         }`}
+       >
+        {data.footer.brand.title}
+       </span>
+      </div>
+
+      <h1
+       className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"
+        } mb-6 md:mb-8 animate-fadeIn leading-tight`}
+      >
+       {data.home.title}
+      </h1>
+      <p
+       className={`text-xl md:text-2xl lg:text-3xl ${isDark ? "text-teal-300" : "text-teal-700"
+        } mb-10 md:mb-14 animate-slideUp animation-delay-200 font-medium max-w-3xl mx-auto`}
+      >
+       {data.home.subtitle}
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideUp animation-delay-400">
+       <a
+        href="#contact"
+        onClick={(e) => {
+         e.preventDefault();
+         window.scrollTo({ top: 0, behavior: "smooth" });
+         setTimeout(() => {
+          const event = new CustomEvent("navigate", {
+           detail: "contact",
+          });
+          window.dispatchEvent(event);
+         }, 300);
+        }}
+        className={`group ${isDark
+         ? "bg-gradient-to-r from-teal-600 to-blue-700"
+         : "bg-gradient-to-r from-teal-600 to-blue-600"
+         } text-white px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300 flex items-center gap-2`}
+       >
+        Randevu Al
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+       </a>
+       <a
+        href="#about"
+        onClick={(e) => {
+         e.preventDefault();
+         window.scrollTo({ top: 0, behavior: "smooth" });
+         setTimeout(() => {
+          const event = new CustomEvent("navigate", {
+           detail: "about",
+          });
+          window.dispatchEvent(event);
+         }, 300);
+        }}
+        className={`${isDark
+         ? "bg-gray-800 border border-gray-700 text-white"
+         : "bg-white border border-gray-300 text-gray-800"
+         } px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-xl transform transition-all duration-300`}
+       >
+        Daha Fazla Bilgi
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   {/* Welcome Section - Enhanced */}
+   <section className="py-16 md:py-24 lg:py-32">
+    <div className="container mx-auto px-4">
+     <div className="max-w-6xl mx-auto">
+      <div
+       className={`${isDark
+        ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
+        : "bg-white/90 backdrop-blur-sm"
+        } rounded-3xl shadow-2xl p-10 md:p-14 lg:p-20 animate-slideUp animation-delay-400`}
+      >
+       <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+         <h2
+          className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-teal-400" : "text-teal-700"
+           } mb-6 md:mb-8`}
+         >
+          {data.home.welcome}
+         </h2>
+         <p
+          className={`${isDark ? "text-gray-300" : "text-gray-700"
+           } text-lg md:text-xl leading-relaxed mb-8`}
+         >
+          {data.home.welcomeText}
+         </p>
+
+         <div className="space-y-4">
+          {data.home.benefits.map((benefit, index) => (
+           <div
+            key={index}
+            className="flex items-start gap-3 animate-slideUp"
+            style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+           >
+            <CheckCircle
+             className={`w-6 h-6 ${isDark ? "text-teal-400" : "text-teal-600"
+              } flex-shrink-0 mt-1`}
+            />
+            <span
+             className={`${isDark ? "text-gray-300" : "text-gray-700"
+              } text-lg`}
+            >
+             {benefit}
+            </span>
+           </div>
+          ))}
+         </div>
+        </div>
+
+        <div
+         className={`relative h-80 md:h-96 rounded-2xl bg-gradient-to-br ${isDark
+          ? "from-teal-700 to-blue-800"
+          : "from-teal-400 to-blue-500"
+          } shadow-2xl overflow-hidden`}
+        >
+         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+         <div className="absolute inset-0 flex items-center justify-center">
+          <Heart className="w-32 h-32 text-white/80" strokeWidth={1.5} />
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   {/* Features Section - Enhanced */}
+   <section className="py-16 md:py-24 lg:py-32">
+    <div className="container mx-auto px-4">
+     <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+       <h2
+        className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"
+         } mb-4`}
+       >
+        {data.home.whyChoose.title}
+       </h2>
+       <p
+        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
+         } max-w-2xl mx-auto`}
+       >
+        {data.home.whyChoose.subtitle}
+       </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+       {data.home.features.map((feature, index) => (
+        <div
+         key={index}
+         className={`group ${isDark
+          ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
+          : "bg-white/90 backdrop-blur-sm"
+          } rounded-3xl shadow-2xl p-8 md:p-10 hover:shadow-3xl transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 animate-slideUp animation-delay-${600 + index * 100
+          }`}
+        >
+         <div
+          className={`bg-gradient-to-br ${feature.gradient} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-300`}
+         >
+          <feature.icon className="w-10 h-10 text-white" />
+         </div>
+         <h3
+          className={`text-2xl md:text-3xl font-bold ${isDark ? "text-white" : "text-gray-800"
+           } mb-4 text-center`}
+         >
+          {feature.title}
+         </h3>
+         <p
+          className={`${isDark ? "text-gray-300" : "text-gray-600"
+           } text-base md:text-lg text-center leading-relaxed`}
+         >
+          {feature.description}
+         </p>
+        </div>
+       ))}
+      </div>
+     </div>
+    </div>
+   </section>
+
+   {/* CTA Section */}
+   <section className="py-16 md:py-24">
+    <div className="container mx-auto px-4">
+     <div className="max-w-4xl mx-auto">
+      <div
+       className={`${isDark
+        ? "bg-gradient-to-br from-teal-700 to-blue-800"
+        : "bg-gradient-to-r from-teal-600 to-blue-600"
+        } rounded-3xl shadow-2xl p-12 md:p-16 text-center text-white relative overflow-hidden`}
+      >
+       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+       <div className="relative z-10">
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+         {data.home.cta.title}
+        </h3>
+        <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+         {data.home.cta.text}
+        </p>
+        <a
+         href="#contact"
+         onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          setTimeout(() => {
+           const event = new CustomEvent("navigate", {
+            detail: "contact",
+           });
+           window.dispatchEvent(event);
+          }, 300);
+         }}
+         className="inline-block bg-white text-teal-700 px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300"
+        >
+         {data.home.cta.button}
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
   </div>
  );
 }

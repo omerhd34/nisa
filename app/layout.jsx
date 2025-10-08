@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +29,13 @@ export default function RootLayout({ children }) {
     <link rel="icon" href="/favicon.ico" />
    </head>
    <body className={inter.className}>
-    <AppProvider>{children}</AppProvider>
+    <AppProvider>
+     <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+     </div>
+    </AppProvider>
    </body>
   </html>
  );

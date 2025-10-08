@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { BookOpen, Clock, ArrowRight } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
-import Link from "next/link";
 
-const ArticlesPage = () => {
+export default function ArticlesPage() {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
 
@@ -34,7 +34,7 @@ const ArticlesPage = () => {
         className={`text-sm font-semibold ${isDark ? "text-teal-300" : "text-teal-700"
          }`}
        >
-        Blog & Makaleler
+        {data.articles.badge}
        </span>
       </div>
 
@@ -49,7 +49,7 @@ const ArticlesPage = () => {
        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
         } max-w-3xl mx-auto`}
       >
-       Ruh sağlığı, kişisel gelişim ve terapi hakkında bilgilendirici yazılar
+       {data.articles.subtitle}
       </p>
       <div
        className={`w-24 h-1 ${isDark ? "bg-teal-400" : "bg-teal-600"
@@ -59,9 +59,10 @@ const ArticlesPage = () => {
 
      {/* Articles Grid */}
      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-      {data.article7.map((article, index) => (
-       <article
+      {data.articles.list.map((article, index) => (
+       <Link
         key={index}
+        href={`/articles/${article.slug}`}
         className={`group ${isDark
          ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
          : "bg-white/90 backdrop-blur-sm"
@@ -104,7 +105,7 @@ const ArticlesPage = () => {
             : "bg-teal-100 text-teal-700"
             }`}
           >
-           Psikoloji
+           {data.articles.categoryLabel}
           </div>
          </div>
          <p
@@ -113,22 +114,19 @@ const ArticlesPage = () => {
          >
           {article.excerpt}
          </p>
-         <Link
-          href={`/articles/${data.articles.article7.slug}`}
+         <div
           className={`group/btn flex items-center gap-2 ${isDark ? "text-teal-400" : "text-teal-700"
            } font-semibold hover:gap-3 transition-all duration-300`}
          >
-          Devamını Oku
+          {data.articles.readMore}
           <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-         </Link>
+         </div>
         </div>
-       </article>
+       </Link>
       ))}
      </div>
     </div>
    </div>
   </div>
  );
-};
-
-export default ArticlesPage;
+}

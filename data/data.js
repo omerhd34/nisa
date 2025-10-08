@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 export const data = {
+  // Navigation Labels
   nav: {
     home: "Ana Sayfa",
     about: "Tanışalım",
@@ -20,16 +21,14 @@ export const data = {
     articles: "Yazılarım",
     contact: "İletişim",
   },
+
+  // Home Page
   home: {
     title: "Nisa Demir",
     subtitle: "Bireysel ve Online Terapi Desteği",
     welcome: "Hoş Geldiniz",
     welcomeText:
       "Yaşamınızda karşılaştığınız zorluklarla başa çıkmanızda size destek olmak için buradayım. Güvenli ve destekleyici bir ortamda, kişisel gelişiminiz ve ruh sağlığınız için birlikte çalışabiliriz.",
-    card2Title: "Bireysel Terapi",
-    card2Text: "Kişiye özel terapi programları",
-    card3Title: "Online Terapi",
-    card3Text: "Uzaktan güvenli terapi seansları",
     features: [
       {
         icon: Users,
@@ -50,20 +49,32 @@ export const data = {
       "Kişiye özel tedavi planı",
       "Profesyonel ve empatik yaklaşım",
     ],
+    cta: {
+      title: "İlk Adımı Atmaya Hazır Mısınız?",
+      text: "Bugün kendinize yatırım yapın. Daha mutlu ve sağlıklı bir yaşam için birlikte çalışalım.",
+      button: "Hemen İletişime Geçin",
+    },
+    whyChoose: {
+      title: "Neden Beni Seçmelisiniz?",
+      subtitle: "Profesyonel yaklaşım ve kişiye özel çözümlerle yanınızdayım.",
+    },
   },
+
+  // About Page
   about: {
     title: "Tanışalım",
     heading: "Hakkımda",
     text1:
-      "Klinik Psikolog Nisa Demir, İstanbul Ticaret Üniversitesi Psikoloji bölümünü 2021 yılında tamamladıktan sonra İstanbul Okan Üniversitesi Tezli Klinik Psikoloji yüksek lisans programına 2023 yılında kabul edilmiş, Haziran 2025’te “Romantik İlişkisi Olan Yetişkin Bireylerin Nesne İlişkileri ile Cinsel Doyum Düzeyleri Arasındaki İlişkide Obsesif Kompulsif Belirti Bozukluk Belirtilerinin Aracılık Rolünün İncelenmesi” adlı yüksek lisans tezini başarıyla savunarak “Uzman Klinik Psikolog” ünvanını almaya hak kazanmıştır.",
+      "Klinik Psikolog Nisa Demir, İstanbul Ticaret Üniversitesi Psikoloji bölümünü 2021 yılında tamamladıktan sonra İstanbul Okan Üniversitesi Tezli Klinik Psikoloji yüksek lisans programına 2023 yılında kabul edilmiş, Haziran 2025'te 'Romantik İlişkisi Olan Yetişkin Bireylerin Nesne İlişkileri ile Cinsel Doyum Düzeyleri Arasındaki İlişkide Obsesif Kompulsif Belirti Bozukluk Belirtilerinin Aracılık Rolünün İncelenmesi' adlı yüksek lisans tezini başarıyla savunarak 'Uzman Klinik Psikolog' ünvanını almaya hak kazanmıştır.",
     text2:
-      "Lisans döneminde, çeşitli danışmanlık merkezlerinde staj yapmış; yüksek lisans döneminde ise Psikodinamik Psikoterapi Uygulama ve Süpervizyon dersi kapsamında Pınar Arslantürk’ten süpervizyon eğitimi almış ve beraberinde terapi hizmeti vermeye başlamıştır. Ardından psikanalist Yavuz Erten’den Psikanalizden Psikodinamik Terapilere eğitimini tamamlamıştır.",
+      "Lisans döneminde, çeşitli danışmanlık merkezlerinde staj yapmış; yüksek lisans döneminde ise Psikodinamik Psikoterapi Uygulama ve Süpervizyon dersi kapsamında Pınar Arslantürk'ten süpervizyon eğitimi almış ve beraberinde terapi hizmeti vermeye başlamıştır. Ardından psikanalist Yavuz Erten'den Psikanalizden Psikodinamik Terapilere eğitimini tamamlamıştır.",
     text3:
       "Şu an ise psikanalitik psikoterapi çerçevesinde yetişkinlerle bireysel olmak üzere yüz yüze ve online olarak bireysel psikoterapi hizmeti vermektedir. Ayrıca, psikanalitik yönelimli bireysel terapisinden geçmekte ve mesleki süpervizyonuna devam etmektedir.",
     education: "Eğitim ve Uzmanlık",
     edu1: "Klinik Psikoloji Uzmanlığı",
     edu2: "Bireysel Terapi ve Danışmanlık",
     edu3: "Online Terapi Sertifikasyonu",
+    valuesTitle: "Değerlerim",
     values: [
       {
         icon: Heart,
@@ -79,23 +90,20 @@ export const data = {
       },
       {
         icon: UsersIcon,
-        title: "Trust",
+        title: "Güven",
         description: "Güvenli ve yargılamayan bir ortam sunarım.",
         color: "from-teal-500 to-cyan-600",
       },
     ],
+    quote: {
+      text: "Kişideki eksik, ötekinde saklı değildir. Aşkın bütün sorunu budur.",
+      author: "Jacques Lacan",
+    },
   },
+  // Work Page
   work: {
     title: "Çalışma Alanlarım",
-    therapy1Title: "Bireysel Terapi",
-    therapy1Text:
-      "Bireysel terapi, kişinin kendini daha iyi anlaması, duygusal zorluklarla başa çıkması ve yaşam kalitesini artırması için sunulan profesyonel destek hizmetidir. Anksiyete, depresyon, travma, stres yönetimi, kişisel gelişim ve ilişki sorunları gibi birçok konuda bireysel terapi sunuyorum.",
-    therapy2Title: "Online Terapi",
-    therapy2Text:
-      "Online terapi, teknolojinin sunduğu imkanlarla, fiziksel olarak bir araya gelmeden, güvenli video konferans platformları üzerinden gerçekleştirilen terapi seanslarıdır. Coğrafi kısıtlamalar, zaman sıkıntısı veya pandemi gibi nedenlerle yüz yüze terapi alamayan kişiler için ideal bir çözümdür.",
-    ctaTitle: "Randevu Almak İster Misiniz?",
-    ctaText: "Size en uygun terapi yöntemini birlikte belirleyebiliriz.",
-    ctaButton: "İletişime Geçin",
+    subtitle: "Size en uygun terapi yöntemini birlikte keşfedelim.",
     workAreas: [
       {
         title: "Bireysel Terapi",
@@ -126,6 +134,7 @@ export const data = {
         ],
       },
     ],
+    benefitsTitle: "Neden Benimle Çalışmalısınız?",
     benefits: [
       {
         icon: Brain,
@@ -143,116 +152,100 @@ export const data = {
         description: "Her danışana özel tedavi programı",
       },
     ],
+    topicsLabel: "Kapsadığı Alanlar:",
+    cta: {
+      title: "Randevu Almak İster Misiniz?",
+      text: "Size en uygun terapi yöntemini birlikte belirleyebiliriz.",
+      button: "İletişime Geçin",
+    },
   },
+  // Articles Page
   articles: {
     title: "Yazılarım",
-    article1: "Psikanalitik Psikoterapi Nedir?",
-    article2: "Psikanalitik Literatürde Savunma Mekanizmaları",
-    article3: "Baba İşlevi",
-    article4: "Perde Anılar Üzerine",
-    article5: "Göbek Bağından Feniks’e: Çocuk Gelişimi ve Ego Oluşumu",
-    article6:
-      "Psikoloji ve Şiir: “Annemle İlgili Şeyler”, Psikanalitik Şiir Analiz",
-    article7: [
+    subtitle:
+      "Ruh sağlığı, kişisel gelişim ve terapi hakkında bilgilendirici yazılar",
+    badge: "Blog & Makaleler",
+    categoryLabel: "Psikoloji",
+    readMore: "Devamını Oku",
+    list: [
       {
         title: "Psikanalitik Psikoterapi Nedir?",
         slug: "psikanalitik-psikoterapi-nedir",
         image: "/hand.jpg",
         readTime: "5 dk",
-        excerpt: "Lorem23",
+        excerpt:
+          "Psikanalitik psikoterapinin temel ilkeleri ve terapi sürecindeki işleyiş hakkında detaylı bilgiler.",
+        content:
+          "Bu yazıda psikanalitik psikoterapinin temel ilkeleri, terapi sürecindeki işleyiş ve terapistin rolü ele alınmaktadır. Psikanalitik psikoterapi, bireyin bilinçdışı süreçlerini anlamasına ve geçmiş deneyimlerinin bugünkü davranışları üzerindeki etkilerini fark etmesine yardımcı olur...",
       },
       {
         title: "Psikanalitik Literatürde Savunma Mekanizmaları",
         slug: "psikanalitik-literaturde-savunma-mekanizmalari",
         image: "/horse.jpg",
         readTime: "5 dk",
-        excerpt: "Lorem23",
+        excerpt:
+          "Savunma mekanizmalarının bireyin psikolojik yapısındaki işlevi ve literatürdeki yeri.",
+        content:
+          "Bu yazı, savunma mekanizmalarının bireyin psikolojik yapısındaki işlevini ve psikanalitik literatürdeki yerini inceler. İnkar, yansıtma, bastırma gibi savunma mekanizmalarının günlük yaşantımızda nasıl rol oynadığını detaylı şekilde ele alır...",
       },
       {
         title: "Baba İşlevi",
         slug: "baba-islevi",
         image: "/open.jpg",
         readTime: "5 dk",
-        excerpt: "Lorem23",
+        excerpt:
+          "Baba figürünün çocuk gelişimi ve kimlik oluşumundaki yeri psikanalitik bakış açısıyla.",
+        content:
+          "Bu yazıda baba figürünün çocuk gelişimi ve kimlik oluşumundaki yeri psikanalitik bir bakış açısıyla ele alınmaktadır. Lacan'ın baba işlevi kavramı çerçevesinde, sembolik düzenin kuruluşu ve özneleşme süreci incelenir...",
       },
       {
         title: "Perde Anılar Üzerine",
         slug: "perde-anilar-uzerine",
         image: "/drop.jpg",
         readTime: "5 dk",
-        excerpt: "Lorem23",
+        excerpt:
+          "Bilinçdışı süreçlerin hatırlama biçimlerimiz üzerindeki etkisi.",
+        content:
+          "Perde anılar kavramı, bilinçdışı süreçlerin hatırlama biçimlerimiz üzerindeki etkisini anlamada önemli bir anahtar sunar. Freud'un geliştirdiği bu kavram, bazı anıların gerçek travmatik deneyimleri örtmek için nasıl kullanıldığını açıklar...",
       },
       {
-        title: "Göbek Bağından Feniks’e: Çocuk Gelişimi ve Ego Oluşumu",
+        title: "Göbek Bağından Feniks'e: Çocuk Gelişimi ve Ego Oluşumu",
         slug: "gobek-bagindan-fenikse-cocuk-gelisimi-ve-ego-olusumu",
         image: "/DALL.webp",
         readTime: "5 dk",
-        excerpt: "Lorem23",
+        excerpt:
+          "Çocuk gelişimi ve ego oluşum sürecinde önemli dönüm noktaları.",
+        content:
+          "Bu yazı, çocuk gelişimi ve ego oluşum sürecinde önemli dönüm noktalarını psikanalitik bakış açısıyla ele alır. Ayrılma-bireyleşme sürecinden sembolik düzenin kuruluşuna kadar olan gelişimsel aşamalar detaylı incelenir...",
       },
       {
         title:
-          "Psikoloji ve Şiir: “Annemle İlgili Şeyler”, Psikanalitik Şiir Analiz",
+          "Psikoloji ve Şiir: 'Annemle İlgili Şeyler', Psikanalitik Şiir Analiz",
         slug: "psikoloji-ve-siir-annemle-ilgili-seyler-psikanalitik-siir-analiz",
         image: "/sun.jpeg",
         readTime: "5 dk",
-        excerpt: "Lorem23",
-      },
-    ],
-    article8: [
-      {
-        slug: "psikanalitik-psikoterapi-nedir",
-        title: "Psikanalitik Psikoterapi Nedir?",
-        image: "/hand.jpg",
+        excerpt:
+          "Psikanalitik şiir analizi üzerinden annelik teması ve bireysel psikolojik yansımalar.",
         content:
-          "Bu yazıda psikanalitik psikoterapinin temel ilkeleri, terapi sürecindeki işleyiş ve terapistin rolü ele alınmaktadır...",
-      },
-      {
-        slug: "psikanalitik-literaturde-savunma-mekanizmalari",
-        title: "Psikanalitik Literatürde Savunma Mekanizmaları",
-        image: "/horse.jpg",
-        content:
-          "Bu yazı, savunma mekanizmalarının bireyin psikolojik yapısındaki işlevini ve psikanalitik literatürdeki yerini inceler...",
-      },
-      {
-        slug: "baba-islevi",
-        title: "Baba İşlevi",
-        image: "/open.jpg",
-        content:
-          "Bu yazıda baba figürünün çocuk gelişimi ve kimlik oluşumundaki yeri psikanalitik bir bakış açısıyla ele alınmaktadır...",
-      },
-      {
-        slug: "perde-anilar-uzerine",
-        title: "Perde Anılar Üzerine",
-        image: "/drop.jpg",
-        content:
-          "Perde anılar kavramı, bilinçdışı süreçlerin hatırlama biçimlerimiz üzerindeki etkisini anlamada önemli bir anahtar sunar...",
-      },
-      {
-        slug: "gobek-bagindan-fenikse-cocuk-gelisimi-ve-ego-olusumu",
-        title: "Göbek Bağından Feniks’e: Çocuk Gelişimi ve Ego Oluşumu",
-        image: "/DALL.webp",
-        content:
-          "Bu yazı, çocuk gelişimi ve ego oluşum sürecinde önemli dönüm noktalarını psikanalitik bakış açısıyla ele alır...",
-      },
-      {
-        slug: "psikoloji-ve-siir-annemle-ilgili-seyler-psikanalitik-siir-analiz",
-        title:
-          "Psikoloji ve Şiir: “Annemle İlgili Şeyler”, Psikanalitik Şiir Analiz",
-        image: "/sun.jpeg",
-        content:
-          "Bu yazıda psikanalitik şiir analizi üzerinden annelik teması ve bireysel psikolojik yansımalar ele alınmaktadır...",
+          "Bu yazıda psikanalitik şiir analizi üzerinden annelik teması ve bireysel psikolojik yansımalar ele alınmaktadır. Şiirin sembolik dili ile bilinçdışı süreçler arasındaki ilişki, nesne ilişkileri kuramı çerçevesinde incelenir...",
       },
     ],
   },
+  // Contact Page
   contact: {
     title: "İletişim",
+    subtitle: "Size nasıl yardımcı olabilirim? Benimle iletişime geçin.",
     heading: "Benimle İletişime Geçin",
     name: "İsim",
     email: "E-posta",
     message: "Mesaj",
     send: "Gönder",
     sending: "Mesajınız gönderiliyor...",
+    sent: "Mesajınız başarıyla gönderildi!",
     fillAll: "Lütfen tüm alanları doldurun.",
+    namePlaceholder: "Adınız Soyadınız",
+    emailPlaceholder: "ornek@email.com",
+    messagePlaceholder: "Mesajınızı buraya yazın...",
     contactInfo: [
       {
         icon: Mail,
@@ -268,8 +261,22 @@ export const data = {
       {
         icon: MapPin,
         title: "Lokasyon",
-        content: "Online Terapi",
+        content: "İstanbul",
       },
     ],
+  },
+
+  // Footer
+  footer: {
+    brand: {
+      name: "Nisa DEMİR",
+      title: "Uzman Klinik Psikolog",
+      description:
+        "Bireysel ve online terapi hizmetleriyle yanınızdayım. Ruh sağlığınız için profesyonel destek.",
+    },
+    quickLinksTitle: "Hızlı Erişim",
+    contactTitle: "İletişim",
+    workingHours: "Pzt-Cum: 09:00 - 18:00",
+    copyright: "Tüm hakları saklıdır.",
   },
 };
