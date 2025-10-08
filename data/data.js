@@ -9,6 +9,7 @@ import {
   Video,
   Brain,
   Sparkles,
+  Users,
 } from "lucide-react";
 
 export const data = {
@@ -29,6 +30,26 @@ export const data = {
     card2Text: "Kişiye özel terapi programları",
     card3Title: "Online Terapi",
     card3Text: "Uzaktan güvenli terapi seansları",
+    features: [
+      {
+        icon: Users,
+        title: "Bireysel Terapi",
+        description: "Kişiye özel terapi programları",
+        gradient: "from-blue-500 to-indigo-600",
+      },
+      {
+        icon: Video,
+        title: "Online Terapi",
+        description: "Uzaktan güvenli terapi seansları",
+        gradient: "from-teal-500 to-cyan-600",
+      },
+    ],
+    benefits: [
+      "Gizlilik ve güvenlik garantisi",
+      "Esnek randevu saatleri",
+      "Kişiye özel tedavi planı",
+      "Profesyonel ve empatik yaklaşım",
+    ],
   },
   about: {
     title: "Tanışalım",
@@ -134,42 +155,43 @@ export const data = {
       "Psikoloji ve Şiir: “Annemle İlgili Şeyler”, Psikanalitik Şiir Analiz",
     article7: [
       {
-        title: t.article1,
+        title: "Psikanalitik Psikoterapi Nedir?",
         slug: "psikanalitik-psikoterapi-nedir",
         image: "/hand.jpg",
         readTime: "5 dk",
         excerpt: "Lorem23",
       },
       {
-        title: t.article2,
+        title: "Psikanalitik Literatürde Savunma Mekanizmaları",
         slug: "psikanalitik-literaturde-savunma-mekanizmalari",
         image: "/horse.jpg",
         readTime: "5 dk",
         excerpt: "Lorem23",
       },
       {
-        title: t.article3,
+        title: "Baba İşlevi",
         slug: "baba-islevi",
         image: "/open.jpg",
         readTime: "5 dk",
         excerpt: "Lorem23",
       },
       {
-        title: t.article4,
+        title: "Perde Anılar Üzerine",
         slug: "perde-anilar-uzerine",
         image: "/drop.jpg",
         readTime: "5 dk",
         excerpt: "Lorem23",
       },
       {
-        title: t.article5,
+        title: "Göbek Bağından Feniks’e: Çocuk Gelişimi ve Ego Oluşumu",
         slug: "gobek-bagindan-fenikse-cocuk-gelisimi-ve-ego-olusumu",
         image: "/DALL.webp",
         readTime: "5 dk",
         excerpt: "Lorem23",
       },
       {
-        title: t.article6,
+        title:
+          "Psikoloji ve Şiir: “Annemle İlgili Şeyler”, Psikanalitik Şiir Analiz",
         slug: "psikoloji-ve-siir-annemle-ilgili-seyler-psikanalitik-siir-analiz",
         image: "/sun.jpeg",
         readTime: "5 dk",

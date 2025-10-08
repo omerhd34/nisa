@@ -38,7 +38,7 @@ const Footer = () => {
         {[
          { tr: 'Ana Sayfa', href: '/' },
          { tr: 'Hakkımda', href: '/about' },
-         { tr: 'Çalışma Alanlarım', href: '/workAreas' },
+         { tr: 'Çalışma Alanlarım', href: '/work' },
          { tr: 'Yazılarım', href: '/articles' },
          { tr: 'İletişim', href: '/contact' }
         ].map((item, index) => (

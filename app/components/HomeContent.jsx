@@ -2,8 +2,6 @@
 
 import {
  Heart,
- Users,
- Video,
  ArrowRight,
  CheckCircle,
  Star,
@@ -16,27 +14,7 @@ const HomeContent = () => {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
 
- const features = [
-  {
-   icon: Users,
-   title: data.home.card2Title,
-   description: data.home.card2Text,
-   gradient: "from-blue-500 to-indigo-600",
-  },
-  {
-   icon: Video,
-   title: data.home.card3Title,
-   description: data.home.card3Text,
-   gradient: "from-teal-500 to-cyan-600",
-  },
- ];
 
- const benefits = [
-  "Gizlilik ve güvenlik garantisi",
-  "Esnek randevu saatleri",
-  "Kişiye özel tedavi planı",
-  "Profesyonel ve empatik yaklaşım",
- ];
 
  return (
   <div
@@ -132,17 +110,17 @@ const HomeContent = () => {
           className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-teal-400" : "text-teal-700"
            } mb-6 md:mb-8`}
          >
-          {t.welcome}
+          {data.home.welcome}
          </h2>
          <p
           className={`${isDark ? "text-gray-300" : "text-gray-700"
            } text-lg md:text-xl leading-relaxed mb-8`}
          >
-          {t.welcomeText}
+          {data.home.welcomeText}
          </p>
 
          <div className="space-y-4">
-          {benefits.map((benefit, index) => (
+          {data.home.benefits.map((benefit, index) => (
            <div
             key={index}
             className="flex items-start gap-3 animate-slideUp"
@@ -203,7 +181,7 @@ const HomeContent = () => {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-       {features.map((feature, index) => (
+       {data.home.features.map((feature, index) => (
         <div
          key={index}
          className={`group ${isDark
