@@ -94,8 +94,28 @@ export const data = {
       },
     ],
     quote: {
-      text: "Kişideki eksik, ötekinde saklı değildir. Aşkın bütün sorunu budur.",
-      author: "Jacques Lacan",
+      quotes: [
+        {
+          text: "Kişideki eksik, ötekinde saklı değildir. Aşkın bütün sorunu budur.",
+          author: "Jacques Lacan",
+        },
+        {
+          text: "Gizlenmek keyiflidir ama bulunmamak felaket.(Oyun ve Gerçeklik)",
+          author: "D. Winnicott",
+        },
+        {
+          text: ".........",
+          author: "Buddha",
+        },
+        {
+          text: ".......",
+          author: "Pablo Picasso",
+        },
+        {
+          text: ".......",
+          author: "Zig Ziglar",
+        },
+      ],
     },
   },
   // Work Page
@@ -106,7 +126,7 @@ export const data = {
       {
         title: "Bireysel Terapi",
         description:
-          "Bireysel terapi, kişinin kendini daha iyi anlaması, duygusal zorluklarla başa çıkması ve yaşam kalitesini artırması için sunulan profesyonel destek hizmetidir. Anksiyete, depresyon, travma, stres yönetimi, kişisel gelişim ve ilişki sorunları gibi birçok konuda bireysel terapi sunuyorum.",
+          "Psikoterapi, karmaşık iç dünyalarla baş edebilmek için bir yolculuktur. Her ruhsallığın hikayesi kendine özgüdür ve terapide bu hikayenin derinliklerine inilir. Terapi seansları, kişinin duygularına, korkularına, yargılarına, inançlarına ve arzularına temas eden bir süreçtir. Bu çalışmada, kişinin geçmiş deneyimleriyle bugün arasındaki bağlantılar araştırılır ve yeni anlamlar keşfedilir, kendi dinamik ve çatışmalarına farkındalık sağlanmasına eşlik edilir. Dolayısıyla uzun süreli ve devamlı bir çalışmayı gerektirir. Her terapi deneyimi benzersizdir ve terapist, her bireyin içsel dünyasını anlamak ve onlara rehberlik etmek için oradadır.",
         icon: User,
         gradient: "from-emerald-500 to-emerald-600",
         topics: [
@@ -120,7 +140,7 @@ export const data = {
       {
         title: "Online Terapi",
         description:
-          "Online terapi, teknolojinin sunduğu imkanlarla, fiziksel olarak bir araya gelmeden, güvenli video konferans platformları üzerinden gerçekleştirilen terapi seanslarıdır. Coğrafi kısıtlamalar, zaman sıkıntısı veya pandemi gibi nedenlerle yüz yüze terapi alamayan kişiler için ideal bir çözümdür.",
+          "Psikolojik danışmanlık ve psikoterapide yüz yüze görüşmelerin önemi büyüktür ancak teknolojik ilerlemelerle birlikte çevrimiçi araçlarla görüşme imkanı da ortaya çıkmıştır. Bu imkanlar, yüz yüze görüşmenin mümkün olmadığı durumlarda kullanılabilir. Online psikoterapi için kişinin mahremiyetinin korunabileceği, sessiz ve tek başına olabileceği bir ortama ihtiyacı vardır. Ayrıca, görüntülü konuşma yapabileceği bir bilgisayar, tablet veya telefon ile iyi bir internet bağlantısına gereksinim duyulur.",
         icon: Video,
         gradient: "from-green-500 to-green-600",
         topics: [

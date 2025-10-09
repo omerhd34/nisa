@@ -1,11 +1,30 @@
 "use client";
-import { User, Award, BookOpen } from "lucide-react";
+import { User, Award, BookOpen, ChevronLeft, ChevronRight } from "lucide-react"; // İkonları ekleyin
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
+import { useState, useEffect } from "react";
 
 export default function AboutPage() {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
+ const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+
+ const handleNextQuote = () => {
+  setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % data.about.quote.quotes.length);
+ };
+
+ const handlePrevQuote = () => {
+  setCurrentQuoteIndex((prevIndex) => (prevIndex - 1 + data.about.quote.quotes.length) % data.about.quote.quotes.length);
+ };
+
+ // useEffect ile otomatik geçiş
+ useEffect(() => {
+  const intervalId = setInterval(() => {
+   handleNextQuote();
+  }, 5000); // 5000 ms = 5 saniye
+
+  return () => clearInterval(intervalId); // Temizleme işlemi
+ }, []);
 
  return (
   <div
@@ -179,20 +198,39 @@ export default function AboutPage() {
       className={`mt-12 text-center p-8 md:p-12 rounded-3xl ${isDark
        ? "bg-gradient-to-br from-emerald-900/40 to-green-900/40 border-2 border-emerald-700"
        : "bg-gradient-to-br from-emerald-100 to-green-100 border-2 border-emerald-300"
-       }`}
+       } flex items-center justify-between`} // Added flex, items-center, and justify-between
      >
-      <p
-       className={`text-2xl md:text-3xl font-semibold italic ${isDark ? "text-emerald-300" : "text-emerald-800"
-        }`}
+      {/* Left Arrow Button */}
+      <button
+       onClick={handlePrevQuote}
+       className={`p-2 rounded-full bg-emerald-600 text-white transition-colors duration-300 flex-shrink-0 ${isDark ? "hover:bg-emerald-500" : "hover:bg-emerald-700"}`} // Changed px-4 py-2 to p-2 and added flex-shrink-0
       >
-       {data.about.quote.text}
-       <span
-        className={`block mt-3 font-extrabold italic ${isDark ? "text-emerald-300" : "text-emerald-800"
+       <ChevronLeft className="w-6 h-6" /> {/* Increased icon size for better visibility */}
+      </button>
+
+      {/* Quote Content */}
+      <div className="flex-grow mx-4 max-w-4xl"> {/* Added flex-grow and mx-4 to separate from buttons */}
+       <p
+        className={`text-2xl md:text-3xl font-semibold italic ${isDark ? "text-emerald-300" : "text-emerald-800"
          }`}
        >
-        {data.about.quote.author}
-       </span>
-      </p>
+        {data.about.quote.quotes[currentQuoteIndex].text}
+        <span
+         className={`block mt-3 font-extrabold italic ${isDark ? "text-emerald-300" : "text-emerald-800"
+          }`}
+        >
+         {data.about.quote.quotes[currentQuoteIndex].author}
+        </span>
+       </p>
+      </div>
+
+      {/* Right Arrow Button */}
+      <button
+       onClick={handleNextQuote}
+       className={`p-2 rounded-full bg-emerald-600 text-white transition-colors duration-300 flex-shrink-0 ${isDark ? "hover:bg-emerald-500" : "hover:bg-emerald-700"}`} // Changed px-4 py-2 to p-2 and added flex-shrink-0
+      >
+       <ChevronRight className="w-6 h-6" /> {/* Increased icon size for better visibility */}
+      </button>
      </div>
     </div>
    </div>
