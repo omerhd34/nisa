@@ -25,22 +25,20 @@ export const data = {
   // Home Page
   home: {
     title: "Nisa Demir",
-    subtitle: "Bireysel ve Online Terapi Desteği",
-    welcome: "Hoş Geldiniz",
+    subtitle: "Bireysel ve Online Terapi",
+    welcome: "Merhaba!",
     welcomeText:
       "Yaşamınızda karşılaştığınız zorluklarla başa çıkmanızda size destek olmak için buradayım. Güvenli ve destekleyici bir ortamda, kişisel gelişiminiz ve ruh sağlığınız için birlikte çalışabiliriz.",
     features: [
       {
         icon: Users,
         title: "Bireysel Terapi",
-        description: "Kişiye özel terapi programları",
-        gradient: "from-blue-500 to-indigo-600",
+        description: "............................",
       },
       {
         icon: Video,
         title: "Online Terapi",
-        description: "Uzaktan güvenli terapi seansları",
-        gradient: "from-teal-500 to-cyan-600",
+        description: "............................",
       },
     ],
     benefits: [
@@ -55,8 +53,8 @@ export const data = {
       button: "Hemen İletişime Geçin",
     },
     whyChoose: {
-      title: "Neden Beni Seçmelisiniz?",
-      subtitle: "Profesyonel yaklaşım ve kişiye özel çözümlerle yanınızdayım.",
+      title: "Çalışma Alanlarım",
+      subtitle: "...................",
     },
   },
 
@@ -86,13 +84,13 @@ export const data = {
         icon: Target,
         title: "Hedef Odaklı",
         description: "Bireysel hedeflerinize ulaşmanız için çalışırım.",
-        color: "from-blue-500 to-indigo-600",
+        color: "from-emerald-500 to-green-600",
       },
       {
         icon: UsersIcon,
         title: "Güven",
         description: "Güvenli ve yargılamayan bir ortam sunarım.",
-        color: "from-teal-500 to-cyan-600",
+        color: "from-green-500 to-teal-600",
       },
     ],
     quote: {
@@ -110,7 +108,7 @@ export const data = {
         description:
           "Bireysel terapi, kişinin kendini daha iyi anlaması, duygusal zorluklarla başa çıkması ve yaşam kalitesini artırması için sunulan profesyonel destek hizmetidir. Anksiyete, depresyon, travma, stres yönetimi, kişisel gelişim ve ilişki sorunları gibi birçok konuda bireysel terapi sunuyorum.",
         icon: User,
-        gradient: "from-teal-500 to-teal-600",
+        gradient: "from-emerald-500 to-emerald-600",
         topics: [
           "Anksiyete ve Stres",
           "Depresyon",
@@ -124,7 +122,7 @@ export const data = {
         description:
           "Online terapi, teknolojinin sunduğu imkanlarla, fiziksel olarak bir araya gelmeden, güvenli video konferans platformları üzerinden gerçekleştirilen terapi seanslarıdır. Coğrafi kısıtlamalar, zaman sıkıntısı veya pandemi gibi nedenlerle yüz yüze terapi alamayan kişiler için ideal bir çözümdür.",
         icon: Video,
-        gradient: "from-blue-500 to-blue-600",
+        gradient: "from-green-500 to-green-600",
         topics: [
           "Esnek Randevu Sistemi",
           "Güvenli Platform",
@@ -236,14 +234,14 @@ export const data = {
     title: "İletişim",
     subtitle: "Size nasıl yardımcı olabilirim? Benimle iletişime geçin.",
     heading: "Benimle İletişime Geçin",
-    name: "İsim",
+    name: "Adınız ve Soyadınız",
     email: "E-posta",
     message: "Mesaj",
     send: "Gönder",
     sending: "Mesajınız gönderiliyor...",
     sent: "Mesajınız başarıyla gönderildi!",
     fillAll: "Lütfen tüm alanları doldurun.",
-    namePlaceholder: "Adınız Soyadınız",
+    namePlaceholder: "Adınız ve Soyadınız",
     emailPlaceholder: "ornek@email.com",
     messagePlaceholder: "Mesajınızı buraya yazın...",
     contactInfo: [
@@ -256,7 +254,8 @@ export const data = {
       {
         icon: Clock,
         title: "Çalışma Saatleri",
-        content: "Pzt-Cum: 09:00 - 18:00",
+        content:
+          "Pazartesi-Cuma: 09:00 - 18:00\nCumartesi-Pazar: 11:00 - 16:00",
       },
       {
         icon: MapPin,
@@ -265,7 +264,6 @@ export const data = {
       },
     ],
   },
-
   // Footer
   footer: {
     brand: {
@@ -276,7 +274,8 @@ export const data = {
     },
     quickLinksTitle: "Hızlı Erişim",
     contactTitle: "İletişim",
-    workingHours: "Pzt-Cum: 09:00 - 18:00",
+    workingHours:
+      "Pazartesi-Cuma: 09:00 - 18:00\nCumartesi-Pazar: 11:00 - 16:00",
     copyright: "Tüm hakları saklıdır.",
   },
 };

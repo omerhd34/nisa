@@ -3,28 +3,28 @@
 import { Heart, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
+import Link from "next/link";
 
 export default function HomePage() {
-
  const { theme } = useAppContext();
  const isDark = theme === "dark";
 
  return (
   <div
    className={`min-h-screen ${isDark
-    ? "bg-gray-900"
-    : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    ? "bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900"
+    : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } transition-colors duration-300`}
   >
-   {/* Hero Section - Enhanced */}
+   {/* Hero Section */}
    <section className="relative overflow-hidden py-20 md:py-28 lg:py-36">
     <div className="absolute inset-0 overflow-hidden">
      <div
-      className={`absolute top-20 left-10 w-72 h-72 ${isDark ? "bg-teal-900/20" : "bg-teal-200/40"
+      className={`absolute top-20 left-10 w-72 h-72 ${isDark ? "bg-emerald-900/30" : "bg-emerald-300/40"
        } rounded-full blur-3xl animate-pulse`}
      ></div>
      <div
-      className={`absolute bottom-20 right-10 w-96 h-96 ${isDark ? "bg-purple-900/20" : "bg-purple-200/40"
+      className={`absolute bottom-20 right-10 w-96 h-96 ${isDark ? "bg-green-900/30" : "bg-green-300/40"
        } rounded-full blur-3xl animate-pulse`}
       style={{ animationDelay: "1s" }}
      ></div>
@@ -34,17 +34,17 @@ export default function HomePage() {
      <div className="max-w-5xl mx-auto text-center">
       <div
        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${isDark
-        ? "bg-teal-900/30 border border-teal-700"
-        : "bg-white/80 border border-teal-200"
+        ? "bg-emerald-900/50 border border-emerald-700"
+        : "bg-white/80 border border-emerald-300"
         } mb-8 animate-fadeIn shadow-lg`}
       >
        <Star
-        className={`w-5 h-5 ${isDark ? "text-teal-400" : "text-teal-600"
+        className={`w-5 h-5 ${isDark ? "text-emerald-400" : "text-emerald-600"
          }`}
         fill="currentColor"
        />
        <span
-        className={`text-sm font-semibold ${isDark ? "text-teal-300" : "text-teal-700"
+        className={`text-sm font-semibold ${isDark ? "text-emerald-300" : "text-emerald-700"
          }`}
        >
         {data.footer.brand.title}
@@ -58,71 +58,51 @@ export default function HomePage() {
        {data.home.title}
       </h1>
       <p
-       className={`text-xl md:text-2xl lg:text-3xl ${isDark ? "text-teal-300" : "text-teal-700"
+       className={`text-xl md:text-2xl lg:text-3xl ${isDark ? "text-emerald-300" : "text-emerald-700"
         } mb-10 md:mb-14 animate-slideUp animation-delay-200 font-medium max-w-3xl mx-auto`}
       >
        {data.home.subtitle}
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideUp animation-delay-400">
-       <a
-        href="#contact"
-        onClick={(e) => {
-         e.preventDefault();
-         window.scrollTo({ top: 0, behavior: "smooth" });
-         setTimeout(() => {
-          const event = new CustomEvent("navigate", {
-           detail: "contact",
-          });
-          window.dispatchEvent(event);
-         }, 300);
-        }}
+       <Link
+        href="/contact"
         className={`group ${isDark
-         ? "bg-gradient-to-r from-teal-600 to-blue-700"
-         : "bg-gradient-to-r from-teal-600 to-blue-600"
-         } text-white px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300 flex items-center gap-2`}
+         ? "bg-gradient-to-r from-emerald-600 to-green-700"
+         : "bg-gradient-to-r from-emerald-600 to-green-600"
+         } text-white px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center gap-2`}
        >
         Randevu Al
         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-       </a>
-       <a
-        href="#about"
-        onClick={(e) => {
-         e.preventDefault();
-         window.scrollTo({ top: 0, behavior: "smooth" });
-         setTimeout(() => {
-          const event = new CustomEvent("navigate", {
-           detail: "about",
-          });
-          window.dispatchEvent(event);
-         }, 300);
-        }}
+       </Link>
+       <Link
+        href="/about"
         className={`${isDark
-         ? "bg-gray-800 border border-gray-700 text-white"
-         : "bg-white border border-gray-300 text-gray-800"
+         ? "bg-emerald-900/50 border-2 border-emerald-700 text-emerald-300"
+         : "bg-white border-2 border-emerald-500 text-emerald-700"
          } px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-xl transform transition-all duration-300`}
        >
         Daha Fazla Bilgi
-       </a>
+       </Link>
       </div>
      </div>
     </div>
    </section>
 
-   {/* Welcome Section - Enhanced */}
+   {/* Welcome Section */}
    <section className="py-16 md:py-24 lg:py-32">
     <div className="container mx-auto px-4">
      <div className="max-w-6xl mx-auto">
       <div
        className={`${isDark
-        ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-        : "bg-white/90 backdrop-blur-sm"
+        ? "bg-emerald-950/50 border border-emerald-800 backdrop-blur-lg"
+        : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
         } rounded-3xl shadow-2xl p-10 md:p-14 lg:p-20 animate-slideUp animation-delay-400`}
       >
        <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
          <h2
-          className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-teal-400" : "text-teal-700"
+          className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
            } mb-6 md:mb-8`}
          >
           {data.home.welcome}
@@ -142,7 +122,7 @@ export default function HomePage() {
             style={{ animationDelay: `${0.6 + index * 0.1}s` }}
            >
             <CheckCircle
-             className={`w-6 h-6 ${isDark ? "text-teal-400" : "text-teal-600"
+             className={`w-6 h-6 ${isDark ? "text-emerald-400" : "text-emerald-600"
               } flex-shrink-0 mt-1`}
             />
             <span
@@ -158,8 +138,8 @@ export default function HomePage() {
 
         <div
          className={`relative h-80 md:h-96 rounded-2xl bg-gradient-to-br ${isDark
-          ? "from-teal-700 to-blue-800"
-          : "from-teal-400 to-blue-500"
+          ? "from-emerald-700 to-green-800"
+          : "from-emerald-400 to-green-500"
           } shadow-2xl overflow-hidden`}
         >
          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -173,7 +153,7 @@ export default function HomePage() {
     </div>
    </section>
 
-   {/* Features Section - Enhanced */}
+   {/* Features Section */}
    <section className="py-16 md:py-24 lg:py-32">
     <div className="container mx-auto px-4">
      <div className="max-w-6xl mx-auto">
@@ -197,13 +177,14 @@ export default function HomePage() {
         <div
          key={index}
          className={`group ${isDark
-          ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-          : "bg-white/90 backdrop-blur-sm"
-          } rounded-3xl shadow-2xl p-8 md:p-10 hover:shadow-3xl transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 animate-slideUp animation-delay-${600 + index * 100
+          ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+          : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+          } rounded-3xl shadow-2xl p-8 md:p-10 hover:shadow-3xl hover:shadow-emerald-500/20 transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 animate-slideUp animation-delay-${600 + index * 100
           }`}
         >
          <div
-          className={`bg-gradient-to-br ${feature.gradient} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-300`}
+          className={`bg-gradient-to-br ${isDark ? "from-emerald-600 to-green-700" : "from-emerald-500 to-green-600"
+           } w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-300`}
          >
           <feature.icon className="w-10 h-10 text-white" />
          </div>
@@ -232,8 +213,8 @@ export default function HomePage() {
      <div className="max-w-4xl mx-auto">
       <div
        className={`${isDark
-        ? "bg-gradient-to-br from-teal-700 to-blue-800"
-        : "bg-gradient-to-r from-teal-600 to-blue-600"
+        ? "bg-gradient-to-br from-emerald-700 to-green-800"
+        : "bg-gradient-to-r from-emerald-600 to-green-600"
         } rounded-3xl shadow-2xl p-12 md:p-16 text-center text-white relative overflow-hidden`}
       >
        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -244,22 +225,12 @@ export default function HomePage() {
         <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
          {data.home.cta.text}
         </p>
-        <a
-         href="#contact"
-         onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          setTimeout(() => {
-           const event = new CustomEvent("navigate", {
-            detail: "contact",
-           });
-           window.dispatchEvent(event);
-          }, 300);
-         }}
-         className="inline-block bg-white text-teal-700 px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300"
+        <Link
+         href="/contact"
+         className="inline-block bg-white text-emerald-700 px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300"
         >
          {data.home.cta.button}
-        </a>
+        </Link>
        </div>
       </div>
      </div>

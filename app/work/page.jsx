@@ -12,8 +12,8 @@ export default function WorkPage() {
  return (
   <div
    className={`min-h-screen ${isDark
-    ? "bg-gray-900"
-    : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    ? "bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900"
+    : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
@@ -33,7 +33,7 @@ export default function WorkPage() {
        {data.work.subtitle}
       </p>
       <div
-       className={`w-24 h-1 ${isDark ? "bg-teal-400" : "bg-teal-600"
+       className={`w-24 h-1 ${isDark ? "bg-emerald-400" : "bg-emerald-600"
         } mx-auto mt-6 rounded-full`}
       ></div>
      </div>
@@ -44,15 +44,15 @@ export default function WorkPage() {
        <div
         key={index}
         className={`${isDark
-         ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-         : "bg-white/90 backdrop-blur-sm"
-         } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-500 animate-slideUp animation-delay-${index * 200
+         ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+         : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+         } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-emerald-500/20 transform hover:scale-[1.02] transition-all duration-500 animate-slideUp animation-delay-${index * 200
          }`}
        >
         <div className="grid md:grid-cols-12 gap-0">
          {/* Icon Section */}
          <div
-          className={`md:col-span-4 bg-gradient-to-br ${area.gradient} p-10 md:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden`}
+          className={`md:col-span-4 ${isDark ? "bg-gradient-to-br from-emerald-700 to-green-800" : "bg-gradient-to-br from-emerald-500 to-green-600"} p-10 md:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden`}
          >
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           <div className="relative z-10">
@@ -80,7 +80,7 @@ export default function WorkPage() {
           {/* Topics */}
           <div>
            <h3
-            className={`text-xl font-semibold ${isDark ? "text-teal-400" : "text-teal-700"
+            className={`text-xl font-semibold ${isDark ? "text-emerald-400" : "text-emerald-700"
              } mb-4`}
            >
             {data.work.topicsLabel}
@@ -89,11 +89,11 @@ export default function WorkPage() {
             {area.topics.map((topic, idx) => (
              <div
               key={idx}
-              className={`flex items-center gap-3 p-3 rounded-xl ${isDark ? "bg-gray-700/50" : "bg-teal-50"
+              className={`flex items-center gap-3 p-3 rounded-xl ${isDark ? "bg-emerald-900/30" : "bg-emerald-50"
                } transform hover:translate-x-1 transition-all duration-300`}
              >
               <CheckCircle
-               className={`w-5 h-5 ${isDark ? "text-teal-400" : "text-teal-600"
+               className={`w-5 h-5 ${isDark ? "text-emerald-400" : "text-emerald-600"
                 } flex-shrink-0`}
               />
               <span
@@ -125,14 +125,14 @@ export default function WorkPage() {
         <div
          key={index}
          className={`${isDark
-          ? "bg-gray-800/80 border border-gray-700"
-          : "bg-white/90"
+          ? "bg-emerald-950/50 border-2 border-emerald-800"
+          : "bg-white/90 border-2 border-emerald-200"
           } rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-500`}
         >
          <div
           className={`w-16 h-16 ${isDark
-           ? "bg-gradient-to-br from-teal-700 to-blue-800"
-           : "bg-gradient-to-br from-teal-500 to-blue-600"
+           ? "bg-gradient-to-br from-emerald-700 to-green-800"
+           : "bg-gradient-to-br from-emerald-500 to-green-600"
            } rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
          >
           <benefit.icon className="w-8 h-8 text-white" />
@@ -154,8 +154,8 @@ export default function WorkPage() {
      {/* CTA Section */}
      <div
       className={`${isDark
-       ? "bg-gradient-to-br from-teal-700 to-blue-800"
-       : "bg-gradient-to-r from-teal-600 to-blue-600"
+       ? "bg-gradient-to-br from-emerald-700 to-green-800"
+       : "bg-gradient-to-r from-emerald-600 to-green-600"
        } text-white rounded-3xl shadow-2xl p-10 md:p-16 text-center transform hover:scale-[1.02] transition-all duration-500 relative overflow-hidden`}
      >
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -168,7 +168,7 @@ export default function WorkPage() {
        </p>
        <Link
         href="/contact"
-        className="inline-block bg-white text-teal-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 shadow-2xl"
+        className="inline-block bg-white text-emerald-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 shadow-2xl"
        >
         {data.work.cta.button}
        </Link>

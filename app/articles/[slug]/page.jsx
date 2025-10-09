@@ -20,8 +20,8 @@ export default function ArticleDetailPage({ params }) {
  return (
   <div
    className={`min-h-screen ${isDark
-     ? "bg-gray-900"
-     : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    ? "bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900"
+    : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
@@ -29,7 +29,7 @@ export default function ArticleDetailPage({ params }) {
      {/* Back Button */}
      <Link
       href="/articles"
-      className={`flex items-center gap-2 mb-8 ${isDark ? "text-teal-400" : "text-teal-700"
+      className={`flex items-center gap-2 mb-8 ${isDark ? "text-emerald-400" : "text-emerald-700"
        } hover:gap-3 transition-all duration-300 font-semibold`}
      >
       <ArrowLeft className="w-5 h-5" />
@@ -57,8 +57,8 @@ export default function ArticleDetailPage({ params }) {
      {/* Article Content */}
      <div
       className={`${isDark
-        ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-        : "bg-white/90 backdrop-blur-sm"
+       ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+       : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
        } rounded-3xl shadow-2xl p-8 md:p-12`}
      >
       <p

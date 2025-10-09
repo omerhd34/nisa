@@ -10,8 +10,8 @@ export default function AboutPage() {
  return (
   <div
    className={`min-h-screen ${isDark
-     ? "bg-gray-900"
-     : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    ? "bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900"
+    : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
@@ -24,7 +24,7 @@ export default function AboutPage() {
        {data.about.title}
       </h1>
       <div
-       className={`w-24 h-1 ${isDark ? "bg-teal-400" : "bg-teal-600"
+       className={`w-24 h-1 ${isDark ? "bg-emerald-400" : "bg-emerald-600"
         } mx-auto rounded-full`}
       ></div>
      </div>
@@ -32,16 +32,16 @@ export default function AboutPage() {
      {/* Main About Section */}
      <div
       className={`${isDark
-        ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-        : "bg-white/90 backdrop-blur-sm"
+       ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+       : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
        } rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 mb-12 animate-slideUp`}
      >
       <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
        <div className="md:col-span-2">
         <div
          className={`relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-gradient-to-br ${isDark
-           ? "from-teal-700 to-blue-800"
-           : "from-teal-500 to-blue-600"
+          ? "from-emerald-700 to-green-800"
+          : "from-emerald-500 to-green-600"
           } rounded-3xl flex items-center justify-center shadow-2xl transform hover:scale-105 hover:rotate-3 transition-all duration-500`}
         >
          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
@@ -57,7 +57,7 @@ export default function AboutPage() {
 
        <div className="md:col-span-3">
         <h2
-         className={`text-3xl md:text-4xl font-bold ${isDark ? "text-teal-400" : "text-teal-700"
+         className={`text-3xl md:text-4xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
           } mb-6`}
         >
          {data.about.heading}
@@ -100,8 +100,8 @@ export default function AboutPage() {
         <div
          key={index}
          className={`${isDark
-           ? "bg-gray-800/80 border border-gray-700"
-           : "bg-white/90"
+          ? "bg-emerald-950/50 border-2 border-emerald-800"
+          : "bg-white/90 border-2 border-emerald-200"
           } rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 animate-slideUp animation-delay-${200 + index * 100
           }`}
         >
@@ -127,21 +127,21 @@ export default function AboutPage() {
      {/* Education Section */}
      <div
       className={`${isDark
-        ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-        : "bg-white/90 backdrop-blur-sm"
+       ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+       : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
        } rounded-3xl shadow-2xl p-8 md:p-12 animate-slideUp animation-delay-400`}
      >
       <div className="flex items-center gap-4 mb-8">
        <div
         className={`w-14 h-14 bg-gradient-to-br ${isDark
-          ? "from-teal-700 to-blue-800"
-          : "from-teal-500 to-blue-600"
+         ? "from-emerald-700 to-green-800"
+         : "from-emerald-500 to-green-600"
          } rounded-xl flex items-center justify-center shadow-lg`}
        >
         <BookOpen className="w-7 h-7 text-white" />
        </div>
        <h3
-        className={`text-3xl md:text-4xl font-bold ${isDark ? "text-teal-400" : "text-teal-700"
+        className={`text-3xl md:text-4xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
          }`}
        >
         {data.about.education}
@@ -153,11 +153,11 @@ export default function AboutPage() {
         (item, index) => (
          <div
           key={index}
-          className={`flex items-start gap-4 p-5 rounded-xl ${isDark ? "bg-gray-700/50" : "bg-teal-50"
+          className={`flex items-start gap-4 p-5 rounded-xl ${isDark ? "bg-emerald-900/30" : "bg-emerald-50"
            } transform hover:translate-x-2 transition-all duration-300`}
          >
           <div
-           className={`w-8 h-8 flex-shrink-0 rounded-full ${isDark ? "bg-teal-600" : "bg-teal-500"
+           className={`w-8 h-8 flex-shrink-0 rounded-full ${isDark ? "bg-emerald-600" : "bg-emerald-500"
             } flex items-center justify-center text-white font-bold shadow-lg`}
           >
            {index + 1}
@@ -177,17 +177,17 @@ export default function AboutPage() {
      {/* Quote Section */}
      <div
       className={`mt-12 text-center p-8 md:p-12 rounded-3xl ${isDark
-        ? "bg-gradient-to-br from-teal-900/30 to-blue-900/30 border border-teal-700"
-        : "bg-gradient-to-br from-teal-100 to-blue-100"
+       ? "bg-gradient-to-br from-emerald-900/40 to-green-900/40 border-2 border-emerald-700"
+       : "bg-gradient-to-br from-emerald-100 to-green-100 border-2 border-emerald-300"
        }`}
      >
       <p
-       className={`text-2xl md:text-3xl font-semibold italic ${isDark ? "text-teal-300" : "text-teal-800"
+       className={`text-2xl md:text-3xl font-semibold italic ${isDark ? "text-emerald-300" : "text-emerald-800"
         }`}
       >
        {data.about.quote.text}
        <span
-        className={`block mt-3 font-extrabold italic ${isDark ? "text-teal-300" : "text-teal-800"
+        className={`block mt-3 font-extrabold italic ${isDark ? "text-emerald-300" : "text-emerald-800"
          }`}
        >
         {data.about.quote.author}

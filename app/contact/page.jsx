@@ -4,10 +4,12 @@ import { useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
+import Link from "next/link";
 
 export default function ContactPage() {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
+ const [errors, setErrors] = useState({});
 
  const [formData, setFormData] = useState({
   name: "",
@@ -17,27 +19,58 @@ export default function ContactPage() {
  const [submitted, setSubmitted] = useState(false);
  const [isSubmitting, setIsSubmitting] = useState(false);
 
- const handleSubmit = () => {
-  if (!formData.name || !formData.email || !formData.message) {
-   alert(data.contact.fillAll);
-   return;
+ const handleSubmit = async () => {
+  const { name, email, message } = formData;
+  const newErrors = {};
+
+  // Boş alan kontrolü
+  if (!name) newErrors.name = "Lütfen adınızı girin.";
+  if (!email) newErrors.email = "Lütfen e-posta adresinizi girin.";
+  if (!message) newErrors.message = "Lütfen bir mesaj girin.";
+
+  // E-posta formatı kontrolü
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email && !emailRegex.test(email)) {
+   newErrors.email = "Lütfen geçerli bir e-posta adresi girin.";
   }
+
+  // Mesaj uzunluğu kontrolü
+  if (message && message.trim().length < 15) {
+   newErrors.message = "Mesaj en az 15 karakter olmalıdır.";
+  }
+
+  setErrors(newErrors);
+
+  // Eğer hata varsa API'ye istek atma
+  if (Object.keys(newErrors).length > 0) return;
 
   setIsSubmitting(true);
 
-  const mailtoLink = `mailto:psikolognisademir@gmail.com?subject=Web Sitesinden Mesaj - ${formData.name
-   }&body=${encodeURIComponent(
-    `İsim: ${formData.name}\nE-posta: ${formData.email}\n\nMesaj:\n${formData.message}`
-   )}`;
+  try {
+   const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+     "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+   });
 
-  window.location.href = mailtoLink;
-  setSubmitted(true);
-  setIsSubmitting(false);
+   const result = await response.json();
 
-  setTimeout(() => {
-   setFormData({ name: "", email: "", message: "" });
-   setSubmitted(false);
-  }, 3000);
+   if (response.ok) {
+    setSubmitted(true);
+    setFormData({ name: "", email: "", message: "" });
+    setErrors({});
+    setTimeout(() => setSubmitted(false), 3000);
+   } else {
+    setErrors({ general: result.error || "Mesaj gönderilirken bir hata oluştu." });
+   }
+  } catch (error) {
+   console.error("Hata:", error);
+   setErrors({ general: "Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin." });
+  } finally {
+   setIsSubmitting(false);
+  }
  };
 
  const handleChange = (e) => {
@@ -50,8 +83,8 @@ export default function ContactPage() {
  return (
   <div
    className={`min-h-screen ${isDark
-    ? "bg-gray-900"
-    : "bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50"
+    ? "bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900"
+    : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
@@ -71,7 +104,7 @@ export default function ContactPage() {
        {data.contact.subtitle}
       </p>
       <div
-       className={`w-24 h-1 ${isDark ? "bg-teal-400" : "bg-teal-600"
+       className={`w-24 h-1 ${isDark ? "bg-emerald-400" : "bg-emerald-600"
         } mx-auto mt-6 rounded-full`}
       ></div>
      </div>
@@ -81,12 +114,12 @@ export default function ContactPage() {
       <div className="lg:col-span-2">
        <div
         className={`${isDark
-         ? "bg-gray-800/80 border border-gray-700 backdrop-blur-lg"
-         : "bg-white/90 backdrop-blur-sm"
+         ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+         : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
          } rounded-3xl shadow-2xl p-8 md:p-12 animate-slideUp`}
        >
         <h2
-         className={`text-3xl md:text-4xl font-bold ${isDark ? "text-teal-400" : "text-teal-700"
+         className={`text-3xl md:text-4xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
           } mb-8`}
         >
          {data.contact.heading}
@@ -106,7 +139,8 @@ export default function ContactPage() {
            className={`block ${isDark ? "text-gray-300" : "text-gray-700"
             } font-semibold mb-2 text-lg`}
           >
-           {data.contact.name} <span className="text-red-500">*</span>
+           {data.contact.name}{" "}
+           <span className="text-red-500">*</span>
           </label>
           <input
            type="text"
@@ -115,11 +149,14 @@ export default function ContactPage() {
            value={formData.name}
            onChange={handleChange}
            className={`w-full px-5 py-4 ${isDark
-            ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-            : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
-            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-lg`}
+            ? "bg-emerald-900/30 border-emerald-700 text-white placeholder-gray-400"
+            : "bg-white border-emerald-300 text-gray-900 placeholder-gray-500"
+            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-lg`}
            placeholder={data.contact.namePlaceholder}
           />
+          {errors.name && (
+           <p className="text-red-500 text-sm mt-2">{errors.name}</p>
+          )}
          </div>
 
          <div className="transform hover:scale-[1.01] transition-all duration-300">
@@ -128,7 +165,8 @@ export default function ContactPage() {
            className={`block ${isDark ? "text-gray-300" : "text-gray-700"
             } font-semibold mb-2 text-lg`}
           >
-           {data.contact.email} <span className="text-red-500">*</span>
+           {data.contact.email}{" "}
+           <span className="text-red-500">*</span>
           </label>
           <input
            type="email"
@@ -137,11 +175,14 @@ export default function ContactPage() {
            value={formData.email}
            onChange={handleChange}
            className={`w-full px-5 py-4 ${isDark
-            ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-            : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
-            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-lg`}
+            ? "bg-emerald-900/30 border-emerald-700 text-white placeholder-gray-400"
+            : "bg-white border-emerald-300 text-gray-900 placeholder-gray-500"
+            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-lg`}
            placeholder={data.contact.emailPlaceholder}
           />
+          {errors.email && (
+           <p className="text-red-500 text-sm mt-2">{errors.email}</p>
+          )}
          </div>
 
          <div className="transform hover:scale-[1.01] transition-all duration-300">
@@ -150,20 +191,24 @@ export default function ContactPage() {
            className={`block ${isDark ? "text-gray-300" : "text-gray-700"
             } font-semibold mb-2 text-lg`}
           >
-           {data.contact.message} <span className="text-red-500">*</span>
+           {data.contact.message}{" "}
+           <span className="text-red-500">*</span>
           </label>
           <textarea
            id="message"
            name="message"
            value={formData.message}
            onChange={handleChange}
-           rows="6"
+           rows={5}
            className={`w-full px-5 py-4 ${isDark
-            ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-            : "bg-white border-gray-300 text-gray-900 placeholder-gray-500"
-            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none transition-all duration-300 text-lg`}
+            ? "bg-emerald-900/30 border-emerald-700 text-white placeholder-gray-400"
+            : "bg-white border-emerald-300 text-gray-900 placeholder-gray-500"
+            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none transition-all duration-300 text-lg`}
            placeholder={data.contact.messagePlaceholder}
           ></textarea>
+          {errors.message && (
+           <p className="text-red-500 text-sm mt-2">{errors.message}</p>
+          )}
          </div>
 
          <div>
@@ -171,9 +216,9 @@ export default function ContactPage() {
            onClick={handleSubmit}
            disabled={isSubmitting}
            className={`w-full ${isDark
-            ? "bg-gradient-to-r from-teal-700 to-blue-800"
-            : "bg-gradient-to-r from-teal-600 to-blue-600"
-            } text-white px-8 py-5 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
+            ? "bg-gradient-to-r from-emerald-700 to-green-800"
+            : "bg-gradient-to-r from-emerald-600 to-green-600"
+            } text-white px-8 py-5 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
           >
            <Send className="w-5 h-5" />
            {isSubmitting ? data.contact.sending : data.contact.send}
@@ -188,16 +233,18 @@ export default function ContactPage() {
        {data.contact.contactInfo.map((info, index) => (
         <div
          key={index}
+         style={{
+          animationDelay: `${200 + index * 100}ms`,
+         }}
          className={`${isDark
-          ? "bg-gray-800/80 border border-gray-700"
-          : "bg-white/90"
-          } rounded-2xl shadow-xl p-6 transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 animate-slideUp animation-delay-${200 + index * 100
-          }`}
+          ? "bg-emerald-950/50 border-2 border-emerald-800"
+          : "bg-white/90 border-2 border-emerald-200"
+          } rounded-2xl shadow-xl p-6 transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 animate-slideUp`}
         >
          <div
           className={`w-14 h-14 ${isDark
-           ? "bg-gradient-to-br from-teal-700 to-blue-800"
-           : "bg-gradient-to-br from-teal-500 to-blue-600"
+           ? "bg-gradient-to-br from-emerald-700 to-green-800"
+           : "bg-gradient-to-br from-emerald-500 to-green-600"
            } rounded-xl flex items-center justify-center mb-4 shadow-lg`}
          >
           <info.icon className="w-7 h-7 text-white" />
@@ -209,15 +256,24 @@ export default function ContactPage() {
           {info.title}
          </h3>
          {info.link ? (
-          <a
-           href={info.link}
-           className={`${isDark ? "text-teal-400" : "text-teal-700"
-            } hover:underline block break-all`}
-          >
-           {info.content}
-          </a>
+          info.link.startsWith("mailto:") ||
+           info.link.startsWith("tel:") ? (
+           <Link href={info.link}
+            className={`${isDark ? "text-emerald-400" : "text-emerald-700"} hover:underline block break-all`}
+           >
+            {info.content}
+           </Link>
+          ) : (
+           <Link
+            href={info.link}
+            className={`${isDark ? "text-emerald-400" : "text-emerald-700"
+             } hover:underline block break-all`}
+           >
+            {info.content}
+           </Link>
+          )
          ) : (
-          <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className={`${isDark ? "text-gray-400" : "text-gray-600"} whitespace-pre-line`}>
            {info.content}
           </p>
          )}
@@ -227,6 +283,6 @@ export default function ContactPage() {
      </div>
     </div>
    </div>
-  </div>
+  </div >
  );
 }
