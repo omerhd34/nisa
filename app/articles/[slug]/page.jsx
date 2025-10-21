@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
@@ -11,7 +12,8 @@ export default function ArticleDetailPage({ params }) {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
 
- const article = data.articles.list.find((a) => a.slug === params.slug);
+ const resolvedParams = use(params);
+ const article = data.articles.list.find((a) => a.slug === resolvedParams.slug);
 
  if (!article) {
   notFound();
@@ -26,7 +28,6 @@ export default function ArticleDetailPage({ params }) {
   >
    <div className="container mx-auto px-4">
     <div className="max-w-4xl mx-auto">
-     {/* Back Button */}
      <Link
       href="/articles"
       className={`flex items-center gap-2 mb-8 ${isDark ? "text-emerald-400" : "text-emerald-700"
@@ -36,7 +37,6 @@ export default function ArticleDetailPage({ params }) {
       Yazılara Dön
      </Link>
 
-     {/* Article Title */}
      <h1
       className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"
        } mb-8`}
@@ -44,7 +44,6 @@ export default function ArticleDetailPage({ params }) {
       {article.title}
      </h1>
 
-     {/* Article Image */}
      <div className="relative w-full h-96 mb-8 rounded-2xl overflow-hidden shadow-2xl">
       <Image
        src={article.image}
@@ -54,7 +53,6 @@ export default function ArticleDetailPage({ params }) {
       />
      </div>
 
-     {/* Article Content */}
      <div
       className={`${isDark
        ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"

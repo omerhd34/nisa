@@ -14,18 +14,20 @@ export default function ContactPage() {
  const [formData, setFormData] = useState({
   name: "",
   email: "",
+  subject: "Bireysel Terapi", // Yeni alan: Konu
   message: "",
  });
  const [submitted, setSubmitted] = useState(false);
  const [isSubmitting, setIsSubmitting] = useState(false);
 
  const handleSubmit = async () => {
-  const { name, email, message } = formData;
+  const { name, email, subject, message } = formData;
   const newErrors = {};
 
   // Boş alan kontrolü
   if (!name) newErrors.name = "Lütfen adınızı girin.";
   if (!email) newErrors.email = "Lütfen e-posta adresinizi girin.";
+  if (!subject) newErrors.subject = "Lütfen bir konu seçin.";
   if (!message) newErrors.message = "Lütfen bir mesaj girin.";
 
   // E-posta formatı kontrolü
@@ -59,7 +61,7 @@ export default function ContactPage() {
 
    if (response.ok) {
     setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", subject: "Bireysel Terapi", message: "" });
     setErrors({});
     setTimeout(() => setSubmitted(false), 3000);
    } else {
@@ -95,8 +97,7 @@ export default function ContactPage() {
        className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-4`}
       >
-       {data.contact.title}
-      </h1>
+       İletişim      </h1>
       <p
        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
         } max-w-2xl mx-auto`}
@@ -122,13 +123,12 @@ export default function ContactPage() {
          className={`text-3xl md:text-4xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
           } mb-8`}
         >
-         {data.contact.heading}
-        </h2>
+         Benimle İletişime Geçin        </h2>
 
         {submitted && (
          <div className="mb-8 p-5 bg-green-500/20 border border-green-500 text-green-400 rounded-xl flex items-center gap-3 animate-fadeIn">
           <CheckCircle2 className="w-6 h-6 flex-shrink-0" />
-          <span className="font-semibold">{data.contact.sent}</span>
+          <span className="font-semibold">Mesajınız başarıyla gönderildi!</span>
          </div>
         )}
 
@@ -139,8 +139,7 @@ export default function ContactPage() {
            className={`block ${isDark ? "text-gray-300" : "text-gray-700"
             } font-semibold mb-2 text-lg`}
           >
-           {data.contact.name}{" "}
-           <span className="text-red-500">*</span>
+           Adınız ve Soyadınız <span className="text-red-500">*</span>
           </label>
           <input
            type="text"
@@ -152,7 +151,7 @@ export default function ContactPage() {
             ? "bg-emerald-900/30 border-emerald-700 text-white placeholder-gray-400"
             : "bg-white border-emerald-300 text-gray-900 placeholder-gray-500"
             } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-lg`}
-           placeholder={data.contact.namePlaceholder}
+           placeholder="Adınız ve Soyadınız"
           />
           {errors.name && (
            <p className="text-red-500 text-sm mt-2">{errors.name}</p>
@@ -165,8 +164,7 @@ export default function ContactPage() {
            className={`block ${isDark ? "text-gray-300" : "text-gray-700"
             } font-semibold mb-2 text-lg`}
           >
-           {data.contact.email}{" "}
-           <span className="text-red-500">*</span>
+           E-posta <span className="text-red-500">*</span>
           </label>
           <input
            type="email"
@@ -178,10 +176,40 @@ export default function ContactPage() {
             ? "bg-emerald-900/30 border-emerald-700 text-white placeholder-gray-400"
             : "bg-white border-emerald-300 text-gray-900 placeholder-gray-500"
             } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-lg`}
-           placeholder={data.contact.emailPlaceholder}
+           placeholder="ornek@email.com"
           />
           {errors.email && (
            <p className="text-red-500 text-sm mt-2">{errors.email}</p>
+          )}
+         </div>
+
+         {/* YENİ: Konu Dropdown */}
+         <div className="transform hover:scale-[1.01] transition-all duration-300">
+          <label
+           htmlFor="subject"
+           className={`block ${isDark ? "text-gray-300" : "text-gray-700"
+            } font-semibold mb-2 text-lg`}
+          >
+           Konu <span className="text-red-500">*</span>
+          </label>
+          <select
+           id="subject"
+           name="subject"
+           value={formData.subject}
+           onChange={handleChange}
+           className={`w-full px-5 py-4 ${isDark
+            ? "bg-emerald-900/30 border-emerald-700 text-white"
+            : "bg-white border-emerald-300 text-gray-900"
+            } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 text-lg cursor-pointer`}
+          >
+           <option value="Bireysel Terapi">Bireysel Terapi</option>
+           <option value="Online Terapi">Online Terapi</option>
+           <option value="Randevu Talebi">Randevu Talebi</option>
+           <option value="Genel Bilgi">Genel Bilgi</option>
+           <option value="Diğer">Diğer</option>
+          </select>
+          {errors.subject && (
+           <p className="text-red-500 text-sm mt-2">{errors.subject}</p>
           )}
          </div>
 
@@ -191,8 +219,7 @@ export default function ContactPage() {
            className={`block ${isDark ? "text-gray-300" : "text-gray-700"
             } font-semibold mb-2 text-lg`}
           >
-           {data.contact.message}{" "}
-           <span className="text-red-500">*</span>
+           Mesaj <span className="text-red-500">*</span>
           </label>
           <textarea
            id="message"
@@ -204,7 +231,7 @@ export default function ContactPage() {
             ? "bg-emerald-900/30 border-emerald-700 text-white placeholder-gray-400"
             : "bg-white border-emerald-300 text-gray-900 placeholder-gray-500"
             } border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none transition-all duration-300 text-lg`}
-           placeholder={data.contact.messagePlaceholder}
+           placeholder="Mesajınızı buraya yazın..."
           ></textarea>
           {errors.message && (
            <p className="text-red-500 text-sm mt-2">{errors.message}</p>
@@ -221,7 +248,7 @@ export default function ContactPage() {
             } text-white px-8 py-5 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
           >
            <Send className="w-5 h-5" />
-           {isSubmitting ? data.contact.sending : data.contact.send}
+           {isSubmitting ? "Mesajınız gönderiliyor..." : "Gönder"}
           </button>
          </div>
         </div>
@@ -256,10 +283,11 @@ export default function ContactPage() {
           {info.title}
          </h3>
          {info.link ? (
-          info.link.startsWith("mailto:") ||
-           info.link.startsWith("tel:") ? (
-           <Link href={info.link}
-            className={`${isDark ? "text-emerald-400" : "text-emerald-700"} hover:underline block break-all`}
+          info.link.startsWith("mailto:") || info.link.startsWith("tel:") ? (
+           <Link
+            href={info.link}
+            className={`${isDark ? "text-emerald-400" : "text-emerald-700"
+             } hover:underline block break-all`}
            >
             {info.content}
            </Link>
@@ -273,7 +301,10 @@ export default function ContactPage() {
            </Link>
           )
          ) : (
-          <p className={`${isDark ? "text-gray-400" : "text-gray-600"} whitespace-pre-line`}>
+          <p
+           className={`${isDark ? "text-gray-400" : "text-gray-600"
+            } whitespace-pre-line`}
+          >
            {info.content}
           </p>
          )}
@@ -283,6 +314,6 @@ export default function ContactPage() {
      </div>
     </div>
    </div>
-  </div >
+  </div>
  );
 }

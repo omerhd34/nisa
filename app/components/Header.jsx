@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, User, Briefcase, FileText, Mail, Menu, X, Moon, Sun } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 import Logo from './Logo';
 
 const Header = () => {
@@ -14,11 +13,11 @@ const Header = () => {
  const isDark = theme === 'dark';
 
  const menuItems = [
-  { id: 'home', label: data.nav.home, icon: Home, href: '/' },
-  { id: 'about', label: data.nav.about, icon: User, href: '/about' },
-  { id: 'work', label: data.nav.work, icon: Briefcase, href: '/work' },
-  { id: 'articles', label: data.nav.articles, icon: FileText, href: '/articles' },
-  { id: 'contact', label: data.nav.contact, icon: Mail, href: '/contact' }
+  { id: 'home', label: "Ana Sayfa", icon: Home, href: '/' },
+  { id: 'about', label: "Tanışalım", icon: User, href: '/about' },
+  { id: 'work', label: "Çalışma Alanlarım", icon: Briefcase, href: '/work' },
+  { id: 'articles', label: "Yazılarım", icon: FileText, href: '/articles' },
+  { id: 'contact', label: "İletişim", icon: Mail, href: '/contact' }
  ];
 
  const isActive = (href) => {

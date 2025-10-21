@@ -34,16 +34,14 @@ export default function ArticlesPage() {
         className={`text-sm font-semibold ${isDark ? "text-emerald-300" : "text-emerald-700"
          }`}
        >
-        {data.articles.badge}
-       </span>
+        Blog & Makaleler       </span>
       </div>
 
       <h1
        className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-6`}
       >
-       {data.articles.title}
-      </h1>
+       Yazılarım      </h1>
 
       <p
        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
@@ -105,8 +103,7 @@ export default function ArticlesPage() {
             : "bg-emerald-100 text-emerald-700"
             }`}
           >
-           {data.articles.categoryLabel}
-          </div>
+           Psikoloji          </div>
          </div>
          <p
           className={`${isDark ? "text-gray-400" : "text-gray-600"
@@ -118,8 +115,7 @@ export default function ArticlesPage() {
           className={`group/btn flex items-center gap-2 ${isDark ? "text-emerald-400" : "text-emerald-700"
            } font-semibold hover:gap-3 transition-all duration-300`}
          >
-          {data.articles.readMore}
-          <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+          Devamını Oku          <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
          </div>
         </div>
        </Link>

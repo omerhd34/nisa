@@ -24,8 +24,7 @@ export default function WorkPage() {
        className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-4`}
       >
-       {data.work.title}
-      </h1>
+       Çalışma Alanlarım      </h1>
       <p
        className={`text-lg md:text-xl ${isDark ? "text-gray-400" : "text-gray-600"
         } max-w-3xl mx-auto`}
@@ -83,8 +82,7 @@ export default function WorkPage() {
             className={`text-xl font-semibold ${isDark ? "text-emerald-400" : "text-emerald-700"
              } mb-4`}
            >
-            {data.work.topicsLabel}
-           </h3>
+            Kapsadığı Alanlar:           </h3>
            <div className="grid sm:grid-cols-2 gap-3">
             {area.topics.map((topic, idx) => (
              <div
@@ -118,7 +116,7 @@ export default function WorkPage() {
        className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-10 text-center`}
       >
-       {data.work.benefitsTitle}
+       Neden Benimle Çalışmalısınız?
       </h2>
       <div className="grid md:grid-cols-3 gap-6 md:gap-8">
        {data.work.benefits.map((benefit, index) => (
@@ -170,8 +168,7 @@ export default function WorkPage() {
         href="/contact"
         className="inline-block bg-white text-emerald-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 shadow-2xl"
        >
-        {data.work.cta.button}
-       </Link>
+        İletişime Geçin       </Link>
       </div>
      </div>
     </div>

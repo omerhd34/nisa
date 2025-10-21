@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 import { data } from '@/data/data';
 
@@ -10,11 +10,11 @@ const Footer = () => {
  const currentYear = new Date().getFullYear();
 
  const quickLinks = [
-  { label: data.nav.home, href: '/' },
-  { label: data.nav.about, href: '/about' },
-  { label: data.nav.work, href: '/work' },
-  { label: data.nav.articles, href: '/articles' },
-  { label: data.nav.contact, href: '/contact' }
+  { label: "Ana Sayfa", href: '/' },
+  { label: "Tanışalım", href: '/about' },
+  { label: "Çalışma Alanlarım", href: '/work' },
+  { label: "Yazılarım", href: '/articles' },
+  { label: "İletişim", href: '/contact' }
  ];
 
  return (
@@ -30,19 +30,19 @@ const Footer = () => {
          <span className="text-white font-black text-xl">N</span>
         </div>
         <div>
-         <h3 className="text-xl font-bold text-white">{data.footer.brand.name}</h3>
-         <p className="text-sm text-emerald-300">{data.footer.brand.title}</p>
+         <h3 className="text-xl font-bold text-white">Nisa DEMİR</h3>
+         <p className="text-sm text-emerald-300">Uzman Klinik Psikolog</p>
         </div>
        </div>
        <p className="hidden md:block text-emerald-200 text-sm leading-relaxed">
-        {data.footer.brand.description}
+        {data.footer.description}
        </p>
       </div>
 
       {/* Quick Links */}
       <div className="hidden lg:block lg:col-span-1 lg:pl-15">
        <h4 className="text-lg font-bold mb-4 text-white">
-        {data.footer.quickLinksTitle}
+        Hızlı Erişim
        </h4>
        <ul className="space-y-2">
         {quickLinks.map((item, index) => (
@@ -61,7 +61,7 @@ const Footer = () => {
 
       {/* Contact Info */}
       <div className="md:col-span-1 lg:col-span-1">
-       <h4 className="text-lg font-bold mb-4 text-white">{data.footer.contactTitle}</h4>
+       <h4 className="text-lg font-bold mb-4 text-white">İletişim</h4>
        <div className="space-y-3">
         <Link
          href={data.contact.contactInfo[0].link}
@@ -77,8 +77,9 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center gap-3 text-emerald-200 text-sm">
-         <Phone className="w-5 h-5 flex-shrink-0" />
-         <span className="whitespace-pre-line">{data.footer.workingHours}</span>
+         <Clock className="w-5 h-5 flex-shrink-0" />
+         <span className="whitespace-pre-line">Pazartesi-Cuma: 09:00 - 18:00</span>
+         <span className="whitespace-pre-line">Cumartesi-Pazar: 11:00 - 16:00</span>
         </div>
        </div>
       </div>
@@ -88,10 +89,9 @@ const Footer = () => {
      <div className={`pt-8 border-t ${isDark ? 'border-emerald-900' : 'border-emerald-700'} flex flex-col md:flex-row justify-between items-center gap-4`}>
       <p className="text-emerald-300 text-sm flex items-center gap-2">
        © {currentYear}
-       <span className="text-emerald-400 font-semibold">{data.footer.brand.name}</span>
+       <span className="text-emerald-400 font-semibold">Nisa DEMİR</span>
        <span>•</span>
-       {data.footer.copyright}
-      </p>
+       Tüm hakları saklıdır. </p>
      </div>
     </div>
    </div>

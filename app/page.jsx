@@ -16,7 +16,6 @@ export default function HomePage() {
     : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } transition-colors duration-300`}
   >
-   {/* Hero Section */}
    <section className="relative overflow-hidden py-20 md:py-28 lg:py-36">
     <div className="absolute inset-0 overflow-hidden">
      <div
@@ -47,7 +46,7 @@ export default function HomePage() {
         className={`text-sm font-semibold ${isDark ? "text-emerald-300" : "text-emerald-700"
          }`}
        >
-        {data.footer.brand.title}
+        Uzman Klinik Psikolog
        </span>
       </div>
 
@@ -55,13 +54,13 @@ export default function HomePage() {
        className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-6 md:mb-8 animate-fadeIn leading-tight`}
       >
-       {data.home.title}
+       Nisa Demir
       </h1>
       <p
        className={`text-xl md:text-2xl lg:text-3xl ${isDark ? "text-emerald-300" : "text-emerald-700"
         } mb-10 md:mb-14 animate-slideUp animation-delay-200 font-medium max-w-3xl mx-auto`}
       >
-       {data.home.subtitle}
+       Bireysel ve Online Terapi
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideUp animation-delay-400">
@@ -105,8 +104,7 @@ export default function HomePage() {
           className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
            } mb-6 md:mb-8`}
          >
-          {data.home.welcome}
-         </h2>
+          Merhaba!         </h2>
          <p
           className={`${isDark ? "text-gray-300" : "text-gray-700"
            } text-lg md:text-xl leading-relaxed mb-8`}
@@ -229,7 +227,7 @@ export default function HomePage() {
          href="/contact"
          className="inline-block bg-white text-emerald-700 px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 hover:shadow-2xl transform transition-all duration-300"
         >
-         {data.home.cta.button}
+         Hemen İletişime Geçin
         </Link>
        </div>
       </div>

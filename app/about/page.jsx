@@ -17,13 +17,12 @@ export default function AboutPage() {
   setCurrentQuoteIndex((prevIndex) => (prevIndex - 1 + data.about.quote.quotes.length) % data.about.quote.quotes.length);
  };
 
- // useEffect ile otomatik geçiş
  useEffect(() => {
   const intervalId = setInterval(() => {
    handleNextQuote();
-  }, 5000); // 5000 ms = 5 saniye
+  }, 5000);
 
-  return () => clearInterval(intervalId); // Temizleme işlemi
+  return () => clearInterval(intervalId);
  }, []);
 
  return (
@@ -40,8 +39,7 @@ export default function AboutPage() {
        className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-4`}
       >
-       {data.about.title}
-      </h1>
+       Tanışalım      </h1>
       <div
        className={`w-24 h-1 ${isDark ? "bg-emerald-400" : "bg-emerald-600"
         } mx-auto rounded-full`}
@@ -79,8 +77,7 @@ export default function AboutPage() {
          className={`text-3xl md:text-4xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
           } mb-6`}
         >
-         {data.about.heading}
-        </h2>
+         Hakkımda        </h2>
 
         <div className="space-y-6">
          <p
@@ -112,7 +109,7 @@ export default function AboutPage() {
        className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"
         } mb-10 text-center`}
       >
-       {data.about.valuesTitle}
+       Değerlerim
       </h3>
       <div className="grid md:grid-cols-3 gap-6 md:gap-8">
        {data.about.values.map((value, index) => (
@@ -163,8 +160,7 @@ export default function AboutPage() {
         className={`text-3xl md:text-4xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
          }`}
        >
-        {data.about.education}
-       </h3>
+        Eğitim ve Uzmanlık       </h3>
       </div>
 
       <div className="space-y-6">
