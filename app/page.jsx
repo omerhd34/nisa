@@ -1,13 +1,19 @@
 "use client";
 
-import { Heart, ArrowRight, CheckCircle, Star } from "lucide-react";
+import { Heart, ArrowRight, CheckCircle, Star, Sparkles } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { data } from "@/data/data";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
  const { theme } = useAppContext();
  const isDark = theme === "dark";
+ const [mounted, setMounted] = useState(false);
+
+ useEffect(() => {
+  setMounted(true);
+ }, []);
 
  return (
   <div
@@ -16,8 +22,10 @@ export default function HomePage() {
     : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } transition-colors duration-300`}
   >
-   <section className="relative overflow-hidden py-40 lg:py-44">
-    <div className="absolute inset-0 overflow-hidden">
+   <section className="relative overflow-hidden py-32 md:py-40 lg:py-44 min-h-screen">
+    {/* Animated Background Elements */}
+    <div className="absolute inset-0 overflow-hidden min-h-screen">
+     {/* Large Gradient Blobs */}
      <div
       className={`absolute top-20 left-10 w-72 h-72 ${isDark ? "bg-emerald-900/30" : "bg-emerald-300/40"
        } rounded-full blur-3xl animate-pulse`}
@@ -27,15 +35,71 @@ export default function HomePage() {
        } rounded-full blur-3xl animate-pulse`}
       style={{ animationDelay: "1s" }}
      ></div>
+
+     {/* Floating Particles */}
+     {mounted && (
+      <div className="absolute inset-0">
+       {[...Array(20)].map((_, i) => (
+        <div
+         key={i}
+         className={`absolute w-2 h-2 ${isDark ? "bg-emerald-500/20" : "bg-emerald-400/30"} rounded-full`}
+         style={{
+          left: `${(i * 5.26) % 100}%`,
+          top: `${(i * 7.89) % 100}%`,
+          animation: `float ${5 + (i % 10)}s ease-in-out infinite`,
+          animationDelay: `${(i % 5)}s`,
+         }}
+        />
+       ))}
+      </div>
+     )}
+
+
+
+     {/* Sparkle Effect */}
+     <div className="absolute top-1/3 right-1/3">
+      <Sparkles className={`w-8 h-8 ${isDark ? "text-emerald-400/30" : "text-emerald-500/40"}`}
+       style={{ animation: "pulse 3s ease-in-out infinite" }}
+      />
+     </div>
+     <div className="absolute bottom-1/2 left-1/3">
+      <Sparkles className={`w-6 h-6 ${isDark ? "text-green-400/30" : "text-green-500/40"}`}
+       style={{ animation: "pulse 3s ease-in-out infinite", animationDelay: "1.5s" }}
+      />
+     </div>
+
+     {/* Gradient Mesh */}
+     <div className={`absolute inset-0 ${isDark
+      ? "bg-gradient-to-tr from-emerald-900/10 via-transparent to-green-900/10"
+      : "bg-gradient-to-tr from-emerald-200/20 via-transparent to-green-200/20"
+      }`}
+      style={{
+       backgroundSize: "200% 200%",
+       animation: "gradient 15s ease infinite"
+      }}
+     />
+
+     {/* Grid Pattern */}
+     <div
+      className="absolute inset-0 opacity-[0.03]"
+      style={{
+       backgroundImage: `linear-gradient(${isDark ? "#10b981" : "#059669"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#10b981" : "#059669"} 1px, transparent 1px)`,
+       backgroundSize: "50px 50px"
+      }}
+     />
+
+     {/* Radial Glow */}
+     <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${isDark ? "bg-emerald-600/5" : "bg-emerald-400/10"
+      } rounded-full blur-3xl`} />
     </div>
 
-    <div className="container mx-auto px-4 relative z-10">
-     <div className="max-w-5xl mx-auto text-center">
+    <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
+     <div className="max-w-5xl mx-auto text-center w-full">
       <div
        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${isDark
         ? "bg-emerald-900/50 border border-emerald-700"
         : "bg-white/80 border border-emerald-300"
-        } mb-8 animate-fadeIn shadow-lg`}
+        } mb-8 animate-fadeIn shadow-lg backdrop-blur-sm`}
       >
        <Star
         className={`w-5 h-5 ${isDark ? "text-emerald-400" : "text-emerald-600"
@@ -63,29 +127,62 @@ export default function HomePage() {
        Bireysel ve Online Terapi
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slideUp animation-delay-400">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center animate-slideUp animation-delay-400 max-w-md sm:max-w-none mx-auto">
        <Link
         href="/contact"
         className={`group ${isDark
-         ? "bg-gradient-to-r from-emerald-600 to-green-700"
-         : "bg-gradient-to-r from-emerald-600 to-green-600"
-         } text-white px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center gap-2`}
+         ? "bg-gradient-to-r from-emerald-600 to-green-600 border-2 border-emerald-500"
+         : "bg-gradient-to-r from-emerald-600 to-green-600 border-2 border-emerald-700"
+         } text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
        >
         Randevu Al
-        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
        </Link>
        <Link
         href="/about"
-        className={`${isDark
-         ? "bg-emerald-900/50 border-2 border-emerald-700 text-emerald-300"
-         : "bg-white border-2 border-emerald-500 text-emerald-700"
-         } px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-xl transform transition-all duration-300`}
+        className={`group ${isDark
+         ? "bg-gradient-to-r from-teal-600 to-cyan-600 border-2 border-teal-500 text-white"
+         : "bg-gradient-to-r from-teal-500 to-cyan-500 border-2 border-teal-700 text-white"
+         } px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
        >
         Daha Fazla Bilgi
        </Link>
       </div>
      </div>
     </div>
+
+    {/* CSS Animations */}
+    <style jsx>{`
+     @keyframes float {
+      0%, 100% {
+       transform: translateY(0) translateX(0);
+       opacity: 0.3;
+      }
+      50% {
+       transform: translateY(-20px) translateX(10px);
+       opacity: 0.6;
+      }
+     }
+     @keyframes spin {
+      from {
+       transform: rotate(0deg);
+      }
+      to {
+       transform: rotate(360deg);
+      }
+     }
+     @keyframes gradient {
+      0% {
+       background-position: 0% 50%;
+      }
+      50% {
+       background-position: 100% 50%;
+      }
+      100% {
+       background-position: 0% 50%;
+      }
+     }
+    `}</style>
    </section>
 
    {/* Welcome Section */}
@@ -104,7 +201,8 @@ export default function HomePage() {
           className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-emerald-400" : "text-emerald-700"
            } mb-6 md:mb-8`}
          >
-          Merhaba!         </h2>
+          Merhaba!
+         </h2>
          <p
           className={`${isDark ? "text-gray-300" : "text-gray-700"
            } text-lg md:text-xl leading-relaxed mb-8`}
