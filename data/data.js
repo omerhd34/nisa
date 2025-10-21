@@ -11,9 +11,9 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export const data = {
-  // Home Page
   home: {
     welcomeText:
       "Yaşamınızda karşılaştığınız zorluklarla başa çıkmanızda size destek olmak için buradayım. Güvenli ve destekleyici bir ortamda, kişisel gelişiminiz ve ruh sağlığınız için birlikte çalışabiliriz.",
@@ -47,7 +47,6 @@ export const data = {
         "Her bireyin kendine özgü bir hikayesi vardır. Size özel terapi yaklaşımıyla bu yolculukta yanınızdayım.",
     },
   },
-  // About Page
   about: {
     text1:
       "Klinik Psikolog Nisa Demir, İstanbul Ticaret Üniversitesi Psikoloji bölümünü 2021 yılında tamamladıktan sonra İstanbul Okan Üniversitesi Tezli Klinik Psikoloji yüksek lisans programına 2023 yılında kabul edilmiş, Haziran 2025'te 'Romantik İlişkisi Olan Yetişkin Bireylerin Nesne İlişkileri ile Cinsel Doyum Düzeyleri Arasındaki İlişkide Obsesif Kompulsif Belirti Bozukluk Belirtilerinin Aracılık Rolünün İncelenmesi' adlı yüksek lisans tezini başarıyla savunarak 'Uzman Klinik Psikolog' ünvanını almaya hak kazanmıştır.",
@@ -103,7 +102,6 @@ export const data = {
       ],
     },
   },
-  // Work Page
   work: {
     subtitle: "Size en uygun terapi yöntemini birlikte keşfedelim.",
     workAreas: [
@@ -158,7 +156,6 @@ export const data = {
       text: "Size en uygun terapi yöntemini birlikte belirleyebiliriz.",
     },
   },
-  // Articles Page
   articles: {
     subtitle:
       "Ruh sağlığı, kişisel gelişim ve terapi hakkında bilgilendirici yazılar",
@@ -234,7 +231,6 @@ export const data = {
       },
     ],
   },
-  // Contact Page
   contact: {
     subtitle: "Size nasıl yardımcı olabilirim? Benimle iletişime geçin.",
     fillAll: "Lütfen tüm alanları doldurun.",
@@ -256,9 +252,20 @@ export const data = {
         title: "Lokasyon",
         content: "İstanbul",
       },
+      {
+        icon: FaInstagram,
+        title: "Instagram",
+        content: "@psikolognisademir",
+        link: "https://instagram.com/psikolognisademir",
+      },
+      {
+        icon: FaLinkedin,
+        title: "LinkedIn",
+        content: "Nisa Demir",
+        link: "https://linkedin.com/in/nisademir",
+      },
     ],
   },
-  // Footer
   footer: {
     description:
       "Bireysel ve online terapi hizmetleriyle yanınızdayım. Ruh sağlığınız için profesyonel destek.",

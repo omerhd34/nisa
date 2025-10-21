@@ -3,6 +3,7 @@ import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import ScrollToTop from "@/app/components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <ScrollToTop />
      </div>
     </AppProvider>
    </body>
