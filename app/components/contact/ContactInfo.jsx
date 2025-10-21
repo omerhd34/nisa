@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { Users as UsersIcon } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 import { data } from '@/data/data';
 
@@ -62,6 +63,46 @@ const ContactInfo = () => {
      )}
     </div>
    ))}
+
+   {/* Sosyal Medya İkonları */}
+   <div
+    style={{
+     animationDelay: `${200 + data.contact.contactInfo.length * 100}ms`,
+    }}
+    className={`${isDark
+     ? 'bg-emerald-950/50 border-2 border-emerald-800'
+     : 'bg-white/90 border-2 border-emerald-200'
+     } rounded-2xl shadow-xl p-6 transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 animate-slideUp`}
+   >
+    <div
+     className={`w-14 h-14 ${isDark
+      ? 'bg-gradient-to-br from-emerald-700 to-green-800'
+      : 'bg-gradient-to-br from-emerald-500 to-green-600'
+      } rounded-xl flex items-center justify-center mb-4 shadow-lg`}
+    >
+     <UsersIcon className="w-7 h-7 text-white" />
+    </div>
+    <h3
+     className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'
+      } mb-3`}
+    >
+     Sosyal Medya
+    </h3>
+    <div className="flex gap-4 justify-center">
+     {data.contact.socialMedia.map((social, index) => (
+      <Link
+       key={index}
+       href={social.link}
+       target="_blank"
+       rel="noopener noreferrer"
+       className={`${isDark ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-700 hover:text-emerald-600'
+        } transition-all duration-300 transform hover:scale-110`}
+      >
+       <social.icon className="w-8 h-8" />
+      </Link>
+     ))}
+    </div>
+   </div>
   </div>
  );
 };

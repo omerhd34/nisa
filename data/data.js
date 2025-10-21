@@ -237,32 +237,32 @@ export const data = {
     contactInfo: [
       {
         icon: Mail,
-        title: "E-posta",
+        title: "E-posta:",
         content: "psikolognisademir@gmail.com",
         link: "mailto:psikolognisademir@gmail.com",
       },
       {
         icon: Clock,
-        title: "Çalışma Saatleri",
+        title: "Çalışma Saatleri:",
         content:
           "Pazartesi-Cuma: 09:00 - 18:00\nCumartesi-Pazar: 11:00 - 16:00",
       },
       {
         icon: MapPin,
-        title: "Lokasyon",
+        title: "Lokasyon:",
         content: "İstanbul",
       },
+    ],
+    socialMedia: [
       {
         icon: FaInstagram,
-        title: "Instagram",
-        content: "@psikolognisademir",
         link: "https://instagram.com/psikolognisademir",
+        color: "from-pink-500 to-purple-500",
       },
       {
         icon: FaLinkedin,
-        title: "LinkedIn",
-        content: "Nisa Demir",
-        link: "https://linkedin.com/in/nisademir",
+        link: "https://www.linkedin.com/in/nisa-demir-798815202/",
+        color: "from-blue-500 to-blue-600",
       },
     ],
   },
