@@ -1,23 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import pool from "@/lib/db";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function GET() {
-  try {
-    const [rows] = await pool.query("SELECT * FROM contact");
-    return new Response(JSON.stringify(rows), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-}
 
 export async function POST(request) {
   try {
