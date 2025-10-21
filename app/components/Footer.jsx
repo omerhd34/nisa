@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, Mail, MapPin } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 import { data } from '@/data/data';
 
@@ -23,11 +23,10 @@ const Footer = () => {
     <div className="max-w-6xl mx-auto">
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-10 lg:gap-15 mb-8">
 
-      {/* Brand Section */}
       <div className="md:col-span-1 lg:col-span-1">
        <div className="flex items-center gap-3 mb-4">
         <div className="bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl w-12 h-12 flex items-center justify-center shadow-lg">
-         <span className="text-white font-black text-xl">N</span>
+         <span className="text-white font-black text-xl">ND</span>
         </div>
         <div>
          <h3 className="text-xl font-bold text-white">Nisa DEMİR</h3>
@@ -39,7 +38,6 @@ const Footer = () => {
        </p>
       </div>
 
-      {/* Quick Links */}
       <div className="hidden lg:block lg:col-span-1 lg:pl-15">
        <h4 className="text-lg font-bold mb-4 text-white">
         Hızlı Erişim
@@ -59,7 +57,6 @@ const Footer = () => {
        </ul>
       </div>
 
-      {/* Contact Info */}
       <div className="md:col-span-1 lg:col-span-1">
        <h4 className="text-lg font-bold mb-4 text-white">İletişim</h4>
        <div className="space-y-3">
@@ -78,20 +75,23 @@ const Footer = () => {
 
         <div className="flex items-center gap-3 text-emerald-200 text-sm">
          <Clock className="w-5 h-5 flex-shrink-0" />
-         <span className="whitespace-pre-line">Pazartesi-Cuma: 09:00 - 18:00</span>
-         <span className="whitespace-pre-line">Cumartesi-Pazar: 11:00 - 16:00</span>
+         <div className="flex flex-col gap-1">
+          <span>Pazartesi-Cuma: 09:00 - 18:00</span>
+          <span>Cumartesi-Pazar: 11:00 - 16:00</span>
+         </div>
         </div>
        </div>
       </div>
      </div>
 
-     {/* Bottom Bar */}
      <div className={`pt-8 border-t ${isDark ? 'border-emerald-900' : 'border-emerald-700'} flex flex-col md:flex-row justify-between items-center gap-4`}>
       <p className="text-emerald-300 text-sm flex items-center gap-2">
        © {currentYear}
        <span className="text-emerald-400 font-semibold">Nisa DEMİR</span>
-       <span>•</span>
-       Tüm hakları saklıdır. </p>
+      </p>
+      <p className="text-emerald-300 text-sm">
+       Tüm hakları saklıdır.
+      </p>
      </div>
     </div>
    </div>

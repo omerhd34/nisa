@@ -226,8 +226,8 @@ export const data = {
       },
       {
         title: "Aktarım ve Karşıaktarım",
-        slug: "Aktarım ve Karşıaktarım",
-        image: "/sun.jpeg",
+        slug: "aktarim-ve-karsiaktarim",
+        image: "/above.jpg",
         readTime: "5 dk",
         excerpt: "Aktarım ve Karşıaktarım.",
         content: "Aktarım ve Karşıaktarım...",

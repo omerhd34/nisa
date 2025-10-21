@@ -16,7 +16,7 @@ export default function HomePage() {
     : "bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50"
     } transition-colors duration-300`}
   >
-   <section className="relative overflow-hidden py-20 md:py-28 lg:py-36">
+   <section className="relative overflow-hidden py-40 lg:py-44">
     <div className="absolute inset-0 overflow-hidden">
      <div
       className={`absolute top-20 left-10 w-72 h-72 ${isDark ? "bg-emerald-900/30" : "bg-emerald-300/40"
@@ -89,7 +89,7 @@ export default function HomePage() {
    </section>
 
    {/* Welcome Section */}
-   <section className="py-16 md:py-24 lg:py-32">
+   <section className="py-12 md:py-16 lg:py-20">
     <div className="container mx-auto px-4">
      <div className="max-w-6xl mx-auto">
       <div
@@ -152,7 +152,7 @@ export default function HomePage() {
    </section>
 
    {/* Features Section */}
-   <section className="py-16 md:py-24 lg:py-32">
+   <section className="py-12 md:py-16 lg:py-20">
     <div className="container mx-auto px-4">
      <div className="max-w-6xl mx-auto">
       <div className="text-center mb-16">
@@ -206,7 +206,7 @@ export default function HomePage() {
    </section>
 
    {/* CTA Section */}
-   <section className="py-16 md:py-24">
+   <section className="py-12 md:py-16">
     <div className="container mx-auto px-4">
      <div className="max-w-4xl mx-auto">
       <div
