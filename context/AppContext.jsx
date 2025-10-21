@@ -1,5 +1,6 @@
 'use client';
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
+import { data as fallbackData } from '@/data/data';
 
 const AppContext = createContext(undefined);
 
@@ -13,14 +14,54 @@ export const useAppContext = () => {
 
 export const AppProvider = ({ children }) => {
  const [theme, setTheme] = useState('light');
+ const [siteData, setSiteData] = useState(fallbackData);
+ const [dataLoading, setDataLoading] = useState(true);
 
  const toggleTheme = () => {
   setTheme(prev => prev === 'light' ? 'dark' : 'light');
  };
 
+ useEffect(() => {
+  async function loadData() {
+   try {
+    const endpoints = ['home', 'about', 'work', 'articles', 'contact', 'footer'];
+    const promises = endpoints.map(endpoint =>
+     fetch(`/api/data/${endpoint}`)
+      .then(res => {
+       if (!res.ok) throw new Error(`Failed to fetch ${endpoint}`);
+       return res.json();
+      })
+      .catch(err => {
+       console.warn(`Fallback for ${endpoint}:`, err);
+       return fallbackData[endpoint];
+      })
+    );
+
+    const results = await Promise.all(promises);
+
+    setSiteData({
+     home: results[0],
+     about: results[1],
+     work: results[2],
+     articles: results[3],
+     contact: results[4],
+     footer: results[5],
+    });
+   } catch (error) {
+    console.error('Data loading error:', error);
+   } finally {
+    setDataLoading(false);
+   }
+  }
+
+  loadData();
+ }, []);
+
  const value = {
   theme,
   toggleTheme,
+  data: siteData,
+  dataLoading,
  };
 
  return (

@@ -1,17 +1,36 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { saveContactMessage } from "@/lib/dataQueries";
+import { getContactData } from "@/lib/dataQueries";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  try {
+    const data = await getContactData();
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error("Contact data fetch error:", error);
+    return NextResponse.json({ error: "Veriler alınamadı" }, { status: 500 });
+  }
+}
 
 export async function POST(request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, subject, message } = await request.json();
 
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Tüm alanlar doldurulmalıdır." },
         { status: 400 }
       );
+    }
+
+    try {
+      await saveContactMessage(name, email, subject || "Genel Bilgi", message);
+    } catch (dbError) {
+      console.error("Veritabanına kayıt hatası:", dbError);
     }
 
     const { data, error } = await resend.emails.send({
@@ -33,6 +52,10 @@ export async function POST(request) {
             <p style="margin: 10px 0;">
               <strong style="color: #374151;">E-posta:</strong> 
               <a href="mailto:${email}" style="color: #10b981; text-decoration: none;">${email}</a>
+            </p>
+            <p style="margin: 10px 0;">
+              <strong style="color: #374151;">Konu:</strong> 
+              <span style="color: #1f2937;">${subject || "Belirtilmemiş"}</span>
             </p>
           </div>
           
@@ -63,13 +86,17 @@ export async function POST(request) {
     }
 
     return NextResponse.json(
-      { success: true, message: "Email başarıyla gönderildi.", data },
+      {
+        success: true,
+        message: "Mesajınız başarıyla kaydedildi ve gönderildi.",
+        data,
+      },
       { status: 200 }
     );
   } catch (error) {
     console.error("Email gönderme hatası:", error);
     return NextResponse.json(
-      { error: "Email gönderilirken bir hata oluştu.", details: error.message },
+      { error: "Mesaj gönderilirken bir hata oluştu.", details: error.message },
       { status: 500 }
     );
   }
