@@ -33,7 +33,6 @@ const Header = () => {
     <div className="flex justify-between items-center py-4 lg:py-5">
      <Logo />
 
-     {/* Desktop Menu - Center */}
      <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3">
       {menuItems.map(item => {
        const active = isActive(item.href);
@@ -56,9 +55,7 @@ const Header = () => {
       })}
      </nav>
 
-     {/* Right Side - Theme */}
      <div className="flex items-center gap-3">
-      {/* Theme Toggle */}
       <button
        onClick={toggleTheme}
        className={`p-3 rounded-xl ${isDark ? 'bg-emerald-800/50' : 'bg-white/10'} backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg group`}
@@ -71,7 +68,6 @@ const Header = () => {
        )}
       </button>
 
-      {/* Mobile Menu Button */}
       <button
        className="lg:hidden p-3 hover:bg-white/10 rounded-xl transition-all duration-300 backdrop-blur-sm"
        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -81,7 +77,6 @@ const Header = () => {
      </div>
     </div>
 
-    {/* Mobile Menu */}
     {mobileMenuOpen && (
      <nav className="lg:hidden pb-6 border-t border-emerald-800 mt-2 pt-4 animate-fadeIn">
       {menuItems.map(item => {

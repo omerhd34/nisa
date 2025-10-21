@@ -15,8 +15,8 @@ const WorkAreas = () => {
      className={`${isDark
       ? 'bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg'
       : 'bg-white/90 backdrop-blur-sm border-2 border-emerald-200'
-      } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-emerald-500/20 transform hover:scale-[1.02] transition-all duration-500 animate-slideUp animation-delay-${index * 200
-      }`}
+      } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-emerald-500/20 transform hover:scale-[1.02] transition-all duration-500 animate-slideUp`}
+     style={{ animationDelay: `${200 + index * 100}ms` }}
     >
      <div className="grid md:grid-cols-12 gap-0">
       <div
@@ -27,9 +27,9 @@ const WorkAreas = () => {
       >
        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
        <div className="relative z-10">
-        <div className="bg-white/20 backdrop-blur-sm p-8 rounded-3xl mb-6 transform hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-2xl">
+        <div className="bg-white/20 backdrop-blur-sm p-5 rounded-2xl mb-6 transform hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-2xl flex items-center justify-center">
          <area.icon
-          className="w-20 h-20 text-white"
+          className="w-16 h-16 text-white"
           strokeWidth={1.5}
          />
         </div>

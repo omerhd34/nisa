@@ -7,9 +7,9 @@ const ContactHero = () => {
  const isDark = theme === 'dark';
 
  return (
-  <div className="text-center mb-16 animate-fadeIn">
+  <div className="text-center mb-20 animate-fadeIn">
    <h1
-    className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
+    className={`text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-gray-900'
      } mb-4`}
    >
     İletişim
@@ -22,7 +22,7 @@ const ContactHero = () => {
    </p>
    <div
     className={`w-24 h-1 ${isDark ? 'bg-emerald-400' : 'bg-emerald-600'
-     } mx-auto mt-6 rounded-full`}
+     } mx-auto mt-6 rounded-full transition-all duration-500 hover:w-32`}
    ></div>
   </div>
  );

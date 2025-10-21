@@ -2,16 +2,12 @@ import {
   Heart,
   Target,
   Users as UsersIcon,
-  Mail,
-  MapPin,
-  Clock,
   User,
   Video,
   Brain,
   Sparkles,
   Users,
 } from "lucide-react";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export const data = {
   home: {
@@ -233,7 +229,6 @@ export const data = {
   },
   contact: {
     subtitle: "Size nasıl yardımcı olabilirim? Benimle iletişime geçin.",
-    fillAll: "Lütfen tüm alanları doldurun.",
   },
   footer: {
     description:

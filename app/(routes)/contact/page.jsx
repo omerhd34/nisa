@@ -16,15 +16,15 @@ export default function ContactPage() {
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-7xl mx-auto">
      <ContactHero />
-
-     <div className="grid lg:grid-cols-3 gap-8 md:gap-10">
-      <div className="lg:col-span-2">
+     <div className="grid lg:grid-cols-5 gap-10 md:gap-14">
+      <div className="lg:col-span-3">
        <ContactForm />
       </div>
-
-      <ContactInfo />
+      <div className="lg:col-span-2">
+       <ContactInfo />
+      </div>
      </div>
     </div>
    </div>

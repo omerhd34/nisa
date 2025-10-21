@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
-import ScrollToTop from "@/app/components/ScrollToTop";
+import Header from "@/app/components/ui/Header";
+import Footer from "@/app/components/ui/Footer";
+import ScrollToTop from "@/app/components/ui/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
