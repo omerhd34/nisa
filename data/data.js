@@ -234,37 +234,6 @@ export const data = {
   contact: {
     subtitle: "Size nasıl yardımcı olabilirim? Benimle iletişime geçin.",
     fillAll: "Lütfen tüm alanları doldurun.",
-    contactInfo: [
-      {
-        icon: Mail,
-        title: "E-posta:",
-        content: "psikolognisademir@gmail.com",
-        link: "mailto:psikolognisademir@gmail.com",
-      },
-      {
-        icon: Clock,
-        title: "Çalışma Saatleri:",
-        content:
-          "Pazartesi-Cuma: 09:00 - 18:00\nCumartesi-Pazar: 11:00 - 16:00",
-      },
-      {
-        icon: MapPin,
-        title: "Lokasyon:",
-        content: "İstanbul",
-      },
-    ],
-    socialMedia: [
-      {
-        icon: FaInstagram,
-        link: "https://instagram.com/psikolognisademir",
-        color: "from-pink-500 to-purple-500",
-      },
-      {
-        icon: FaLinkedin,
-        link: "https://www.linkedin.com/in/nisa-demir-798815202/",
-        color: "from-blue-500 to-blue-600",
-      },
-    ],
   },
   footer: {
     description:

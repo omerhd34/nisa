@@ -61,16 +61,16 @@ const Footer = () => {
        <h4 className="text-lg font-bold mb-4 text-white">İletişim</h4>
        <div className="space-y-3">
         <Link
-         href={data.contact.contactInfo[0].link}
+         href="mailto:psikolognisademir@gmail.com"
          className="flex items-center gap-3 text-emerald-200 hover:text-emerald-400 transition-colors duration-300 text-sm group"
         >
          <Mail className="w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-         <span className="break-all">{data.contact.contactInfo[0].content}</span>
+         <span className="break-all">psikolognisademir@gmail.com</span>
         </Link>
 
         <div className="flex items-center gap-3 text-emerald-200 text-sm">
          <MapPin className="w-5 h-5 flex-shrink-0" />
-         <span>{data.contact.contactInfo[2].content}</span>
+         <span>İstanbul</span>
         </div>
 
         <div className="flex items-center gap-3 text-emerald-200 text-sm">

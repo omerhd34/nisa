@@ -1,16 +1,46 @@
 'use client';
 import Link from 'next/link';
-import { Users as UsersIcon } from 'lucide-react';
+import { Users as UsersIcon, Mail, Clock, MapPin } from 'lucide-react';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 
 const ContactInfo = () => {
  const { theme } = useAppContext();
  const isDark = theme === 'dark';
 
+ const contactInfo = [
+  {
+   icon: Mail,
+   title: "E-posta:",
+   content: "psikolognisademir@gmail.com",
+   link: "mailto:psikolognisademir@gmail.com",
+  },
+  {
+   icon: Clock,
+   title: "Çalışma Saatleri:",
+   content: "Pazartesi-Cuma: 09:00 - 18:00\nCumartesi-Pazar: 11:00 - 16:00",
+  },
+  {
+   icon: MapPin,
+   title: "Lokasyon:",
+   content: "İstanbul",
+  },
+ ];
+
+ const socialMedia = [
+  {
+   icon: FaInstagram,
+   link: "https://instagram.com/psikolognisademir",
+  },
+  {
+   icon: FaLinkedin,
+   link: "https://www.linkedin.com/in/nisa-demir-798815202/",
+  },
+ ];
+
  return (
   <div className="lg:col-span-1 space-y-6">
-   {data.contact.contactInfo.map((info, index) => (
+   {contactInfo.map((info, index) => (
     <div
      key={index}
      style={{
@@ -67,7 +97,7 @@ const ContactInfo = () => {
    {/* Sosyal Medya İkonları */}
    <div
     style={{
-     animationDelay: `${200 + data.contact.contactInfo.length * 100}ms`,
+     animationDelay: `${200 + contactInfo.length * 100}ms`,
     }}
     className={`${isDark
      ? 'bg-emerald-950/50 border-2 border-emerald-800'
@@ -89,7 +119,7 @@ const ContactInfo = () => {
      Sosyal Medya
     </h3>
     <div className="flex gap-4 justify-center">
-     {data.contact.socialMedia.map((social, index) => (
+     {socialMedia.map((social, index) => (
       <Link
        key={index}
        href={social.link}
