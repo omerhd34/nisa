@@ -1,7 +1,6 @@
 'use client';
 import { BookOpen } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 
 const ArticlesHero = () => {
  const { theme } = useAppContext();

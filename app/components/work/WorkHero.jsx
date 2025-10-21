@@ -1,6 +1,6 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
+
 
 const WorkHero = () => {
  const { theme } = useAppContext();

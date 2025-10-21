@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 
 const AboutQuote = () => {
  const { theme } = useAppContext();

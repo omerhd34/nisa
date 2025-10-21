@@ -1,20 +1,9 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { saveContactMessage } from "@/lib/dataQueries";
-import { getContactData } from "@/lib/dataQueries";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 export const dynamic = "force-dynamic";
-
-export async function GET() {
-  try {
-    const data = await getContactData();
-    return NextResponse.json(data);
-  } catch (error) {
-    console.error("Contact data fetch error:", error);
-    return NextResponse.json({ error: "Veriler alınamadı" }, { status: 500 });
-  }
-}
 
 export async function POST(request) {
   try {

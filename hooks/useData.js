@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { data as fallbackData } from "@/data/data";
 
 export function useData(endpoint) {
   const [data, setData] = useState(null);
@@ -13,18 +12,15 @@ export function useData(endpoint) {
         const response = await fetch(`/api/data/${endpoint}`);
 
         if (!response.ok) {
-          throw new Error("API çağrısı başarısız");
+          throw new Error(`API çağrısı başarısız: ${response.status}`);
         }
 
         const result = await response.json();
         setData(result);
         setError(null);
       } catch (err) {
-        console.warn(
-          `Veritabanından veri alınamadı, fallback kullanılıyor:`,
-          err
-        );
-        setData(fallbackData[endpoint]);
+        console.error(`Veritabanından ${endpoint} verisi alınamadı:`, err);
+        setData(null);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -38,7 +34,7 @@ export function useData(endpoint) {
 }
 
 export function useAllData() {
-  const [data, setData] = useState(fallbackData);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -54,7 +50,12 @@ export function useAllData() {
           "footer",
         ];
         const promises = endpoints.map((endpoint) =>
-          fetch(`/api/data/${endpoint}`).then((res) => res.json())
+          fetch(`/api/data/${endpoint}`).then((res) => {
+            if (!res.ok) {
+              throw new Error(`Failed to fetch ${endpoint}: ${res.status}`);
+            }
+            return res.json();
+          })
         );
 
         const results = await Promise.all(promises);
@@ -71,11 +72,8 @@ export function useAllData() {
         setData(combinedData);
         setError(null);
       } catch (err) {
-        console.warn(
-          "Veritabanından veriler alınamadı, fallback kullanılıyor:",
-          err
-        );
-        setData(fallbackData);
+        console.error("Veritabanından veriler alınamadı:", err);
+        setData(null);
         setError(err.message);
       } finally {
         setLoading(false);

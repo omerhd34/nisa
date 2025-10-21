@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Clock, Mail, MapPin } from 'lucide-react';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
+
 
 export default function Footer() {
  const { theme } = useAppContext();

@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
+
 
 const WorkCTA = () => {
  const { theme } = useAppContext();

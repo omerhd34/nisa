@@ -1,6 +1,5 @@
 'use client';
 import { createContext, useState, useContext, useEffect } from 'react';
-import { data as fallbackData } from '@/data/data';
 
 const AppContext = createContext(undefined);
 
@@ -14,8 +13,9 @@ export const useAppContext = () => {
 
 export const AppProvider = ({ children }) => {
  const [theme, setTheme] = useState('light');
- const [siteData, setSiteData] = useState(fallbackData);
+ const [siteData, setSiteData] = useState(null);
  const [dataLoading, setDataLoading] = useState(true);
+ const [dataError, setDataError] = useState(null);
 
  const toggleTheme = () => {
   setTheme(prev => prev === 'light' ? 'dark' : 'light');
@@ -28,12 +28,10 @@ export const AppProvider = ({ children }) => {
     const promises = endpoints.map(endpoint =>
      fetch(`/api/data/${endpoint}`)
       .then(res => {
-       if (!res.ok) throw new Error(`Failed to fetch ${endpoint}`);
+       if (!res.ok) {
+        throw new Error(`Failed to fetch ${endpoint}: ${res.status}`);
+       }
        return res.json();
-      })
-      .catch(err => {
-       console.warn(`Fallback for ${endpoint}:`, err);
-       return fallbackData[endpoint];
       })
     );
 
@@ -47,8 +45,11 @@ export const AppProvider = ({ children }) => {
      contact: results[4],
      footer: results[5],
     });
+    setDataError(null);
    } catch (error) {
     console.error('Data loading error:', error);
+    setDataError(error.message);
+    setSiteData(null);
    } finally {
     setDataLoading(false);
    }
@@ -62,6 +63,7 @@ export const AppProvider = ({ children }) => {
   toggleTheme,
   data: siteData,
   dataLoading,
+  dataError,
  };
 
  return (

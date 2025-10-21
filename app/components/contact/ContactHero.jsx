@@ -1,6 +1,5 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 
 const ContactHero = () => {
  const { theme } = useAppContext();

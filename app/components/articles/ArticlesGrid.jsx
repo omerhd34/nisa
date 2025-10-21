@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { BookOpen, Clock, ArrowRight } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 
 const ArticlesGrid = () => {
  const { theme } = useAppContext();

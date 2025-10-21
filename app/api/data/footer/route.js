@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getFooterData } from "@/lib/dataQueries";
+import { getFooterData } from "@/lib/dataQueries.js";
 
 export const dynamic = "force-dynamic";
 
@@ -9,6 +9,9 @@ export async function GET() {
     return NextResponse.json(data);
   } catch (error) {
     console.error("Footer data fetch error:", error);
-    return NextResponse.json({ error: "Veriler alınamadı" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Veritabanından veri alınamadı", details: error.message },
+      { status: 500 }
+    );
   }
 }

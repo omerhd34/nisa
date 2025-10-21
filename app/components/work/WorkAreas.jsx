@@ -1,7 +1,7 @@
 'use client';
 import { CheckCircle } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
+
 
 const WorkAreas = () => {
  const { theme } = useAppContext();

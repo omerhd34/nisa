@@ -1,7 +1,6 @@
 'use client';
 import { User, Award } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
-import { data } from '@/data/data';
 
 const AboutMain = () => {
  const { theme } = useAppContext();
