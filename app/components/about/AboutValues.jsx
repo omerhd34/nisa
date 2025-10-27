@@ -2,8 +2,10 @@
 import { useAppContext } from '@/context/AppContext';
 
 const AboutValues = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.about?.values) return null;
 
  return (
   <div className="mb-12">

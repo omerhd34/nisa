@@ -1,10 +1,11 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
 
-
 const HomeFeatures = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.home?.features || !data?.home?.whyChoose) return null;
 
  return (
   <section className="py-12 md:py-16 lg:py-20">

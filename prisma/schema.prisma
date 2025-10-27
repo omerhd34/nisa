@@ -7,12 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+model SiteData {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  section   String   @unique
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("site_data")
+}
+
 model Home {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  welcomeText String
-  benefits    String[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  welcomeText  String
+  benefits     String[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   @@map("home")
 }

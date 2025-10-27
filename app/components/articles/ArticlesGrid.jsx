@@ -4,8 +4,10 @@ import { BookOpen, Clock, ArrowRight } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 
 const ArticlesGrid = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.articles?.list) return null;
 
  return (
   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">

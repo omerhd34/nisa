@@ -2,10 +2,11 @@
 import Link from 'next/link';
 import { useAppContext } from '@/context/AppContext';
 
-
 const WorkCTA = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.work?.cta) return null;
 
  return (
   <div

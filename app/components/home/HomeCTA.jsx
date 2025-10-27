@@ -2,10 +2,11 @@
 import Link from 'next/link';
 import { useAppContext } from '@/context/AppContext';
 
-
 const HomeCTA = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.home?.cta) return null;
 
  return (
   <section className="py-12 md:py-16">

@@ -3,8 +3,10 @@ import { User, Award } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 
 const AboutMain = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.about) return null;
 
  return (
   <div

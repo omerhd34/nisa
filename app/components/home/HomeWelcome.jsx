@@ -2,10 +2,11 @@
 import { Heart, CheckCircle } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 
-
 const HomeWelcome = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.home) return null;
 
  return (
   <section className="py-12 md:py-16 lg:py-20">
@@ -33,7 +34,7 @@ const HomeWelcome = () => {
         </p>
 
         <div className="space-y-4">
-         {data.home.benefits.map((benefit, index) => (
+         {data.home.benefits?.map((benefit, index) => (
           <div
            key={index}
            className="flex items-start gap-3 animate-slideUp"

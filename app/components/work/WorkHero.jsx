@@ -1,10 +1,11 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
 
-
 const WorkHero = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.work) return null;
 
  return (
   <div className="text-center mb-16 animate-fadeIn">

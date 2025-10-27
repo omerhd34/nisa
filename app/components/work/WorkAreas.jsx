@@ -2,10 +2,11 @@
 import { CheckCircle } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 
-
 const WorkAreas = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.work?.workAreas) return null;
 
  return (
   <div className="space-y-10 md:space-y-12 mb-16">
@@ -55,7 +56,7 @@ const WorkAreas = () => {
          Kapsadığı Alanlar:
         </h3>
         <div className="grid sm:grid-cols-2 gap-3">
-         {area.topics.map((topic, idx) => (
+         {area.topics?.map((topic, idx) => (
           <div
            key={idx}
            className={`flex items-center gap-3 p-3 rounded-xl ${isDark ? 'bg-emerald-900/30' : 'bg-emerald-50'

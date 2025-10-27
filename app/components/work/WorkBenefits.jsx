@@ -1,10 +1,11 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
 
-
 const WorkBenefits = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.work?.benefits) return null;
 
  return (
   <div className="mb-16">

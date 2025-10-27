@@ -5,9 +5,8 @@ import { Clock, Mail, MapPin } from 'lucide-react';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 
-
 export default function Footer() {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
  const currentYear = new Date().getFullYear();
 
@@ -46,7 +45,7 @@ export default function Footer() {
       </div>
 
       <p className="text-emerald-200 text-sm leading-relaxed max-w-xs mt-2">
-       {data?.footer?.description ?? 'Bireysel ve online terapi hizmetleriyle yanınızdayım.'}
+       {data?.footer?.description || 'Bireysel ve online terapi hizmetleriyle yanınızdayım.'}
       </p>
      </div>
 
