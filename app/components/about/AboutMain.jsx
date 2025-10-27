@@ -23,7 +23,7 @@ const AboutMain = () => {
        : 'from-emerald-500 to-green-600'
        } rounded-3xl flex items-center justify-center shadow-2xl transform hover:scale-105 hover:rotate-3 transition-all duration-500`}
      >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent rounded-3xl"></div>
       <User
        className="w-32 h-32 md:w-40 md:h-40 text-white relative z-10"
        strokeWidth={1.5}
