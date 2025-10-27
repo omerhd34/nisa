@@ -37,8 +37,8 @@ const ScrollToTop = () => {
     <button
      onClick={scrollToTop}
      className={`hidden lg:flex fixed bottom-8 right-8 z-50 p-3 xl:p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 ${isDark
-      ? 'bg-gradient-to-br from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600'
-      : 'bg-gradient-to-br from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700'
+      ? 'bg-linear-to-br from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600'
+      : 'bg-linear-to-br from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700'
       } text-white animate-fadeIn items-center justify-center`}
      aria-label="Yukarı çık"
     >

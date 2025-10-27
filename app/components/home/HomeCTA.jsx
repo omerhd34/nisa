@@ -14,7 +14,7 @@ const HomeCTA = () => {
     <div className="max-w-4xl mx-auto">
      <div
       className={`${isDark
-       ? 'bg-gradient-to-br from-emerald-700 to-green-800'
+       ? 'bg-linear-to-br from-emerald-700 to-green-800'
        : 'bg-gradient-to-r from-emerald-600 to-green-600'
        } rounded-3xl shadow-2xl p-12 md:p-16 text-center text-white relative overflow-hidden`}
      >

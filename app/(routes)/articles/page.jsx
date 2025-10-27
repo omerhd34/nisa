@@ -10,8 +10,8 @@ export default function ArticlesPage() {
  return (
   <div
    className={`min-h-screen ${isDark
-    ? 'bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900'
-    : 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50'
+    ? 'bg-linear-to-br from-gray-900 via-emerald-950 to-gray-900'
+    : 'bg-linear-to-br from-emerald-50 via-green-50 to-teal-50'
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">

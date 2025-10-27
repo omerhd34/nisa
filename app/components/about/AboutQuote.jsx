@@ -39,8 +39,8 @@ const AboutQuote = () => {
  return (
   <div
    className={`mt-12 text-center p-8 md:p-12 rounded-3xl ${isDark
-    ? 'bg-gradient-to-br from-emerald-900/40 to-green-900/40 border-2 border-emerald-700'
-    : 'bg-gradient-to-br from-emerald-100 to-green-100 border-2 border-emerald-300'
+    ? 'bg-linear-to-br from-emerald-900/40 to-green-900/40 border-2 border-emerald-700'
+    : 'bg-linear-to-br from-emerald-100 to-green-100 border-2 border-emerald-300'
     } flex items-center justify-between`}
   >
    <button

@@ -1,14 +1,3 @@
-import {
-  Heart,
-  Target,
-  Users as UsersIcon,
-  User,
-  Video,
-  Brain,
-  Sparkles,
-  Users,
-} from "lucide-react";
-
 export const data = {
   home: {
     welcomeText:

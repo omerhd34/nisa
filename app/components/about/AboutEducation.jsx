@@ -3,8 +3,10 @@ import { BookOpen } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 
 const AboutEducation = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
+
+ if (!data?.about) return null;
 
  return (
   <div
@@ -15,7 +17,7 @@ const AboutEducation = () => {
   >
    <div className="flex items-center gap-4 mb-8">
     <div
-     className={`w-14 h-14 bg-gradient-to-br ${isDark
+     className={`w-14 h-14 bg-linear-to-br ${isDark
       ? 'from-emerald-700 to-green-800'
       : 'from-emerald-500 to-green-600'
       } rounded-xl flex items-center justify-center shadow-lg`}
@@ -39,7 +41,7 @@ const AboutEducation = () => {
         } transform hover:translate-x-2 transition-all duration-300`}
       >
        <div
-        className={`w-8 h-8 flex-shrink-0 rounded-full ${isDark ? 'bg-emerald-600' : 'bg-emerald-500'
+        className={`w-8 h-8 shrink-0 rounded-full ${isDark ? 'bg-emerald-600' : 'bg-emerald-500'
          } flex items-center justify-center text-white font-bold shadow-lg`}
        >
         {index + 1}

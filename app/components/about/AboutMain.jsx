@@ -18,7 +18,7 @@ const AboutMain = () => {
    <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
     <div className="md:col-span-2">
      <div
-      className={`relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-gradient-to-br ${isDark
+      className={`relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-linear-to-br ${isDark
        ? 'from-emerald-700 to-green-800'
        : 'from-emerald-500 to-green-600'
        } rounded-3xl flex items-center justify-center shadow-2xl transform hover:scale-105 hover:rotate-3 transition-all duration-500`}

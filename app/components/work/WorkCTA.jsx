@@ -11,7 +11,7 @@ const WorkCTA = () => {
  return (
   <div
    className={`${isDark
-    ? 'bg-gradient-to-br from-emerald-700 to-green-800'
+    ? 'bg-linear-to-br from-emerald-700 to-green-800'
     : 'bg-gradient-to-r from-emerald-600 to-green-600'
     } text-white rounded-3xl shadow-2xl p-10 md:p-16 text-center transform hover:scale-[1.02] transition-all duration-500 relative overflow-hidden`}
   >

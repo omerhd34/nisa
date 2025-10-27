@@ -1,5 +1,12 @@
 'use client';
+import { Brain, Heart, Sparkles } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
+
+const iconMap = {
+ Brain,
+ Heart,
+ Sparkles,
+};
 
 const WorkBenefits = () => {
  const { theme, data } = useAppContext();
@@ -16,33 +23,37 @@ const WorkBenefits = () => {
     Neden Benimle Çalışmalısınız?
    </h2>
    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-    {data.work.benefits.map((benefit, index) => (
-     <div
-      key={index}
-      className={`${isDark
-       ? 'bg-emerald-950/50 border-2 border-emerald-800'
-       : 'bg-white/90 border-2 border-emerald-200'
-       } rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-500`}
-     >
+    {data.work.benefits.map((benefit, index) => {
+     const IconComponent = iconMap[benefit.icon];
+
+     return (
       <div
-       className={`w-16 h-16 ${isDark
-        ? 'bg-gradient-to-br from-emerald-700 to-green-800'
-        : 'bg-gradient-to-br from-emerald-500 to-green-600'
-        } rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
+       key={index}
+       className={`${isDark
+        ? 'bg-emerald-950/50 border-2 border-emerald-800'
+        : 'bg-white/90 border-2 border-emerald-200'
+        } rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-500`}
       >
-       <benefit.icon className="w-8 h-8 text-white" />
+       <div
+        className={`w-16 h-16 ${isDark
+         ? 'bg-linear-to-br from-emerald-700 to-green-800'
+         : 'bg-linear-to-br from-emerald-500 to-green-600'
+         } rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
+       >
+        {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
+       </div>
+       <h3
+        className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
+         } mb-3`}
+       >
+        {benefit.title}
+       </h3>
+       <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+        {benefit.description}
+       </p>
       </div>
-      <h3
-       className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
-        } mb-3`}
-      >
-       {benefit.title}
-      </h3>
-      <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-       {benefit.description}
-      </p>
-     </div>
-    ))}
+     );
+    })}
    </div>
   </div>
  );

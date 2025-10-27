@@ -35,7 +35,7 @@ export default function Footer() {
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-10 text-center md:text-left">
      <div className="flex flex-col items-center md:items-start space-y-3">
       <div className="flex items-center gap-3">
-       <div className="bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl w-12 h-12 flex items-center justify-center shadow-lg">
+       <div className="bg-linear-to-br from-emerald-500 to-green-600 rounded-xl w-12 h-12 flex items-center justify-center shadow-lg">
         <span className="text-white font-black text-xl">ND</span>
        </div>
        <div>

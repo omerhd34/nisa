@@ -56,7 +56,7 @@ const HomeWelcome = () => {
        </div>
 
        <div
-        className={`relative h-80 md:h-96 rounded-2xl bg-gradient-to-br ${isDark
+        className={`relative h-80 md:h-96 rounded-2xl bg-linear-to-br ${isDark
          ? 'from-emerald-700 to-green-800'
          : 'from-emerald-400 to-green-500'
          } shadow-2xl overflow-hidden`}

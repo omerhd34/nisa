@@ -63,8 +63,8 @@ const ContactInfo = () => {
      <div className="flex flex-col sm:flex-row items-start gap-4">
       <div
        className={`w-14 h-14 flex-shrink-0 ${isDark
-        ? 'bg-gradient-to-br from-emerald-700 to-green-800'
-        : 'bg-gradient-to-br from-emerald-500 to-green-600'
+        ? 'bg-linear-to-br from-emerald-700 to-green-800'
+        : 'bg-linear-to-br from-emerald-500 to-green-600'
         } rounded-xl flex items-center justify-center shadow-lg`}
       >
        <info.icon className="w-7 h-7 text-white" />
