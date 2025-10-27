@@ -42,10 +42,13 @@ model About {
 }
 
 model Work {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  subtitle  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  subtitle   String
+  workAreas  Json
+  benefits   Json
+  cta        Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@map("work")
 }
@@ -73,16 +76,6 @@ model Contact {
   @@map("contact")
 }
 
-model ContactMessage {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  email     String
-  subject   String
-  message   String
-  createdAt DateTime @default(now())
-
-  @@map("contact_messages")
-}
 
 model Footer {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId

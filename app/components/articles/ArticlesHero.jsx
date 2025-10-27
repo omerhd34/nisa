@@ -37,7 +37,7 @@ const ArticlesHero = () => {
     className={`text-lg md:text-xl ${isDark ? 'text-gray-400' : 'text-gray-600'
      } max-w-3xl mx-auto`}
    >
-    {data?.articles?.subtitle || 'Ruh sağlığı, kişisel gelişim ve terapi hakkında yazılar'}
+    Ruh sağlığı, kişisel gelişim ve terapi hakkında yazılar
    </p>
    <div
     className={`w-24 h-1 ${isDark ? 'bg-emerald-400' : 'bg-emerald-600'

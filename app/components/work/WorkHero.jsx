@@ -5,7 +5,24 @@ const WorkHero = () => {
  const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
 
- if (!data?.work) return null;
+ if (!data?.work) {
+  return (
+   <div className="text-center mb-16 animate-fadeIn">
+    <h1
+     className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
+      } mb-4`}
+    >
+     Çalışma Alanlarım
+    </h1>
+    <p
+     className={`text-lg md:text-xl ${isDark ? 'text-gray-400' : 'text-gray-600'
+      } max-w-3xl mx-auto`}
+    >
+     Veriler yükleniyor...
+    </p>
+   </div>
+  );
+ }
 
  return (
   <div className="text-center mb-16 animate-fadeIn">

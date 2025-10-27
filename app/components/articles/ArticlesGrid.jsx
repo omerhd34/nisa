@@ -7,11 +7,19 @@ const ArticlesGrid = () => {
  const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
 
- if (!data?.articles?.list) return null;
+ if (!data?.articles || !Array.isArray(data.articles)) {
+  return (
+   <div className="text-center py-16">
+    <p className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+     {data?.articles ? 'Makaleler yükleniyor...' : 'Makale bulunamadı'}
+    </p>
+   </div>
+  );
+ }
 
  return (
   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-   {data.articles.list.map((article, index) => (
+   {data.articles.map((article, index) => (
     <Link
      key={index}
      href={`/articles/${article.slug}`}
@@ -27,7 +35,7 @@ const ArticlesGrid = () => {
        backgroundImage: `url(${article.image})`,
       }}
      >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
 
       <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-sm p-3 rounded-xl">

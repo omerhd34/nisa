@@ -119,7 +119,7 @@ const ContactForm = () => {
 
    {submitted && (
     <div className="mb-6 p-4 bg-green-500/20 border border-green-500 text-green-400 rounded-xl flex items-center gap-3 animate-fadeIn">
-     <CheckCircle2 className="w-6 h-6 flex-shrink-0" />
+     <CheckCircle2 className="w-6 h-6 shrink-0" />
      <span className="font-semibold">Mesajınız başarıyla gönderildi!</span>
     </div>
    )}
@@ -268,8 +268,8 @@ const ContactForm = () => {
       onClick={handleSubmit}
       disabled={isSubmitting}
       className={`w-full ${isDark
-       ? 'bg-gradient-to-r from-emerald-700 to-green-800'
-       : 'bg-gradient-to-r from-emerald-600 to-green-600'
+       ? 'bg-liner-to-r from-emerald-700 to-green-800'
+       : 'bg-liner-to-r from-emerald-600 to-green-600'
        } text-white px-6 py-4 rounded-xl font-bold text-base hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
      >
       <Send className="w-5 h-5" />

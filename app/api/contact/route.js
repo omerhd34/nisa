@@ -1,6 +1,5 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import { saveContactMessage } from "@/lib/dataQueries";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 export const dynamic = "force-dynamic";
@@ -14,12 +13,6 @@ export async function POST(request) {
         { error: "Tüm alanlar doldurulmalıdır." },
         { status: 400 }
       );
-    }
-
-    try {
-      await saveContactMessage(name, email, subject || "Genel Bilgi", message);
-    } catch (dbError) {
-      console.error("Veritabanına kayıt hatası:", dbError);
     }
 
     const { data, error } = await resend.emails.send({
