@@ -9,13 +9,22 @@
     "lint": "eslint",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "seed:all": "node prisma/seed-all.js",
+    "seed:home": "node prisma/seed-home.js",
+    "seed:about": "node prisma/seed-about.js",
+    "seed:work": "node prisma/seed-work.js",
+    "seed:articles": "node prisma/seed-articles.js",
+    "seed:contact": "node prisma/seed-contact.js",
+    "seed:footer": "node prisma/seed-footer.js"
+  },
+  "prisma": {
+    "seed": "node prisma/seed-all.js"
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",
     "@react-email/render": "^1.3.2",
     "lucide-react": "^0.544.0",
-    "mongodb": "^6.20.0",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",

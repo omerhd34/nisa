@@ -37,14 +37,16 @@ export const AppProvider = ({ children }) => {
 
     const results = await Promise.all(promises);
 
-    setSiteData({
+    window.data = {
      home: results[0],
      about: results[1],
      work: results[2],
      articles: results[3],
      contact: results[4],
      footer: results[5],
-    });
+    };
+
+    setSiteData(window.data);
     setDataError(null);
    } catch (error) {
     console.error('Data loading error:', error);
