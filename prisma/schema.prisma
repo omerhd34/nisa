@@ -13,7 +13,6 @@ model SiteData {
   data      Json
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
   @@map("site_data")
 }
 
@@ -23,7 +22,6 @@ model Home {
   benefits     String[]
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-
   @@map("home")
 }
 
@@ -32,12 +30,8 @@ model About {
   text1     String
   text2     String
   text3     String
-  edu1      String
-  edu2      String
-  edu3      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
   @@map("about")
 }
 
@@ -45,11 +39,8 @@ model Work {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   subtitle   String
   workAreas  Json
-  benefits   Json
-  cta        Json
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-
   @@map("work")
 }
 
@@ -63,7 +54,6 @@ model Article {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
   @@map("articles")
 }
 
@@ -72,7 +62,6 @@ model Contact {
   subtitle  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
   @@map("contact")
 }
 
@@ -82,6 +71,5 @@ model Footer {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   @@map("footer")
 }

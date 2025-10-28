@@ -10,13 +10,7 @@
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
     "prisma:studio": "prisma studio",
-    "seed:home": "node prisma/seed-home.js",
-    "seed:about": "node prisma/seed-about.js",
-    "seed:work": "node prisma/seed-work.js",
-    "seed:articles": "node prisma/seed-articles.js",
-    "seed:contact": "node prisma/seed-contact.js",
-    "seed:footer": "node prisma/seed-footer.js",
-    "seed:all": "node prisma/seed-footer.js && node prisma/seed-contact.js && node prisma/seed-articles.js && node prisma/seed-work.js && node prisma/seed-about.js && node prisma/seed-home.js"
+    "seed:reset": "node prisma/clear-and-reseed.js"
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",

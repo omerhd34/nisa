@@ -58,34 +58,7 @@ const WorkAreas = () => {
          {area.description}
         </p>
 
-        <div>
-         <h3
-          className={`text-xl font-semibold ${isDark ? 'text-emerald-400' : 'text-emerald-700'
-           } mb-4`}
-         >
-          Kapsadığı Alanlar:
-         </h3>
-         <div className="grid sm:grid-cols-2 gap-3">
-          {area.topics?.map((topic, idx) => (
-           <div
-            key={idx}
-            className={`flex items-center gap-3 p-3 rounded-xl ${isDark ? 'bg-emerald-900/30' : 'bg-emerald-50'
-             } transform hover:translate-x-1 transition-all duration-300`}
-           >
-            <CheckCircle
-             className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'
-              } shrink-0`}
-            />
-            <span
-             className={`${isDark ? 'text-gray-300' : 'text-gray-700'
-              } text-base`}
-            >
-             {topic}
-            </span>
-           </div>
-          ))}
-         </div>
-        </div>
+
        </div>
       </div>
      </div>

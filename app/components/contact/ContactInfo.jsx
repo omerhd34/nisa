@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { Users as UsersIcon, Mail, Clock, MapPin, Target, Briefcase, Video, User } from 'lucide-react'; // 'User' ikonu eklendi
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 
 const ContactInfo = () => {
@@ -11,7 +11,6 @@ const ContactInfo = () => {
  const socialMedia = [
   { icon: Mail, link: 'mailto:psikolognisademir@gmail.com' },
   { icon: FaInstagram, link: 'https://instagram.com/psikolognisademir' },
-  { icon: FaLinkedin, link: 'https://www.linkedin.com/in/nisa-demir-798815202/' },
  ];
 
  const contactInfo = [
@@ -21,7 +20,7 @@ const ContactInfo = () => {
    type: 'schedule',
    schedule: [
     'Pazartesi & Cuma: 10:00 - 20:00',
-    'Salı, Çarşamba, Perşamba: 11:00 - 20:00',
+    'Salı, Çarşamba, Perşembe: 11:00 - 20:00',
     'Cumartesi: 11:00 - 20:00',
    ],
   },
@@ -38,13 +37,12 @@ const ContactInfo = () => {
    socialLinks: socialMedia,
   },
   {
-   // Briefcase ikonu Çalışma Alanları için uygun.
    icon: Briefcase,
    title: 'Çalışma Alanlarım:',
-   type: 'area', // Yeni tip: 'area' olarak ayarlandı
-   areas: [ // 'schedule' yerine 'areas' kullanıldı, her biri ikon ve metin içerecek
-    { text: 'Bireysel Terapi', icon: User }, // Tek kişi için User ikonu
-    { text: 'Online Terapi', icon: Video }, // Online terapi için Video ikonu
+   type: 'area',
+   areas: [
+    { text: 'Bireysel Terapi', icon: User },
+    { text: 'Online Terapi', icon: Video },
    ],
   },
  ];
@@ -62,7 +60,7 @@ const ContactInfo = () => {
     >
      <div className="flex flex-col sm:flex-row items-start gap-4">
       <div
-       className={`w-14 h-14 flex-shrink-0 ${isDark
+       className={`w-14 h-14 shrink-0 ${isDark
         ? 'bg-linear-to-br from-emerald-700 to-green-800'
         : 'bg-linear-to-br from-emerald-500 to-green-600'
         } rounded-xl flex items-center justify-center shadow-lg`}
@@ -98,7 +96,6 @@ const ContactInfo = () => {
         </p>
        )}
 
-       {/* Yeni eklenen Çalışma Alanları (type: 'area') render bloğu */}
        {info.type === 'area' && (
         <ul
          className={`${isDark ? 'text-gray-400' : 'text-gray-600'
@@ -106,7 +103,7 @@ const ContactInfo = () => {
         >
          {info.areas.map((area, i) => (
           <li key={i} className="flex items-center gap-2">
-           <area.icon className="w-4 h-4 text-emerald-500 flex-shrink-0" /> {/* Her bir alan için ikon */}
+           <area.icon className="w-4 h-4 text-emerald-500 shrink-0" />
            <span>{area.text}</span>
           </li>
          ))}

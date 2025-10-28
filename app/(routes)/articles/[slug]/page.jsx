@@ -8,11 +8,12 @@ import { useAppContext } from "@/context/AppContext";
 import { notFound } from "next/navigation";
 
 export default function ArticleDetailPage({ params }) {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === "dark";
 
  const resolvedParams = use(params);
- const article = data.articles.list.find((a) => a.slug === resolvedParams.slug);
+
+ const article = data?.articles?.find((a) => a.slug === resolvedParams.slug);
 
  if (!article) {
   notFound();

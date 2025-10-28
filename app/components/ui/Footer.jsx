@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Clock, Mail, MapPin } from 'lucide-react';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 
 export default function Footer() {
@@ -21,14 +21,13 @@ export default function Footer() {
  const socialMedia = [
   { icon: Mail, link: 'mailto:psikolognisademir@gmail.com', label: 'E-posta' },
   { icon: FaInstagram, link: 'https://instagram.com/psikolognisademir', label: 'Instagram' },
-  { icon: FaLinkedin, link: 'https://www.linkedin.com/in/nisa-demir-798815202/', label: 'LinkedIn' },
  ];
 
  return (
   <footer
    className={`${isDark
-    ? 'bg-gradient-to-r from-emerald-950 via-green-950 to-emerald-950 border-t border-emerald-900'
-    : 'bg-gradient-to-r from-emerald-700 via-green-700 to-emerald-800'
+    ? 'bg-linear-to-r from-emerald-950 via-green-950 to-emerald-950 border-t border-emerald-900'
+    : 'bg-linear-to-r from-emerald-700 via-green-700 to-emerald-800'
     } text-white py-14 md:py-16 transition-colors duration-500`}
   >
    <div className="container mx-auto px-6">
@@ -70,8 +69,8 @@ export default function Footer() {
       <h4 className="text-lg font-bold mb-4 text-white tracking-wide">İletişim</h4>
 
       <div className="flex justify-center md:justify-start items-start gap-3 text-emerald-200 text-sm mb-4">
-       <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-       <span className="font-medium">İstanbul (Online Terapi Hizmeti)</span>
+       <MapPin className="w-5 h-5 shrink-0 mt-0.5" />
+       <span className="font-medium">İstanbul & Online Terapi</span>
       </div>
 
       <div className="space-y-3 mb-6">
@@ -84,7 +83,7 @@ export default function Footer() {
          aria-label={s.label}
          className="text-emerald-200 hover:text-white transition-colors duration-300 text-sm flex items-center justify-center md:justify-start gap-3 group"
         >
-         <s.icon className="w-5 h-5 flex-shrink-0 text-emerald-300 group-hover:text-white transform group-hover:scale-110 transition-transform" />
+         <s.icon className="w-5 h-5 shrink-0 text-emerald-300 group-hover:text-white transform group-hover:scale-110 transition-transform" />
          <span className="font-medium">{s.label === 'E-posta' ? 'psikolognisademir@gmail.com' : s.label}</span>
         </Link>
        ))}
@@ -93,15 +92,14 @@ export default function Footer() {
       <div>
        <h5 className="text-md font-semibold mb-2 text-white">Çalışma Saatleri</h5>
        <div className="flex justify-center md:justify-start items-center gap-3 text-emerald-200 text-sm">
-        <Clock className="w-5 h-5 flex-shrink-0" />
+        <Clock className="w-5 h-5 shrink-0" />
         <div className="flex flex-col space-y-1">
-         <p>Pazartesi, Cuma: 10:00 - 20:00</p>
-         <p>Salı - Perşembe: 11:00 - 20:00</p>
+         <p>Pazartesi & Cuma: 10:00 - 20:00</p>
+         <p>Salı, Çarşamba, Perşembe: 11:00 - 20:00</p>
          <p>Cumartesi: 11:00 - 20:00</p>
         </div>
        </div>
       </div>
-
      </div>
     </div>
 
@@ -110,8 +108,8 @@ export default function Footer() {
       } flex flex-col md:flex-row justify-between items-center gap-4`}
     >
      <p className="text-emerald-300 text-sm">
-      © {currentYear}{' '}
-      <span className="text-emerald-400 font-semibold hover:text-white transition-colors">Nisa DEMİR</span>
+      © {currentYear} { }
+      <span className="text-emerald-400 font-semibold hover:text-white transition-colors"> Nisa DEMİR</span>
      </p>
      <p className="text-emerald-300 text-sm">Tüm hakları saklıdır.</p>
     </div>

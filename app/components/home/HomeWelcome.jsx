@@ -24,7 +24,7 @@ const HomeWelcome = () => {
          className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'
           } mb-6 md:mb-8`}
         >
-         Merhaba!
+         Merhabalar !
         </h2>
         <p
          className={`${isDark ? 'text-gray-300' : 'text-gray-700'
@@ -42,7 +42,7 @@ const HomeWelcome = () => {
           >
            <CheckCircle
             className={`w-6 h-6 ${isDark ? 'text-emerald-400' : 'text-emerald-600'
-             } flex-shrink-0 mt-1`}
+             } shrink-0 mt-1`}
            />
            <span
             className={`${isDark ? 'text-gray-300' : 'text-gray-700'
@@ -61,7 +61,7 @@ const HomeWelcome = () => {
          : 'from-emerald-400 to-green-500'
          } shadow-2xl overflow-hidden`}
        >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
         <div className="absolute inset-0 flex items-center justify-center">
          <Heart className="w-32 h-32 text-white/80" strokeWidth={1.5} />
         </div>

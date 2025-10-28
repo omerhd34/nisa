@@ -2,7 +2,6 @@
 import { useAppContext } from '@/context/AppContext';
 import WorkHero from '@/app/components/work/WorkHero';
 import WorkAreas from '@/app/components/work/WorkAreas';
-import WorkBenefits from '@/app/components/work/WorkBenefits';
 import WorkCTA from '@/app/components/work/WorkCTA';
 
 export default function WorkPage() {
@@ -20,7 +19,6 @@ export default function WorkPage() {
     <div className="max-w-7xl mx-auto">
      <WorkHero />
      <WorkAreas />
-     <WorkBenefits />
      <WorkCTA />
     </div>
    </div>

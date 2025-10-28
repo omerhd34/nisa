@@ -3,7 +3,6 @@ import { useAppContext } from '@/context/AppContext';
 import AboutHero from '@/app/components/about/AboutHero';
 import AboutMain from '@/app/components/about/AboutMain';
 import AboutValues from '@/app/components/about/AboutValues';
-import AboutEducation from '@/app/components/about/AboutEducation';
 import AboutQuote from '@/app/components/about/AboutQuote';
 
 export default function AboutPage() {
@@ -22,7 +21,6 @@ export default function AboutPage() {
      <AboutHero />
      <AboutMain />
      <AboutValues />
-     <AboutEducation />
      <AboutQuote />
     </div>
    </div>

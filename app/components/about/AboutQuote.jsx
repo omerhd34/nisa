@@ -45,13 +45,13 @@ const AboutQuote = () => {
   >
    <button
     onClick={handlePrevQuote}
-    className={`p-2 rounded-full bg-emerald-600 text-white transition-colors duration-300 flex-shrink-0 ${isDark ? 'hover:bg-emerald-500' : 'hover:bg-emerald-700'
+    className={`p-2 rounded-full bg-emerald-600 text-white transition-colors duration-300 shrink-0 ${isDark ? 'hover:bg-emerald-500' : 'hover:bg-emerald-700'
      }`}
    >
     <ChevronLeft className="w-6 h-6" />
    </button>
 
-   <div className="flex-grow mx-4 max-w-4xl">
+   <div className="grow mx-4 max-w-4xl">
     <p
      className={`text-2xl md:text-3xl font-semibold italic ${isDark ? 'text-emerald-300' : 'text-emerald-800'
       }`}
@@ -68,7 +68,7 @@ const AboutQuote = () => {
 
    <button
     onClick={handleNextQuote}
-    className={`p-2 rounded-full bg-emerald-600 text-white transition-colors duration-300 flex-shrink-0 ${isDark ? 'hover:bg-emerald-500' : 'hover:bg-emerald-700'
+    className={`p-2 rounded-full bg-emerald-600 text-white transition-colors duration-300 shrink-0 ${isDark ? 'hover:bg-emerald-500' : 'hover:bg-emerald-700'
      }`}
    >
     <ChevronRight className="w-6 h-6" />
