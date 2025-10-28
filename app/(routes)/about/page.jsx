@@ -2,8 +2,6 @@
 import { useAppContext } from '@/context/AppContext';
 import AboutHero from '@/app/components/about/AboutHero';
 import AboutMain from '@/app/components/about/AboutMain';
-import AboutValues from '@/app/components/about/AboutValues';
-import AboutQuote from '@/app/components/about/AboutQuote';
 
 export default function AboutPage() {
  const { theme } = useAppContext();
@@ -20,8 +18,6 @@ export default function AboutPage() {
     <div className="max-w-6xl mx-auto">
      <AboutHero />
      <AboutMain />
-     <AboutValues />
-     <AboutQuote />
     </div>
    </div>
   </div>

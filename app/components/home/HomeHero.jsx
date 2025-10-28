@@ -64,8 +64,8 @@ const HomeHero = () => {
 
     <div
      className={`absolute inset-0 ${isDark
-      ? 'bg-gradient-to-tr from-emerald-900/10 via-transparent to-green-900/10'
-      : 'bg-gradient-to-tr from-emerald-200/20 via-transparent to-green-200/20'
+      ? 'bg-linear-to-tr from-emerald-900/10 via-transparent to-green-900/10'
+      : 'bg-linear-to-tr from-emerald-200/20 via-transparent to-green-200/20'
       }`}
      style={{
       backgroundSize: '200% 200%',
@@ -127,8 +127,8 @@ const HomeHero = () => {
       <Link
        href="/contact"
        className={`group ${isDark
-        ? 'bg-gradient-to-r from-emerald-600 to-green-600 border-2 border-emerald-500'
-        : 'bg-gradient-to-r from-emerald-600 to-green-600 border-2 border-emerald-700'
+        ? 'bg-linear-to-r from-emerald-600 to-green-600 border-2 border-emerald-500'
+        : 'bg-linear-to-r from-emerald-600 to-green-600 border-2 border-emerald-700'
         } text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
       >
        Randevu Al
@@ -137,8 +137,8 @@ const HomeHero = () => {
       <Link
        href="/about"
        className={`group ${isDark
-        ? 'bg-gradient-to-r from-teal-600 to-cyan-600 border-2 border-teal-500 text-white'
-        : 'bg-gradient-to-r from-teal-500 to-cyan-500 border-2 border-teal-700 text-white'
+        ? 'bg-linear-to-r from-teal-600 to-cyan-600 border-2 border-teal-500 text-white'
+        : 'bg-linear-to-r from-teal-500 to-cyan-500 border-2 border-teal-700 text-white'
         } px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
       >
        Daha Fazla Bilgi

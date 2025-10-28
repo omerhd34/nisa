@@ -2,8 +2,6 @@
 import { useAppContext } from '@/context/AppContext';
 import HomeHero from '@/app/components/home/HomeHero';
 import HomeWelcome from '@/app/components/home/HomeWelcome';
-import HomeFeatures from '@/app/components/home/HomeFeatures';
-import HomeCTA from '@/app/components/home/HomeCTA';
 
 export default function HomePage() {
  const { theme } = useAppContext();
@@ -18,8 +16,6 @@ export default function HomePage() {
   >
    <HomeHero />
    <HomeWelcome />
-   <HomeFeatures />
-   <HomeCTA />
   </div>
  );
 }

@@ -17,7 +17,7 @@ const ContactHero = () => {
     className={`text-lg md:text-xl ${isDark ? 'text-gray-400' : 'text-gray-600'
      } max-w-2xl mx-auto`}
    >
-    {data?.contact?.subtitle || 'Size nasıl yardımcı olabilirim? Benimle iletişime geçin.'}
+    {data?.contact?.subtitle}
    </p>
    <div
     className={`w-24 h-1 ${isDark ? 'bg-emerald-400' : 'bg-emerald-600'

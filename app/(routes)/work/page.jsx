@@ -2,7 +2,6 @@
 import { useAppContext } from '@/context/AppContext';
 import WorkHero from '@/app/components/work/WorkHero';
 import WorkAreas from '@/app/components/work/WorkAreas';
-import WorkCTA from '@/app/components/work/WorkCTA';
 
 export default function WorkPage() {
  const { theme } = useAppContext();
@@ -19,7 +18,6 @@ export default function WorkPage() {
     <div className="max-w-7xl mx-auto">
      <WorkHero />
      <WorkAreas />
-     <WorkCTA />
     </div>
    </div>
   </div>
