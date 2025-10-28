@@ -268,9 +268,9 @@ const ContactForm = () => {
       onClick={handleSubmit}
       disabled={isSubmitting}
       className={`w-full ${isDark
-       ? 'bg-liner-to-r from-emerald-700 to-green-800 text-white'
-       : 'bg-liner-to-r from-emerald-600 to-green-600'
-       }  px-6 py-4 rounded-xl font-bold text-base hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
+       ? 'bg-linear-to-r from-emerald-700 to-green-800  '
+       : 'bg-linear-to-r from-emerald-600 to-green-600 '
+       }   px-6 py-4 rounded-xl font-bold text-white hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
      >
       <Send className="w-5 h-5" />
       {isSubmitting ? 'Mesajınız gönderiliyor...' : 'Gönder'}

@@ -54,6 +54,7 @@ model Article {
   content   String
   source    String?
   writer    String?
+  writer2   String?
   poem      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
