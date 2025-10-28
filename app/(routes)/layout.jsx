@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { AppProvider } from "@/context/AppContext";
 import Header from "@/app/components/ui/Header";
 import Footer from "@/app/components/ui/Footer";
 import ScrollToTop from "@/app/components/ui/ScrollToTop";
+import LoadingErrorHandler from "@/app/components/ui/LoadingErrorHandler";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,12 +32,14 @@ export default function RootLayout({ children }) {
    </head>
    <body className={inter.className}>
     <AppProvider>
-     <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-      <ScrollToTop />
-     </div>
+     <LoadingErrorHandler>
+      <div className="min-h-screen flex flex-col">
+       <Header />
+       <main className="flex-1">{children}</main>
+       <Footer />
+       <ScrollToTop />
+      </div>
+     </LoadingErrorHandler>
     </AppProvider>
    </body>
   </html>

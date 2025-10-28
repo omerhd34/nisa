@@ -15,10 +15,10 @@ const HomeCTA = () => {
      <div
       className={`${isDark
        ? 'bg-linear-to-br from-emerald-700 to-green-800'
-       : 'bg-gradient-to-r from-emerald-600 to-green-600'
+       : 'bg-linear-to-r from-emerald-600 to-green-600'
        } rounded-3xl shadow-2xl p-12 md:p-16 text-center text-white relative overflow-hidden`}
      >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
       <div className="relative z-10">
        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
         {data.home.cta.title}

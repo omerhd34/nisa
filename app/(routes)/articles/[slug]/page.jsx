@@ -6,7 +6,6 @@ import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { notFound } from "next/navigation";
-import { data } from "@/data/data";
 
 export default function ArticleDetailPage({ params }) {
  const { theme } = useAppContext();
