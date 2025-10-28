@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link';
-import { Users as UsersIcon, Mail, Clock, MapPin, Target, Briefcase, Video, User } from 'lucide-react'; // 'User' ikonu eklendi
+import { Users as UsersIcon, Mail, Clock, MapPin, Target, Briefcase, Video, User } from 'lucide-react';
 import { FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 
 const ContactInfo = () => {
- const { theme } = useAppContext();
+ const { theme, data } = useAppContext();
  const isDark = theme === 'dark';
 
  const socialMedia = [
@@ -18,11 +18,7 @@ const ContactInfo = () => {
    icon: Clock,
    title: 'Çalışma Saatleri:',
    type: 'schedule',
-   schedule: [
-    'Pazartesi & Cuma: 10:00 - 20:00',
-    'Salı, Çarşamba, Perşembe: 11:00 - 20:00',
-    'Cumartesi: 11:00 - 20:00',
-   ],
+   schedule: data?.contact?.workingHours
   },
   {
    icon: MapPin,

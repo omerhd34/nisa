@@ -1,10 +1,9 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
-import ContactHero from '@/app/components/contact/ContactHero';
-import ContactForm from '@/app/components/contact/ContactForm';
-import ContactInfo from '@/app/components/contact/ContactInfo';
+import WorkHero from '@/app/components/calisma_alanlarim/WorkHero';
+import WorkAreas from '@/app/components/calisma_alanlarim/WorkAreas';
 
-export default function ContactPage() {
+export default function WorkPage() {
  const { theme } = useAppContext();
  const isDark = theme === 'dark';
 
@@ -17,15 +16,8 @@ export default function ContactPage() {
   >
    <div className="container mx-auto px-4">
     <div className="max-w-7xl mx-auto">
-     <ContactHero />
-     <div className="grid lg:grid-cols-5 gap-10 md:gap-14">
-      <div className="lg:col-span-3">
-       <ContactForm />
-      </div>
-      <div className="lg:col-span-2">
-       <ContactInfo />
-      </div>
-     </div>
+     <WorkHero />
+     <WorkAreas />
     </div>
    </div>
   </div>

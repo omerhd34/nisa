@@ -125,7 +125,7 @@ const HomeHero = () => {
 
      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center animate-slideUp animation-delay-400 max-w-md sm:max-w-none mx-auto">
       <Link
-       href="/contact"
+       href="/iletisim"
        className={`group ${isDark
         ? 'bg-linear-to-r from-emerald-600 to-green-600 border-2 border-emerald-500'
         : 'bg-linear-to-r from-emerald-600 to-green-600 border-2 border-emerald-700'
@@ -135,7 +135,7 @@ const HomeHero = () => {
        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
       </Link>
       <Link
-       href="/about"
+       href="/tanisalim"
        className={`group ${isDark
         ? 'bg-linear-to-r from-teal-600 to-cyan-600 border-2 border-teal-500 text-white'
         : 'bg-linear-to-r from-teal-500 to-cyan-500 border-2 border-teal-700 text-white'

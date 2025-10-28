@@ -12,16 +12,18 @@ export default function Footer() {
 
  const quickLinks = [
   { label: 'Ana Sayfa', href: '/' },
-  { label: 'Tanışalım', href: '/about' },
-  { label: 'Çalışma Alanlarım', href: '/work' },
-  { label: 'Yazılarım', href: '/articles' },
-  { label: 'İletişim', href: '/contact' },
+  { label: 'Tanışalım', href: '/tanisalim' },
+  { label: 'Çalışma Alanlarım', href: '/calisma_alanlarim' },
+  { label: 'Yazılarım', href: '/yazilarim' },
+  { label: 'İletişim', href: '/iletisim' },
  ];
 
  const socialMedia = [
   { icon: Mail, link: 'mailto:psikolognisademir@gmail.com', label: 'E-posta' },
   { icon: FaInstagram, link: 'https://instagram.com/psikolognisademir', label: 'Instagram' },
  ];
+
+ const workingHours = data?.footer?.workingHours;
 
  return (
   <footer
@@ -94,9 +96,9 @@ export default function Footer() {
        <div className="flex justify-center md:justify-start items-center gap-3 text-emerald-200 text-sm">
         <Clock className="w-5 h-5 shrink-0" />
         <div className="flex flex-col space-y-1">
-         <p>Pazartesi & Cuma: 10:00 - 20:00</p>
-         <p>Salı, Çarşamba, Perşembe: 11:00 - 20:00</p>
-         <p>Cumartesi: 11:00 - 20:00</p>
+         {workingHours.map((hours, idx) => (
+          <p key={idx}>{hours}</p>
+         ))}
         </div>
        </div>
       </div>

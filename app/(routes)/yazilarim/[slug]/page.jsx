@@ -29,7 +29,7 @@ export default function ArticleDetailPage({ params }) {
    <div className="container mx-auto px-4">
     <div className="max-w-4xl mx-auto">
      <Link
-      href="/articles"
+      href="/yazilarim"
       className={`flex items-center gap-2 mb-8 ${isDark ? "text-emerald-400" : "text-emerald-700"
        } hover:gap-3 transition-all duration-300 font-semibold`}
      >
@@ -64,6 +64,35 @@ export default function ArticleDetailPage({ params }) {
         }`}
       >
        {article.content}
+      </p>
+     </div>
+
+     <div
+      className={`${isDark
+       ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+       : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+       } rounded-3xl shadow-2xl p-8 md:p-12`}
+     >
+      <p
+       className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"
+        }`}
+      >
+       {article.writer}
+       {article.source}
+      </p>
+     </div>
+
+     <div
+      className={`${isDark
+       ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
+       : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+       } rounded-3xl shadow-2xl p-8 md:p-12`}
+     >
+      <p
+       className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"
+        }`}
+      >
+       {article.poem}
       </p>
      </div>
     </div>

@@ -1,9 +1,10 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
-import ArticlesHero from '@/app/components/articles/ArticlesHero';
-import ArticlesGrid from '@/app/components/articles/ArticlesGrid';
+import ContactHero from '@/app/components/iletisim/ContactHero';
+import ContactForm from '@/app/components/iletisim/ContactForm';
+import ContactInfo from '@/app/components/iletisim/ContactInfo';
 
-export default function ArticlesPage() {
+export default function ContactPage() {
  const { theme } = useAppContext();
  const isDark = theme === 'dark';
 
@@ -16,8 +17,15 @@ export default function ArticlesPage() {
   >
    <div className="container mx-auto px-4">
     <div className="max-w-7xl mx-auto">
-     <ArticlesHero />
-     <ArticlesGrid />
+     <ContactHero />
+     <div className="grid lg:grid-cols-5 gap-10 md:gap-14">
+      <div className="lg:col-span-3">
+       <ContactForm />
+      </div>
+      <div className="lg:col-span-2">
+       <ContactInfo />
+      </div>
+     </div>
     </div>
    </div>
   </div>

@@ -1,9 +1,9 @@
 'use client';
 import { useAppContext } from '@/context/AppContext';
-import WorkHero from '@/app/components/work/WorkHero';
-import WorkAreas from '@/app/components/work/WorkAreas';
+import AboutHero from '@/app/components/tanisalim/AboutHero';
+import AboutMain from '@/app/components/tanisalim/AboutMain';
 
-export default function WorkPage() {
+export default function AboutPage() {
  const { theme } = useAppContext();
  const isDark = theme === 'dark';
 
@@ -15,9 +15,9 @@ export default function WorkPage() {
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
-    <div className="max-w-7xl mx-auto">
-     <WorkHero />
-     <WorkAreas />
+    <div className="max-w-6xl mx-auto">
+     <AboutHero />
+     <AboutMain />
     </div>
    </div>
   </div>

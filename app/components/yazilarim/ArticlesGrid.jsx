@@ -22,7 +22,7 @@ const ArticlesGrid = () => {
    {data.articles.map((article, index) => (
     <Link
      key={index}
-     href={`/articles/${article.slug}`}
+     href={`/yazilarim/${article.slug}`}
      className={`group ${isDark
       ? 'bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg'
       : 'bg-white/90 backdrop-blur-sm border-2 border-emerald-200'
