@@ -10,16 +10,16 @@ const ArticlesHero = () => {
   <div className="text-center mb-16 animate-fadeIn">
    <div
     className={`inline-flex items-center gap-3 px-5 py-2 rounded-full ${isDark
-     ? 'bg-emerald-900/50 border border-emerald-700'
-     : 'bg-white/80 border border-emerald-300'
+     ? 'bg-amber-900/50 border border-amber-700'
+     : 'bg-white/80 border border-amber-300'
      } mb-6 shadow-lg`}
    >
     <BookOpen
-     className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'
+     className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'
       }`}
     />
     <span
-     className={`text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'
+     className={`text-sm font-semibold ${isDark ? 'text-amber-300' : 'text-amber-700'
       }`}
     >
      Blog & Makaleler
@@ -40,7 +40,7 @@ const ArticlesHero = () => {
     Ruh sağlığı, kişisel gelişim ve terapi hakkında yazılar
    </p>
    <div
-    className={`w-24 h-1 ${isDark ? 'bg-emerald-400' : 'bg-emerald-600'
+    className={`w-24 h-1 ${isDark ? 'bg-amber-400' : 'bg-amber-600'
      } mx-auto mt-6 rounded-full`}
    ></div>
   </div>

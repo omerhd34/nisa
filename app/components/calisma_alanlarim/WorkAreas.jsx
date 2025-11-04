@@ -22,16 +22,16 @@ const WorkAreas = () => {
      <div
       key={index}
       className={`${isDark
-       ? 'bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg'
-       : 'bg-white/90 backdrop-blur-sm border-2 border-emerald-200'
-       } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-emerald-500/20 transform hover:scale-[1.02] transition-all duration-500 animate-slideUp`}
+       ? 'bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg'
+       : 'bg-white/90 backdrop-blur-sm border-2 border-amber-200'
+       } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-amber-500/20 transform hover:scale-[1.02] transition-all duration-500 animate-slideUp`}
       style={{ animationDelay: `${200 + index * 100}ms` }}
      >
       <div className="grid md:grid-cols-12 gap-0">
        <div
         className={`md:col-span-4 ${isDark
-         ? 'bg-linear-to-br from-emerald-700 to-green-800'
-         : 'bg-linear-to-br from-emerald-500 to-green-600'
+         ? 'bg-linear-to-br from-amber-700 to-orange-800'
+         : 'bg-linear-to-br from-amber-500 to-orange-600'
          } p-10 md:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden`}
        >
         <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>

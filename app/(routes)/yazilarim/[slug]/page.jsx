@@ -22,15 +22,15 @@ export default function ArticleDetailPage({ params }) {
  return (
   <div
    className={`min-h-screen ${isDark
-    ? "bg-linear-to-br from-gray-900 via-emerald-950 to-gray-900"
-    : "bg-linear-to-br from-emerald-50 via-green-50 to-teal-50"
+    ? "bg-linear-to-br from-gray-900 via-amber-950 to-gray-900"
+    : "bg-linear-to-br from-amber-50 via-orange-50 to-amber-50"
     } py-16 md:py-24 transition-colors duration-300`}
   >
    <div className="container mx-auto px-4">
     <div className="max-w-4xl mx-auto">
      <Link
       href="/yazilarim"
-      className={`flex items-center gap-2 mb-8 ${isDark ? "text-emerald-400" : "text-emerald-700"
+      className={`flex items-center gap-2 mb-8 ${isDark ? "text-amber-400" : "text-amber-700"
        } hover:gap-3 transition-all duration-300 font-semibold`}
      >
       <ArrowLeft className="w-5 h-5" />
@@ -61,8 +61,8 @@ export default function ArticleDetailPage({ params }) {
      {article.poem && (
       <div
        className={`${isDark
-        ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
-        : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+        ? "bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg"
+        : "bg-white/90 backdrop-blur-sm border-2 border-amber-200"
         } rounded-3xl shadow-2xl p-8 md:p-12 mb-8`}
       >
        <p
@@ -80,9 +80,9 @@ export default function ArticleDetailPage({ params }) {
 
 
      <div
-      className={`${isDark
-       ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
-       : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+       className={`${isDark
+       ? "bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg"
+       : "bg-white/90 backdrop-blur-sm border-2 border-amber-200"
        } rounded-3xl shadow-2xl p-8 md:p-12 mb-8`}
      >
       <p
@@ -96,8 +96,8 @@ export default function ArticleDetailPage({ params }) {
      {(article.source) && (
       <div
        className={`${isDark
-        ? "bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg"
-        : "bg-white/90 backdrop-blur-sm border-2 border-emerald-200"
+        ? "bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg"
+        : "bg-white/90 backdrop-blur-sm border-2 border-amber-200"
         } rounded-3xl shadow-2xl p-8 md:p-12 mb-8`}
       >
        {article.source && (

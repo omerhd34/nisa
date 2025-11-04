@@ -12,7 +12,7 @@ export const useAppContext = () => {
 };
 
 export const AppProvider = ({ children }) => {
- const [theme, setTheme] = useState('light');
+ const [theme, setTheme] = useState('dark');
  const [siteData, setSiteData] = useState(null);
  const [dataLoading, setDataLoading] = useState(true);
  const [dataError, setDataError] = useState(null);

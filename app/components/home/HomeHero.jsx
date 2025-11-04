@@ -17,11 +17,11 @@ const HomeHero = () => {
   <section className="relative overflow-hidden py-32 md:py-40 lg:py-44 min-h-screen">
    <div className="absolute inset-0 overflow-hidden min-h-screen">
     <div
-     className={`absolute top-20 left-10 w-72 h-72 ${isDark ? 'bg-emerald-900/30' : 'bg-emerald-300/40'
+     className={`absolute top-20 left-10 w-72 h-72 ${isDark ? 'bg-amber-900/30' : 'bg-amber-300/40'
       } rounded-full blur-3xl animate-pulse`}
     ></div>
     <div
-     className={`absolute bottom-20 right-10 w-96 h-96 ${isDark ? 'bg-green-900/30' : 'bg-green-300/40'
+     className={`absolute bottom-20 right-10 w-96 h-96 ${isDark ? 'bg-orange-900/30' : 'bg-orange-300/40'
       } rounded-full blur-3xl animate-pulse`}
      style={{ animationDelay: '1s' }}
     ></div>
@@ -31,7 +31,7 @@ const HomeHero = () => {
       {[...Array(20)].map((_, i) => (
        <div
         key={i}
-        className={`absolute w-2 h-2 ${isDark ? 'bg-emerald-500/20' : 'bg-emerald-400/30'
+        className={`absolute w-2 h-2 ${isDark ? 'bg-amber-500/20' : 'bg-amber-400/30'
          } rounded-full`}
         style={{
          left: `${(i * 5.26) % 100}%`,
@@ -46,14 +46,14 @@ const HomeHero = () => {
 
     <div className="absolute top-1/3 right-1/3">
      <Sparkles
-      className={`w-8 h-8 ${isDark ? 'text-emerald-400/30' : 'text-emerald-500/40'
+      className={`w-8 h-8 ${isDark ? 'text-amber-400/30' : 'text-amber-500/40'
        }`}
       style={{ animation: 'pulse 3s ease-in-out infinite' }}
      />
     </div>
     <div className="absolute bottom-1/2 left-1/3">
      <Sparkles
-      className={`w-6 h-6 ${isDark ? 'text-green-400/30' : 'text-green-500/40'
+      className={`w-6 h-6 ${isDark ? 'text-orange-400/30' : 'text-orange-500/40'
        }`}
       style={{
        animation: 'pulse 3s ease-in-out infinite',
@@ -64,8 +64,8 @@ const HomeHero = () => {
 
     <div
      className={`absolute inset-0 ${isDark
-      ? 'bg-linear-to-tr from-emerald-900/10 via-transparent to-green-900/10'
-      : 'bg-linear-to-tr from-emerald-200/20 via-transparent to-green-200/20'
+      ? 'bg-linear-to-tr from-amber-900/10 via-transparent to-orange-900/10'
+      : 'bg-linear-to-tr from-amber-200/20 via-transparent to-orange-200/20'
       }`}
      style={{
       backgroundSize: '200% 200%',
@@ -76,15 +76,15 @@ const HomeHero = () => {
     <div
      className="absolute inset-0 opacity-[0.03]"
      style={{
-      backgroundImage: `linear-gradient(${isDark ? '#10b981' : '#059669'
-       } 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#10b981' : '#059669'
+      backgroundImage: `linear-gradient(${isDark ? '#f59e0b' : '#d97706'
+       } 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#f59e0b' : '#d97706'
        } 1px, transparent 1px)`,
       backgroundSize: '50px 50px',
      }}
     />
 
     <div
-     className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${isDark ? 'bg-emerald-600/5' : 'bg-emerald-400/10'
+     className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${isDark ? 'bg-amber-600/5' : 'bg-amber-400/10'
       } rounded-full blur-3xl`}
     />
    </div>
@@ -93,17 +93,17 @@ const HomeHero = () => {
     <div className="max-w-5xl mx-auto text-center w-full">
      <div
       className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${isDark
-       ? 'bg-emerald-900/50 border border-emerald-700'
-       : 'bg-white/80 border border-emerald-300'
+       ? 'bg-amber-900/50 border border-amber-700'
+       : 'bg-white/80 border border-amber-300'
        } mb-8 animate-fadeIn shadow-lg backdrop-blur-sm`}
      >
       <Star
-       className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'
+       className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'
         }`}
        fill="currentColor"
       />
       <span
-       className={`text-sm font-semibold ${isDark ? 'text-emerald-300' : 'text-emerald-700'
+       className={`text-sm font-semibold ${isDark ? 'text-amber-300' : 'text-amber-700'
         }`}
       >
        Uzman Klinik Psikolog
@@ -117,7 +117,7 @@ const HomeHero = () => {
       Nisa Demir
      </h1>
      <p
-      className={`text-xl md:text-2xl lg:text-3xl ${isDark ? 'text-emerald-300' : 'text-emerald-700'
+      className={`text-xl md:text-2xl lg:text-3xl ${isDark ? 'text-amber-300' : 'text-amber-700'
        } mb-10 md:mb-14 animate-slideUp animation-delay-200 font-medium max-w-3xl mx-auto`}
      >
       Bireysel ve Online Terapi
@@ -127,9 +127,9 @@ const HomeHero = () => {
       <Link
        href="/iletisim"
        className={`group ${isDark
-        ? 'bg-linear-to-r from-emerald-600 to-green-600 border-2 border-emerald-500'
-        : 'bg-linear-to-r from-emerald-600 to-green-600 border-2 border-emerald-700'
-        } text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
+        ? 'bg-linear-to-r from-amber-600 to-orange-600 border-2 border-amber-500'
+        : 'bg-linear-to-r from-amber-600 to-orange-600 border-2 border-amber-700'
+        } text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
       >
        Randevu Al
        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -137,9 +137,9 @@ const HomeHero = () => {
       <Link
        href="/tanisalim"
        className={`group ${isDark
-        ? 'bg-linear-to-r from-teal-600 to-cyan-600 border-2 border-teal-500 text-white'
-        : 'bg-linear-to-r from-teal-500 to-cyan-500 border-2 border-teal-700 text-white'
-        } px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
+        ? 'bg-linear-to-r from-amber-600 to-orange-600 border-2 border-amber-500 text-white'
+        : 'bg-linear-to-r from-amber-500 to-orange-500 border-2 border-amber-700 text-white'
+        } px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
       >
        Daha Fazla Bilgi
       </Link>

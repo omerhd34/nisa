@@ -50,15 +50,15 @@ const ContactInfo = () => {
      key={index}
      style={{ animationDelay: `${200 + index * 100}ms` }}
      className={`${isDark
-      ? 'bg-emerald-950/50 border-2 border-emerald-800'
-      : 'bg-white/90 border-2 border-emerald-200'
+      ? 'bg-amber-950/50 border-2 border-amber-800'
+      : 'bg-white/90 border-2 border-amber-200'
       } rounded-2xl shadow-xl p-6 transform hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 animate-slideUp`}
     >
      <div className="flex flex-col sm:flex-row items-start gap-4">
       <div
        className={`w-14 h-14 shrink-0 ${isDark
-        ? 'bg-linear-to-br from-emerald-700 to-green-800'
-        : 'bg-linear-to-br from-emerald-500 to-green-600'
+        ? 'bg-linear-to-br from-amber-700 to-orange-800'
+        : 'bg-linear-to-br from-amber-500 to-orange-600'
         } rounded-xl flex items-center justify-center shadow-lg`}
       >
        <info.icon className="w-7 h-7 text-white" />
@@ -99,7 +99,7 @@ const ContactInfo = () => {
         >
          {info.areas.map((area, i) => (
           <li key={i} className="flex items-center gap-2">
-           <area.icon className="w-4 h-4 text-emerald-500 shrink-0" />
+           <area.icon className="w-4 h-4 text-amber-500 shrink-0" />
            <span>{area.text}</span>
           </li>
          ))}
@@ -115,8 +115,8 @@ const ContactInfo = () => {
            target="_blank"
            rel="noopener noreferrer"
            className={`${isDark
-            ? 'text-emerald-400 hover:text-emerald-300'
-            : 'text-emerald-700 hover:text-emerald-600'
+            ? 'text-amber-400 hover:text-amber-300'
+            : 'text-amber-700 hover:text-amber-600'
             } transition-all duration-300 transform hover:scale-110`}
           >
            <social.icon className="w-7 h-7" />

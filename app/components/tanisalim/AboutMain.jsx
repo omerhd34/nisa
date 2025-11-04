@@ -11,16 +11,16 @@ const AboutMain = () => {
  return (
   <div
    className={`${isDark
-    ? 'bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg'
-    : 'bg-white/90 backdrop-blur-sm border-2 border-emerald-200'
+    ? 'bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg'
+    : 'bg-white/90 backdrop-blur-sm border-2 border-amber-200'
     } rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 mb-12 animate-slideUp`}
   >
    <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
     <div className="md:col-span-2">
      <div
       className={`relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-linear-to-br ${isDark
-       ? 'from-emerald-700 to-green-800'
-       : 'from-emerald-500 to-green-600'
+       ? 'from-amber-700 to-orange-800'
+       : 'from-amber-500 to-orange-600'
        } rounded-3xl flex items-center justify-center shadow-2xl transform hover:scale-105 hover:rotate-3 transition-all duration-500`}
      >
       <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent rounded-3xl"></div>
@@ -36,7 +36,7 @@ const AboutMain = () => {
 
     <div className="md:col-span-3">
      <h2
-      className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-emerald-400' : 'text-emerald-700'
+      className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-amber-400' : 'text-amber-700'
        } mb-6`}
      >
       Hakkımda

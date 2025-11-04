@@ -18,8 +18,10 @@ model SiteData {
 
 model Home {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  welcomeText  String
-  benefits     String[]
+  texts        String[]
+  titles       String[]
+  books        String[]
+  images       String[]
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   @@map("home")

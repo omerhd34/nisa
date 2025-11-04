@@ -24,9 +24,9 @@ const ArticlesGrid = () => {
      key={index}
      href={`/yazilarim/${article.slug}`}
      className={`group ${isDark
-      ? 'bg-emerald-950/50 border-2 border-emerald-800 backdrop-blur-lg'
-      : 'bg-white/90 backdrop-blur-sm border-2 border-emerald-200'
-      } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-emerald-500/20 transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 cursor-pointer animate-fadeIn animation-delay-${index * 100
+      ? 'bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg'
+      : 'bg-white/90 backdrop-blur-sm border-2 border-amber-200'
+      } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-amber-500/20 transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 cursor-pointer animate-fadeIn animation-delay-${index * 100
       }`}
     >
      <div
@@ -58,8 +58,8 @@ const ArticlesGrid = () => {
        </div>
        <div
         className={`px-3 py-1 rounded-full text-xs font-semibold ${isDark
-         ? 'bg-emerald-900/50 text-emerald-400'
-         : 'bg-emerald-100 text-emerald-700'
+         ? 'bg-amber-900/50 text-amber-400'
+         : 'bg-amber-100 text-amber-700'
          }`}
        >
         Psikoloji
@@ -72,7 +72,7 @@ const ArticlesGrid = () => {
        {article.excerpt}
       </p>
       <div
-       className={`group/btn flex items-center gap-2 ${isDark ? 'text-emerald-400' : 'text-emerald-700'
+       className={`group/btn flex items-center gap-2 ${isDark ? 'text-amber-400' : 'text-amber-700'
         } font-semibold hover:gap-3 transition-all duration-300`}
       >
        Devamını Oku

@@ -22,7 +22,7 @@ export async function POST(request) {
       subject: `Web Sitesinden Mesaj - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #10b981; border-bottom: 3px solid #10b981; padding-bottom: 10px;">
+          <h2 style="color: #f59e0b; border-bottom: 3px solid #f59e0b; padding-bottom: 10px;">
             Yeni İletişim Formu Mesajı
           </h2>
           
@@ -33,7 +33,7 @@ export async function POST(request) {
             </p>
             <p style="margin: 10px 0;">
               <strong style="color: #374151;">E-posta:</strong> 
-              <a href="mailto:${email}" style="color: #10b981; text-decoration: none;">${email}</a>
+              <a href="mailto:${email}" style="color: #f59e0b; text-decoration: none;">${email}</a>
             </p>
             <p style="margin: 10px 0;">
               <strong style="color: #374151;">Konu:</strong> 
@@ -41,7 +41,7 @@ export async function POST(request) {
             </p>
           </div>
           
-          <div style="background-color: #ecfdf5; padding: 20px; border-left: 4px solid #10b981; border-radius: 8px; margin: 20px 0;">
+          <div style="background-color: #fffbeb; padding: 20px; border-left: 4px solid #f59e0b; border-radius: 8px; margin: 20px 0;">
             <p style="margin: 0 0 10px 0;">
               <strong style="color: #374151;">Mesaj:</strong>
             </p>

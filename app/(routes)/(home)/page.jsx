@@ -10,8 +10,8 @@ export default function HomePage() {
  return (
   <div
    className={`min-h-screen ${isDark
-    ? 'bg-linear-to-br from-gray-900 via-emerald-950 to-gray-900'
-    : 'bg-linear-to-br from-emerald-50 via-green-50 to-teal-50'
+    ? 'bg-linear-to-br from-gray-900 via-amber-950 to-gray-900'
+    : 'bg-linear-to-br from-amber-50 via-orange-50 to-amber-50'
     } transition-colors duration-300`}
   >
    <HomeHero />

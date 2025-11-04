@@ -17,14 +17,13 @@ async function clearAndReseed() {
 
     await prisma.home.create({
       data: {
-        welcomeText:
-          "Yaşamınızda karşılaştığınız zorluklarla başa çıkmanızda size destek olmak için buradayım. Güvenli ve destekleyici bir ortamda, kişisel gelişiminiz ve ruh sağlığınız için birlikte çalışabiliriz.",
-        benefits: [
-          "Gizlilik ve güvenlik garantisi",
-          "Esnek randevu saatleri",
-          "Kişiye özel tedavi planı",
-          "Profesyonel ve empatik yaklaşım",
+        texts: [
+          `"Gizlenmek keyiflidir ama bulunmamak felaket."`,
+          `"Kişideki eksik, ötekinde saklı değildir. Aşkın bütün sorunu budur."`,
         ],
+        titles: ["D. Winnicott", "Jacques Lacan"],
+        books: ["Oyun ve Gerçeklik", ""],
+        images: ["/above.jpg", "/sand.jpg"],
       },
     });
     console.log("✅ Home verileri eklendi");
