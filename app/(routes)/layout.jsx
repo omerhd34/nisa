@@ -29,7 +29,16 @@ export default function RootLayout({ children }) {
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" />
-
+    <script
+     dangerouslySetInnerHTML={{
+      __html: `
+      (function() {
+        const theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      })();
+    `,
+     }}
+    />
    </head>
    <body className={`${inter.className} bg-gray-100 dark:bg-dark-900 text-gray-950 dark:text-gray-50 transition-colors duration-300`}>
     <AppProvider>
