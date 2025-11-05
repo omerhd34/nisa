@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@theme {
+  --color-gray-50: #dcdcdc;
+  --color-gray-100: #d1d0ce;
+  --color-gray-200: #c5c6d0;
+  --color-gray-300: #bebebe;
+  --color-gray-400: #b6b6b4;
+  --color-gray-500: #808080;
+  --color-gray-600: #696969;
+  --color-gray-700: #676767;
+  --color-gray-800: #61666a;
+  --color-gray-900: #555555;
+  --color-gray-950: #504a4b;
+
+  --color-dark-50: #888b8d;
+  --color-dark-100: #868a81;
+  --color-dark-200: #848482;
+  --color-dark-300: #5c5858;
+  --color-dark-400: #666362;
+  --color-dark-500: #494f55;
+  --color-dark-600: #3c4748;
+  --color-dark-700: #41424c;
+  --color-dark-800: #373737;
+  --color-dark-900: #343432;
+  --color-dark-950: #323232;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @media (width >= 27rem /* 432px */) {
+    max-width: 27rem /* 432px */;
+  }
+  @media (width >= 47.9375rem /* 767px */) {
+    max-width: 47.9375rem /* 767px */;
+  }
+  @media (width >= 63.9375rem /* 1023px */) {
+    max-width: 63.9375rem /* 1023px */;
+  }
+  @media (width >= 79.9375rem /* 1279px */) {
+    max-width: 79.9375rem /* 1279px */;
+  }
+  @media (width >= 95.9375rem /* 1535px */) {
+    max-width: 95.9375rem /* 1535px */;
+  }
+}

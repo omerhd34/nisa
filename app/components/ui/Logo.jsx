@@ -5,8 +5,7 @@ const Logo = () => {
   <Link href="/">
    <div className="group relative w-14 h-14 flex items-center justify-center cursor-pointer 
                     hover:scale-110 transition-all duration-300 shadow-lg 
-                    bg-linear-to-br from-orange-500 to-orange-600 rounded-xl 
-                    hover:shadow-orange-400/50">
+                    rounded-xl bg-gray-800 dark:bg-dark-950">
 
     <div className="relative w-8 h-8">
 

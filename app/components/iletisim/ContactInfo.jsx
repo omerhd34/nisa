@@ -5,8 +5,7 @@ import { FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 
 const ContactInfo = () => {
- const { theme, data } = useAppContext();
- const isDark = theme === 'dark';
+ const { data } = useAppContext();
 
  const socialMedia = [
   { icon: Mail, link: 'mailto:psikolognisademir@gmail.com' },
@@ -49,34 +48,20 @@ const ContactInfo = () => {
     <div
      key={index}
      style={{ animationDelay: `${200 + index * 100}ms` }}
-     className={`${isDark
-      ? 'bg-amber-950/50 border-2 border-amber-800'
-      : 'bg-white/90 border-2 border-amber-200'
-      } rounded-2xl shadow-xl p-6 transform hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 animate-slideUp`}
+     className="border-2 rounded-2xl shadow-xl p-6 transform hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 animate-slideUp bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-gray-700"
     >
      <div className="flex flex-col sm:flex-row items-start gap-4">
-      <div
-       className={`w-14 h-14 shrink-0 ${isDark
-        ? 'bg-linear-to-br from-amber-700 to-orange-800'
-        : 'bg-linear-to-br from-amber-500 to-orange-600'
-        } rounded-xl flex items-center justify-center shadow-lg`}
-      >
+      <div className="w-14 h-14 shrink-0 rounded-xl flex items-center justify-center shadow-lg bg-gray-800 dark:bg-dark-950">
        <info.icon className="w-7 h-7 text-white" />
       </div>
 
       <div className="flex-1 min-w-0">
-       <h3
-        className={`text-base font-bold ${isDark ? 'text-white' : 'text-gray-900'
-         } mb-2`}
-       >
+       <h3 className="text-base font-bold mb-2 text-dark-950 dark:text-gray-50">
         {info.title}
        </h3>
 
        {info.type === 'schedule' && (
-        <ul
-         className={`${isDark ? 'text-gray-400' : 'text-gray-600'
-          } text-sm leading-relaxed space-y-1`}
-        >
+        <ul className="text-sm leading-relaxed space-y-1 text-gray-600 dark:text-gray-300">
          {info.schedule.map((line, i) => (
           <li key={i}>{line}</li>
          ))}
@@ -84,22 +69,16 @@ const ContactInfo = () => {
        )}
 
        {info.type === 'text' && (
-        <p
-         className={`${isDark ? 'text-gray-400' : 'text-gray-600'
-          } whitespace-pre-line text-sm leading-relaxed`}
-        >
+        <p className="whitespace-pre-line text-sm leading-relaxed text-gray-600 dark:text-gray-300">
          {info.content}
         </p>
        )}
 
        {info.type === 'area' && (
-        <ul
-         className={`${isDark ? 'text-gray-400' : 'text-gray-600'
-          } text-sm leading-relaxed space-y-1`}
-        >
+        <ul className="text-sm leading-relaxed space-y-1 text-gray-600 dark:text-gray-300">
          {info.areas.map((area, i) => (
           <li key={i} className="flex items-center gap-2">
-           <area.icon className="w-4 h-4 text-amber-500 shrink-0" />
+           <area.icon className="w-4 h-4 shrink-0 text-gray-500 dark:text-gray-600" />
            <span>{area.text}</span>
           </li>
          ))}
@@ -114,10 +93,7 @@ const ContactInfo = () => {
            href={social.link}
            target="_blank"
            rel="noopener noreferrer"
-           className={`${isDark
-            ? 'text-amber-400 hover:text-amber-300'
-            : 'text-amber-700 hover:text-amber-600'
-            } transition-all duration-300 transform hover:scale-110`}
+           className="transition-all duration-300 transform hover:scale-110 text-gray-500 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400"
           >
            <social.icon className="w-7 h-7" />
           </Link>

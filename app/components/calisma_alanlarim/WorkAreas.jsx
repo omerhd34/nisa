@@ -8,8 +8,7 @@ const iconMap = {
 };
 
 const WorkAreas = () => {
- const { theme, data } = useAppContext();
- const isDark = theme === 'dark';
+ const { data } = useAppContext();
 
  if (!data?.work?.workAreas) return null;
 
@@ -21,20 +20,12 @@ const WorkAreas = () => {
     return (
      <div
       key={index}
-      className={`${isDark
-       ? 'bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg'
-       : 'bg-white/90 backdrop-blur-sm border-2 border-amber-200'
-       } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-amber-500/20 transform hover:scale-[1.02] transition-all duration-500 animate-slideUp`}
+      className="backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500 animate-slideUp border-2 bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-gray-700"
       style={{ animationDelay: `${200 + index * 100}ms` }}
      >
       <div className="grid md:grid-cols-12 gap-0">
-       <div
-        className={`md:col-span-4 ${isDark
-         ? 'bg-linear-to-br from-amber-700 to-orange-800'
-         : 'bg-linear-to-br from-amber-500 to-orange-600'
-         } p-10 md:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden`}
-       >
-        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
+       <div className="md:col-span-4 p-10 md:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden bg-gray-800 dark:bg-dark-950">
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10">
          <div className="bg-white/20 backdrop-blur-sm p-5 rounded-2xl mb-6 transform hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-2xl flex items-center justify-center">
           {IconComponent && (
@@ -51,10 +42,7 @@ const WorkAreas = () => {
        </div>
 
        <div className="md:col-span-8 p-8 md:p-12">
-        <p
-         className={`${isDark ? 'text-gray-300' : 'text-gray-700'
-          } text-lg leading-relaxed mb-8`}
-        >
+        <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300">
          {area.description}
         </p>
 

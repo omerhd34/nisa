@@ -10,7 +10,6 @@ const Header = () => {
  const { theme, toggleTheme } = useAppContext();
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
  const pathname = usePathname();
- const isDark = theme === 'dark';
 
  const menuItems = [
   { id: 'home', label: "Ana Sayfa", icon: Home, href: '/' },
@@ -28,11 +27,10 @@ const Header = () => {
  };
 
  return (
-  <header className={`${isDark ? 'bg-linear-to-r from-amber-900 via-orange-900 to-amber-900' : 'bg-linear-to-r from-amber-700 via-orange-700 to-amber-700'} text-white shadow-2xl sticky top-0 z-50 border-b ${isDark ? 'border-amber-800' : 'border-amber-600/50'}`}>
+  <header className="bg-gray-100 dark:bg-dark-800 shadow-2xl sticky top-0 z-50 border-b border-gray-500 dark:border-dark-500">
    <div className="container mx-auto px-4 lg:px-8">
     <div className="flex justify-between items-center py-4 lg:py-5">
      <Logo />
-
      <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3">
       {menuItems.map(item => {
        const active = isActive(item.href);
@@ -41,15 +39,12 @@ const Header = () => {
          key={item.id}
          href={item.href}
          className={`group relative flex items-center space-x-2 px-5 py-3 rounded-xl transition-all duration-300 ${active
-          ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
-          : 'text-amber-100 hover:text-white hover:bg-white/10'
+          ? 'bg-gray-300 dark:bg-gray-900 text-dark-950 dark:text-gray-50 shadow-lg'
+          : 'text-gray-700 dark:text-gray-300 hover:text-dark-950 dark:hover:text-gray-50 hover:bg-white/10 dark:hover:bg-white/10'
           }`}
         >
          <item.icon size={18} className={active ? 'animate-pulse' : ''} />
          <span className="text-sm xl:text-base font-semibold">{item.label}</span>
-         {active && (
-          <div className="absolute bottom-0 left-0 right-0 bg-linear-to-r from-amber-400 to-orange-400 rounded-full"></div>
-         )}
         </Link>
        );
       })}
@@ -57,19 +52,22 @@ const Header = () => {
 
      <div className="flex items-center gap-3">
       <button
-       onClick={toggleTheme}
-       className={`p-3 rounded-xl ${isDark ? 'bg-amber-800/50' : 'bg-white/10'} backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg group`}
+       type="button"
+       onClick={() => {
+        toggleTheme();
+       }}
+       className="p-3 rounded-xl bg-gray-500/50 dark:bg-dark-200/50 backdrop-blur-sm hover:bg-dark-500/50 dark:hover:bg-gray-200/50 transition-all duration-300 hover:scale-110 shadow-lg group"
        aria-label="Toggle theme"
       >
        {theme === 'dark' ? (
-        <Sun size={20} className="text-yellow-400 group-hover:rotate-180 transition-transform duration-500" />
+        <Sun size={20} className="text-gray-800 dark:text-gray-100 group-hover:rotate-180 transition-transform duration-500" />
        ) : (
-        <Moon size={20} className="text-amber-200 group-hover:rotate-180 transition-transform duration-500" />
+        <Moon size={20} className="text-gray-800 dark:text-gray-100 group-hover:rotate-180 transition-transform duration-500" />
        )}
       </button>
 
       <button
-       className="lg:hidden p-3 hover:bg-white/10 rounded-xl transition-all duration-300 backdrop-blur-sm"
+       className="lg:hidden p-3 hover:bg-white/10 dark:hover:bg-white/10 rounded-xl transition-all duration-300 backdrop-blur-sm text-dark-950 dark:text-gray-50"
        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -78,7 +76,7 @@ const Header = () => {
     </div>
 
     {mobileMenuOpen && (
-     <nav className="lg:hidden pb-6 border-t border-amber-800 mt-2 pt-4 animate-fadeIn">
+     <nav className="lg:hidden pb-6 border-t border-gray-500 dark:border-dark-500 mt-2 pt-4 animate-fadeIn">
       {menuItems.map(item => {
        const active = isActive(item.href);
        return (
@@ -87,8 +85,8 @@ const Header = () => {
          href={item.href}
          onClick={() => setMobileMenuOpen(false)}
          className={`flex items-center space-x-3 py-4 px-5 rounded-xl transition-all duration-300 w-full mb-2 ${active
-          ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white shadow-lg'
-          : 'text-amber-100 hover:text-white hover:bg-white/10'
+          ? 'bg-gray-300 dark:bg-gray-900 text-dark-950 dark:text-gray-50 shadow-lg'
+          : 'text-gray-700 dark:text-gray-300 hover:text-dark-950 dark:hover:text-gray-50 hover:bg-white/10 dark:hover:bg-white/10'
           }`}
         >
          <item.icon size={20} />

@@ -4,13 +4,12 @@ import { BookOpen, Clock, ArrowRight } from 'lucide-react';
 import { useAppContext } from '@/context/AppContext';
 
 const ArticlesGrid = () => {
- const { theme, data } = useAppContext();
- const isDark = theme === 'dark';
+ const { data } = useAppContext();
 
  if (!data?.articles || !Array.isArray(data.articles)) {
   return (
    <div className="text-center py-16">
-    <p className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+    <p className="text-lg text-gray-600 dark:text-gray-300">
      {data?.articles ? 'Makaleler yükleniyor...' : 'Makale bulunamadı'}
     </p>
    </div>
@@ -23,11 +22,8 @@ const ArticlesGrid = () => {
     <Link
      key={index}
      href={`/yazilarim/${article.slug}`}
-     className={`group ${isDark
-      ? 'bg-amber-950/50 border-2 border-amber-800 backdrop-blur-lg'
-      : 'bg-white/90 backdrop-blur-sm border-2 border-amber-200'
-      } rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl hover:shadow-amber-500/20 transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 cursor-pointer animate-fadeIn animation-delay-${index * 100
-      }`}
+     className={`group backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 hover:-translate-y-3 transition-all duration-500 cursor-pointer animate-fadeIn border-2 bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-gray-700`}
+     style={{ animationDelay: `${index * 100}ms` }}
     >
      <div
       className={`relative h-64 flex items-center justify-center p-8 bg-center bg-cover`}
@@ -35,46 +31,32 @@ const ArticlesGrid = () => {
        backgroundImage: `url(${article.image})`,
       }}
      >
-      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"></div>
 
       <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-sm p-3 rounded-xl">
        <BookOpen className="w-6 h-6 text-white" />
       </div>
 
-      <h3 className="relative z-10 text-gray-300 text-2xl md:text-3xl font-bold text-center leading-tight group-hover:scale-105 transition-transform duration-500">
+      <h3 className="relative z-10 text-2xl md:text-3xl font-bold text-center leading-tight group-hover:scale-105 transition-transform duration-500 text-gray-100 dark:text-gray-100">
        {article.title}
       </h3>
      </div>
 
      <div className="p-6 md:p-8">
       <div className="flex items-center gap-4 mb-4">
-       <div
-        className={`flex items-center gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'
-         }`}
-       >
+       <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
         <Clock className="w-4 h-4" />
         <span className="text-sm">{article.readTime}</span>
        </div>
-       <div
-        className={`px-3 py-1 rounded-full text-xs font-semibold ${isDark
-         ? 'bg-amber-900/50 text-amber-400'
-         : 'bg-amber-100 text-amber-700'
-         }`}
-       >
+       <div className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-300 dark:bg-dark-800 text-gray-700 dark:text-gray-100">
         Psikoloji
        </div>
       </div>
-      <p
-       className={`${isDark ? 'text-gray-400' : 'text-gray-600'
-        } text-base leading-relaxed mb-6`}
-      >
+      <p className="text-base leading-relaxed mb-6 text-gray-600 dark:text-gray-300">
        {article.excerpt}
       </p>
-      <div
-       className={`group/btn flex items-center gap-2 ${isDark ? 'text-amber-400' : 'text-amber-700'
-        } font-semibold hover:gap-3 transition-all duration-300`}
-      >
+      <div className="group/btn flex items-center gap-2 font-semibold hover:gap-3 transition-all duration-300 text-gray-700 dark:text-gray-100">
        Devamını Oku
        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
       </div>

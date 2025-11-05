@@ -1,176 +1,55 @@
 'use client';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Star, Sparkles } from 'lucide-react';
-import { useAppContext } from '@/context/AppContext';
+import { ArrowRight, Star } from 'lucide-react';
 
 const HomeHero = () => {
- const { theme } = useAppContext();
- const isDark = theme === 'dark';
- const [mounted, setMounted] = useState(false);
-
- useEffect(() => {
-  setMounted(true);
- }, []);
-
  return (
-  <section className="relative overflow-hidden py-32 md:py-40 lg:py-44 min-h-screen">
-   <div className="absolute inset-0 overflow-hidden min-h-screen">
-    <div
-     className={`absolute top-20 left-10 w-72 h-72 ${isDark ? 'bg-amber-900/30' : 'bg-amber-300/40'
-      } rounded-full blur-3xl animate-pulse`}
-    ></div>
-    <div
-     className={`absolute bottom-20 right-10 w-96 h-96 ${isDark ? 'bg-orange-900/30' : 'bg-orange-300/40'
-      } rounded-full blur-3xl animate-pulse`}
-     style={{ animationDelay: '1s' }}
-    ></div>
-
-    {mounted && (
-     <div className="absolute inset-0">
-      {[...Array(20)].map((_, i) => (
-       <div
-        key={i}
-        className={`absolute w-2 h-2 ${isDark ? 'bg-amber-500/20' : 'bg-amber-400/30'
-         } rounded-full`}
-        style={{
-         left: `${(i * 5.26) % 100}%`,
-         top: `${(i * 7.89) % 100}%`,
-         animation: `float ${5 + (i % 10)}s ease-in-out infinite`,
-         animationDelay: `${i % 5}s`,
-        }}
-       />
-      ))}
-     </div>
-    )}
-
-    <div className="absolute top-1/3 right-1/3">
-     <Sparkles
-      className={`w-8 h-8 ${isDark ? 'text-amber-400/30' : 'text-amber-500/40'
-       }`}
-      style={{ animation: 'pulse 3s ease-in-out infinite' }}
-     />
-    </div>
-    <div className="absolute bottom-1/2 left-1/3">
-     <Sparkles
-      className={`w-6 h-6 ${isDark ? 'text-orange-400/30' : 'text-orange-500/40'
-       }`}
-      style={{
-       animation: 'pulse 3s ease-in-out infinite',
-       animationDelay: '1.5s',
-      }}
-     />
-    </div>
-
-    <div
-     className={`absolute inset-0 ${isDark
-      ? 'bg-linear-to-tr from-amber-900/10 via-transparent to-orange-900/10'
-      : 'bg-linear-to-tr from-amber-200/20 via-transparent to-orange-200/20'
-      }`}
-     style={{
-      backgroundSize: '200% 200%',
-      animation: 'gradient 15s ease infinite',
-     }}
-    />
-
-    <div
-     className="absolute inset-0 opacity-[0.03]"
-     style={{
-      backgroundImage: `linear-gradient(${isDark ? '#f59e0b' : '#d97706'
-       } 1px, transparent 1px), linear-gradient(90deg, ${isDark ? '#f59e0b' : '#d97706'
-       } 1px, transparent 1px)`,
-      backgroundSize: '50px 50px',
-     }}
-    />
-
-    <div
-     className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${isDark ? 'bg-amber-600/5' : 'bg-amber-400/10'
-      } rounded-full blur-3xl`}
-    />
+  <section className="relative overflow-hidden min-h-screen flex items-center justify-center bg-linear-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-dark-900 dark:via-dark-800 dark:to-dark-950 py-8">
+   <div className="absolute inset-0 overflow-hidden pointer-events-none ">
+    <div className="absolute top-20 left-10 w-72 h-72 bg-gray-300 dark:bg-dark-700 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-pulse"></div>
+    <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-400 dark:bg-dark-600 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
    </div>
 
-   <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
+   <div className="container mx-auto px-4 relative z-10 w-full -translate-y-12">
     <div className="max-w-5xl mx-auto text-center w-full">
-     <div
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${isDark
-       ? 'bg-amber-900/50 border border-amber-700'
-       : 'bg-white/80 border border-amber-300'
-       } mb-8 animate-fadeIn shadow-lg backdrop-blur-sm`}
-     >
-      <Star
-       className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'
-        }`}
-       fill="currentColor"
-      />
-      <span
-       className={`text-sm font-semibold ${isDark ? 'text-amber-300' : 'text-amber-700'
-        }`}
-      >
-       Uzman Klinik Psikolog
-      </span>
-     </div>
+     <div className="relative rounded-3xl bg-[url('/yol.jpeg')] bg-cover bg-center bg-no-repeat border border-gray-200/50 dark:border-gray-700/50 shadow-2xl shadow-gray-900/10 dark:shadow-black/50 p-8 md:p-12 lg:p-16 transform transition-all duration-500 hover:shadow-3xl hover:scale-[1.01] overflow-hidden">
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+      <div className="relative z-10">
+       <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-8 animate-fadeIn shadow-md backdrop-blur-md border border-gray-300/80 dark:border-gray-600/80 bg-linear-to-r from-gray-100/90 to-gray-200/90 dark:from-dark-700/90 dark:to-dark-800/90">
+        <Star className="w-5 h-5 text-gray-700 dark:text-gray-200" fill="currentColor" />
+        <span className="text-sm font-semibold text-gray-700 dark:text-gray-200 tracking-wide">
+         Uzman Klinik Psikolog
+        </span>
+        <Star className="w-4 h-4 text-gray-600 dark:text-gray-300" fill="currentColor" />
+       </div>
 
-     <h1
-      className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
-       } mb-6 md:mb-8 animate-fadeIn leading-tight`}
-     >
-      Nisa Demir
-     </h1>
-     <p
-      className={`text-xl md:text-2xl lg:text-3xl ${isDark ? 'text-amber-300' : 'text-amber-700'
-       } mb-10 md:mb-14 animate-slideUp animation-delay-200 font-medium max-w-3xl mx-auto`}
-     >
-      Bireysel ve Online Terapi
-     </p>
+       <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 animate-fadeIn leading-tight bg-linear-to-r from-dark-950 via-gray-800 to-dark-950 dark:from-gray-50 dark:via-gray-100 dark:to-gray-50 bg-clip-text text-transparent">
+        Nisa Demir
+       </h1>
+       <p className="text-xl md:text-2xl lg:text-3xl mb-10 md:mb-14 animate-slideUp animation-delay-200 font-medium max-w-3xl mx-auto text-gray-600 dark:text-gray-300 leading-relaxed">
+        Bireysel ve Online Terapi
+       </p>
 
-     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center animate-slideUp animation-delay-400 max-w-md sm:max-w-none mx-auto">
-      <Link
-       href="/iletisim"
-       className={`group ${isDark
-        ? 'bg-linear-to-r from-amber-600 to-orange-600 border-2 border-amber-500'
-        : 'bg-linear-to-r from-amber-600 to-orange-600 border-2 border-amber-700'
-        } text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
-      >
-       Randevu Al
-       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-      </Link>
-      <Link
-       href="/tanisalim"
-       className={`group ${isDark
-        ? 'bg-linear-to-r from-amber-600 to-orange-600 border-2 border-amber-500 text-white'
-        : 'bg-linear-to-r from-amber-500 to-orange-500 border-2 border-amber-700 text-white'
-        } px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/50 transform transition-all duration-300 flex items-center justify-center gap-2`}
-      >
-       Daha Fazla Bilgi
-      </Link>
+       <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-stretch sm:items-center animate-slideUp animation-delay-400 max-w-md sm:max-w-none mx-auto">
+        <Link
+         href="/iletisim"
+         className="group relative overflow-hidden border-2 bg-linear-to-r from-gray-800 to-dark-950 dark:from-dark-950 dark:to-gray-900 border-gray-800 dark:border-dark-950 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-2xl hover:shadow-gray-900/30 dark:hover:shadow-black/50 transform transition-all duration-300 flex items-center justify-center gap-2"
+        >
+         <span className="absolute inset-0 bg-linear-to-r from-gray-700 to-gray-900 dark:from-gray-900 dark:to-dark-950 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+         <span className="relative z-10">Randevu Al</span>
+         <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+        </Link>
+        <Link
+         href="/tanisalim"
+         className="group relative overflow-hidden border-2 bg-transparent border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-semibold text-base sm:text-lg hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-dark-700 hover:border-gray-400 dark:hover:border-gray-500 transform transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
+        >
+         Daha Fazla Bilgi
+        </Link>
+       </div>
+      </div>
      </div>
     </div>
    </div>
-
-   <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-            opacity: 0.3;
-          }
-          50% {
-            transform: translateY(-20px) translateX(10px);
-            opacity: 0.6;
-          }
-        }
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-      `}</style>
   </section>
  );
 };

@@ -1,48 +1,24 @@
 'use client';
 import { BookOpen } from 'lucide-react';
-import { useAppContext } from '@/context/AppContext';
 
 const ArticlesHero = () => {
- const { theme, data } = useAppContext();
- const isDark = theme === 'dark';
-
  return (
   <div className="text-center mb-16 animate-fadeIn">
-   <div
-    className={`inline-flex items-center gap-3 px-5 py-2 rounded-full ${isDark
-     ? 'bg-amber-900/50 border border-amber-700'
-     : 'bg-white/80 border border-amber-300'
-     } mb-6 shadow-lg`}
-   >
-    <BookOpen
-     className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'
-      }`}
-    />
-    <span
-     className={`text-sm font-semibold ${isDark ? 'text-amber-300' : 'text-amber-700'
-      }`}
-    >
+   <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full mb-6 shadow-lg border bg-gray-300 dark:bg-gray-900 border-gray-600 dark:border-gray-700">
+    <BookOpen className="w-5 h-5 text-gray-700 dark:text-gray-100" />
+    <span className="text-sm font-semibold text-gray-700 dark:text-gray-100">
      Blog & Makaleler
     </span>
    </div>
 
-   <h1
-    className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
-     } mb-6`}
-   >
+   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-dark-950 dark:text-gray-50">
     Yazılarım
    </h1>
 
-   <p
-    className={`text-lg md:text-xl ${isDark ? 'text-gray-400' : 'text-gray-600'
-     } max-w-3xl mx-auto`}
-   >
+   <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
     Ruh sağlığı, kişisel gelişim ve terapi hakkında yazılar
    </p>
-   <div
-    className={`w-24 h-1 ${isDark ? 'bg-amber-400' : 'bg-amber-600'
-     } mx-auto mt-6 rounded-full`}
-   ></div>
+   <div className="w-24 h-1 mx-auto mt-6 rounded-full bg-gray-600 dark:bg-gray-700"></div>
   </div>
  );
 };

@@ -2,14 +2,13 @@
 import { useAppContext } from '@/context/AppContext';
 
 export default function LoadingErrorHandler({ children }) {
- const { theme, dataLoading, dataError } = useAppContext();
- const isDark = theme === 'dark';
+ const { dataLoading, dataError } = useAppContext();
 
  if (dataLoading) {
   return (
-   <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-[#2D0C04]' : 'bg-amber-50'}`}>
+   <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-dark-900">
     <div className="text-center">
-     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-amber-500 mx-auto mb-5"></div>
+     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 mx-auto mb-5 border-gray-500 dark:border-gray-600"></div>
     </div>
    </div>
   );
@@ -17,15 +16,15 @@ export default function LoadingErrorHandler({ children }) {
 
  if (dataError) {
   return (
-   <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-[#2D0C04]' : 'bg-amber-50'}`}>
+   <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-dark-900">
     <div className="text-center max-w-md mx-auto p-8">
-     <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-4">
+     <div className="border px-4 py-3 rounded-xl mb-4 bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-gray-700 text-gray-700 dark:text-gray-100">
       <p className="font-bold">Veritabanı Bağlantı Hatası</p>
       <p className="text-sm mt-2">{dataError}</p>
      </div>
      <button
       onClick={() => window.location.reload()}
-      className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg transition-colors"
+      className="text-white px-4 py-2 rounded-lg transition-colors bg-gray-800 dark:bg-dark-950 hover:bg-gray-700 dark:hover:bg-dark-500"
      >
       Tekrar Dene
      </button>
@@ -33,7 +32,5 @@ export default function LoadingErrorHandler({ children }) {
    </div>
   );
  }
-
- // Normal durum - children'ı render et
  return children;
 }

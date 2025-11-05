@@ -6,7 +6,7 @@ import Footer from "@/app/components/ui/Footer";
 import ScrollToTop from "@/app/components/ui/ScrollToTop";
 import LoadingErrorHandler from "@/app/components/ui/LoadingErrorHandler";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata = {
  title: "Uzman Klinik Psikolog Nisa Demir | Bireysel ve Online Terapi",
@@ -24,13 +24,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
  return (
-  <html lang="tr">
+  <html lang="tr" suppressHydrationWarning>
    <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" />
+
    </head>
-   <body className={inter.className}>
+   <body className={`${inter.className} bg-gray-100 dark:bg-dark-900 text-gray-950 dark:text-gray-50 transition-colors duration-300`}>
     <AppProvider>
      <LoadingErrorHandler>
       <div className="min-h-screen flex flex-col">

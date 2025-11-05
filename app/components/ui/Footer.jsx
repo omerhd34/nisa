@@ -6,8 +6,7 @@ import { FaInstagram } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
 
 export default function Footer() {
- const { theme, data } = useAppContext();
- const isDark = theme === 'dark';
+ const { data } = useAppContext();
  const currentYear = new Date().getFullYear();
 
  const quickLinks = [
@@ -26,40 +25,35 @@ export default function Footer() {
  const workingHours = data?.footer?.workingHours;
 
  return (
-  <footer
-   className={`${isDark
-    ? 'bg-linear-to-r from-amber-950 via-orange-950 to-amber-950 border-t border-amber-900'
-    : 'bg-linear-to-r from-amber-700 via-orange-700 to-amber-800'
-    } text-white py-14 md:py-16 transition-colors duration-500`}
-  >
+  <footer className="py-14 md:py-16 transition-colors duration-500 border-t bg-gray-100 dark:bg-dark-800 border-gray-500 dark:border-dark-500">
    <div className="container mx-auto px-6">
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-10 text-center md:text-left">
      <div className="flex flex-col items-center md:items-start space-y-3">
       <div className="flex items-center gap-3">
-       <div className="bg-linear-to-br from-amber-500 to-orange-600 rounded-xl w-12 h-12 flex items-center justify-center shadow-lg">
+       <div className="rounded-xl w-12 h-12 flex items-center justify-center shadow-lg bg-gray-300 dark:bg-gray-900">
         <span className="text-white font-black text-xl">ND</span>
        </div>
        <div>
-        <h3 className="text-xl font-bold text-white">Nisa DEMİR</h3>
-        <p className="text-sm text-amber-200">Uzman Klinik Psikolog</p>
+        <h3 className="text-xl font-bold text-dark-950 dark:text-gray-50">Nisa DEMİR</h3>
+        <p className="text-sm text-gray-700 dark:text-gray-300">Uzman Klinik Psikolog</p>
        </div>
       </div>
 
-      <p className="text-amber-200 text-sm leading-relaxed max-w-xs mt-2">
+      <p className="text-sm leading-relaxed max-w-xs mt-2 text-gray-700 dark:text-gray-300">
        {data?.footer?.description || 'Bireysel ve online terapi hizmetleriyle yanınızdayım.'}
       </p>
      </div>
 
      <div>
-      <h4 className="text-lg font-bold mb-4 text-white tracking-wide">Hızlı Erişim</h4>
+      <h4 className="text-lg font-bold mb-4 text-dark-950 dark:text-gray-50 tracking-wide">Hızlı Erişim</h4>
       <ul className="space-y-2">
        {quickLinks.map((item, idx) => (
-        <li key={idx}>
+        <li key={idx} className="flex justify-center md:justify-start">
          <Link
           href={item.href}
-          className="text-amber-200 hover:text-white transition-colors duration-300 text-sm flex items-center justify-center md:justify-start gap-2"
+          className="transition-colors duration-300 text-sm inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-dark-950 dark:hover:text-gray-50 hover:bg-white/10 dark:hover:bg-white/10 rounded-xl px-2 py-1"
          >
-          <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" aria-hidden />
+          <span className="w-1.5 h-1.5 rounded-full bg-gray-800 dark:bg-gray-100" aria-hidden />
           {item.label}
          </Link>
         </li>
@@ -68,14 +62,14 @@ export default function Footer() {
      </div>
 
      <div>
-      <h4 className="text-lg font-bold mb-4 text-white tracking-wide">İletişim</h4>
-
-      <div className="flex justify-center md:justify-start items-start gap-3 text-amber-200 text-sm mb-4">
-       <MapPin className="w-5 h-5 shrink-0 mt-0.5" />
-       <span className="font-medium">İstanbul & Online Terapi</span>
-      </div>
+      <h4 className="text-lg font-bold mb-4 text-dark-950 dark:text-gray-50 tracking-wide">İletişim</h4>
 
       <div className="space-y-3 mb-6">
+       <div className="transition-colors duration-300 text-sm flex items-center justify-center md:justify-start gap-3 text-gray-700 dark:text-gray-300 rounded-xl px-2 py-1">
+        <MapPin className="w-5 h-5 shrink-0 text-gray-800 dark:text-gray-100" />
+        <span className="font-medium">İstanbul & Online Terapi</span>
+       </div>
+
        {socialMedia.map((s, i) => (
         <Link
          key={i}
@@ -83,18 +77,18 @@ export default function Footer() {
          target={s.link.startsWith('http') ? '_blank' : undefined}
          rel={s.link.startsWith('http') ? 'noopener noreferrer' : undefined}
          aria-label={s.label}
-         className="text-amber-200 hover:text-white transition-colors duration-300 text-sm flex items-center justify-center md:justify-start gap-3 group mb-4"
+         className="transition-colors duration-300 text-sm flex items-center justify-center md:justify-start gap-3 group text-gray-700 dark:text-gray-300 hover:text-dark-950 dark:hover:text-gray-50 hover:bg-white/10 dark:hover:bg-white/10 rounded-xl px-2 py-1"
         >
-         <s.icon className="w-5 h-5 shrink-0 text-amber-300 group-hover:text-white transform group-hover:scale-110 transition-transform" />
+         <s.icon className="w-5 h-5 shrink-0 transform group-hover:scale-110 transition-transform text-gray-800 dark:text-gray-100" />
          <span className="font-medium">{s.label === 'E-posta' ? 'psikolognisademir@gmail.com' : s.label}</span>
         </Link>
        ))}
       </div>
 
       <div>
-       <h5 className="text-md font-semibold mb-2 text-white">Çalışma Saatleri</h5>
-       <div className="flex justify-center md:justify-start items-center gap-3 text-amber-200 text-sm">
-        <Clock className="w-5 h-5 shrink-0" />
+       <h4 className="text-lg font-bold mb-4 text-dark-950 dark:text-gray-50 tracking-wide">Çalışma Saatleri</h4>
+       <div className="transition-colors duration-300 text-sm flex items-center justify-center md:justify-start gap-3 text-gray-700 dark:text-gray-300 rounded-xl px-2 py-1">
+        <Clock className="w-5 h-5 shrink-0 text-gray-800 dark:text-gray-100" />
         <div className="flex flex-col space-y-1">
          {workingHours.map((hours, idx) => (
           <p key={idx}>{hours}</p>
@@ -105,15 +99,12 @@ export default function Footer() {
      </div>
     </div>
 
-    <div
-     className={`pt-6 border-t ${isDark ? 'border-amber-900' : 'border-amber-600/60'
-      } flex flex-col md:flex-row justify-between items-center gap-4`}
-    >
-     <p className="text-amber-300 text-sm">
+    <div className="pt-6 border-t border-gray-500 dark:border-dark-500 flex flex-col md:flex-row justify-between items-center gap-4">
+     <p className="text-sm text-gray-700 dark:text-gray-300">
       © {currentYear} { }
-      <span className="text-amber-400 font-semibold hover:text-white transition-colors"> Nisa DEMİR</span>
+      <span className="text-dark-950 dark:text-gray-50 font-semibold transition-colors"> Nisa DEMİR</span>
      </p>
-     <p className="text-amber-300 text-sm">Tüm hakları saklıdır.</p>
+     <p className="text-sm text-gray-700 dark:text-gray-300">Tüm hakları saklıdır.</p>
     </div>
    </div>
   </footer>
