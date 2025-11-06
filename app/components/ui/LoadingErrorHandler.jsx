@@ -8,7 +8,9 @@ export default function LoadingErrorHandler({ children }) {
   return (
    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-dark-900">
     <div className="text-center">
-     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 mx-auto mb-5 border-gray-500 dark:border-gray-600"></div>
+     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 mx-auto mb-5 border-primary dark:border-primary-dark "></div>
+     <p className="text-gray-700 dark:text-gray-300 text-lg font-medium">Uzman Klinik Psikolog</p>
+     <p className="text-gray-700 dark:text-gray-300 text-lg font-medium">Nisa DEMİR</p>
     </div>
    </div>
   );

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 @theme {
   --color-gray-50: #dcdcdc;
   --color-gray-100: #d1d0ce;
@@ -44,10 +46,26 @@
   --color-light-border: #808080;
   --color-dark-border: #696969;
 
+  --color-primary: #8b7355;
+  --color-primary-dark: #b8957a;
+  --color-primary-light: #a0826d;
+  --color-primary-dark-light: #c8a584;
+  --color-primary-dark-lighter: #d8b594;
+
   --animate-fadeIn: fadeIn 0.6s ease-out;
   --animate-slideUp: slideUp 0.6s ease-out;
   --animate-slideLeft: slideLeft 0.6s ease-out;
   --animate-slideRight: slideRight 0.6s ease-out;
+
+  --container-sm: 40rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 80rem;
+  --container-2xl: 88rem;
+  --container-3xl: 96rem;
+  --container-4xl: 104rem;
+  --container-5xl: 112rem;
+  --container-6xl: 120rem;
 }
 
 @keyframes fadeIn {
@@ -96,27 +114,239 @@
   color-scheme: light;
 }
 
-.dark {
-  color-scheme: dark;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #c5c6d0 inset !important;
+  -webkit-text-fill-color: #504a4b !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #373737 inset !important;
+  -webkit-text-fill-color: #f9fafb !important;
 }
 
 .container {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  @media (width >= 27rem /* 432px */) {
-    max-width: 27rem /* 432px */;
+  max-width: 80rem; /* 7xl - default */
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 88rem; /* 8xl - sm */
   }
-  @media (width >= 47.9375rem /* 767px */) {
-    max-width: 47.9375rem /* 767px */;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 96rem; /* 9xl - md */
   }
-  @media (width >= 63.9375rem /* 1023px */) {
-    max-width: 63.9375rem /* 1023px */;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 104rem; /* 10xl - lg */
   }
-  @media (width >= 79.9375rem /* 1279px */) {
-    max-width: 79.9375rem /* 1279px */;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 112rem; /* 11xl - xl */
   }
-  @media (width >= 95.9375rem /* 1535px */) {
-    max-width: 95.9375rem /* 1535px */;
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 120rem; /* 12xl - 2xl */
   }
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.bg-orange-a {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 25%,
+    var(--color-primary-dark) 50%,
+    var(--color-primary-light) 75%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 15px color-mix(in srgb, var(--color-primary) 40%, transparent),
+    0 0 20px color-mix(in srgb, var(--color-primary-light) 30%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark .bg-orange-a {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-dark-light) 25%,
+    var(--color-primary-dark-lighter) 50%,
+    var(--color-primary-dark-light) 75%,
+    var(--color-primary-dark) 100%
+  );
+  box-shadow:
+    0 4px 15px color-mix(in srgb, var(--color-primary-dark) 40%, transparent),
+    0 0 20px
+      color-mix(in srgb, var(--color-primary-dark-light) 30%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.bg-orange-a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.bg-orange-a::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Hover state for bg-orange-a */
+.hover\:bg-orange-a:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 25%,
+    var(--color-primary-dark) 50%,
+    var(--color-primary-light) 75%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 15px color-mix(in srgb, var(--color-primary) 40%, transparent),
+    0 0 20px color-mix(in srgb, var(--color-primary-light) 30%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark .hover\:bg-orange-a:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-dark-light) 25%,
+    var(--color-primary-dark-lighter) 50%,
+    var(--color-primary-dark-light) 75%,
+    var(--color-primary-dark) 100%
+  );
+  box-shadow:
+    0 4px 15px color-mix(in srgb, var(--color-primary-dark) 40%, transparent),
+    0 0 20px
+      color-mix(in srgb, var(--color-primary-dark-light) 30%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.hover\:bg-orange-a:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.hover\:bg-orange-a:hover::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+.card {
+  @apply backdrop-blur-lg rounded-2xl sm:rounded-3xl shadow-2xl border-2 bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-gray-700;
+}
+
+.input-base {
+  @apply w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-dark/50 focus:border-primary-dark dark:focus:ring-primary-dark/50 dark:focus:border-primary-dark transition-all duration-300 text-base bg-gray-200 dark:bg-dark-800 border-primary dark:border-primary-dark text-dark-950 dark:text-gray-50;
+}
+
+.text-body {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.text-heading {
+  @apply text-dark-950 dark:text-gray-50;
+}
+
+.hover-card {
+  @apply transform hover:scale-105 hover:-translate-y-3 transition-all duration-500;
+}
+
+.label-base {
+  @apply block font-semibold mb-2 text-base text-gray-600 dark:text-gray-300;
 }

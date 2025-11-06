@@ -9,11 +9,11 @@ export default function ContactPage() {
    <div className="container mx-auto px-4">
     <div className="max-w-7xl mx-auto">
      <ContactHero />
-     <div className="grid lg:grid-cols-5 gap-10 md:gap-14">
-      <div className="lg:col-span-3">
+     <div className="grid lg:grid-cols-5 gap-10 md:gap-14 items-stretch">
+      <div className="lg:col-span-3 flex">
        <ContactForm />
       </div>
-      <div className="lg:col-span-2">
+      <div className="lg:col-span-2 flex">
        <ContactInfo />
       </div>
      </div>

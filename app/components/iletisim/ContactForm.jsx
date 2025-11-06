@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { Send, CheckCircle2, ChevronDown } from 'lucide-react';
 
 const SUBJECT_OPTIONS = [
  'Bireysel Terapi',
@@ -16,7 +16,7 @@ const ContactForm = () => {
  const [formData, setFormData] = useState({
   name: '',
   email: '',
-  subject: SUBJECT_OPTIONS[0],
+  subject: '',
   message: '',
  });
  const [submitted, setSubmitted] = useState(false);
@@ -74,7 +74,7 @@ const ContactForm = () => {
 
    if (response.ok) {
     setSubmitted(true);
-    setFormData({ name: '', email: '', subject: SUBJECT_OPTIONS[0], message: '' });
+    setFormData({ name: '', email: '', subject: '', message: '' });
     setErrors({});
     setTimeout(() => setSubmitted(false), 3000);
    } else {
@@ -89,37 +89,71 @@ const ContactForm = () => {
  };
 
  const handleChange = (e) => {
+  const { name, value } = e.target;
   setFormData({
    ...formData,
-   [e.target.name]: e.target.value,
+   [name]: value,
   });
+
+  if (name === 'message') {
+   if (value.trim().length < 15) {
+    if (errors.message) {
+     setErrors({
+      ...errors,
+      message: value.trim().length === 0 ? 'Lütfen bir mesaj girin.' : 'Mesaj en az 15 karakter olmalıdır.',
+     });
+    }
+   } else {
+    setErrors({
+     ...errors,
+     message: undefined,
+    });
+   }
+  } else {
+   if (errors[name]) {
+    setErrors({
+     ...errors,
+     [name]: undefined,
+    });
+   }
+  }
  };
 
  const handleSubjectSelect = (subject) => {
   setFormData((prev) => ({ ...prev, subject }));
   setIsDropdownOpen(false);
+
+  if (errors.subject) {
+   setErrors({
+    ...errors,
+    subject: undefined,
+   });
+  }
  };
 
  return (
-  <div className="backdrop-blur-2xl rounded-3xl shadow-2xl p-8 md:p-10 animate-slideUp h-full flex flex-col space-y-5 transition-all duration-500 border bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-gray-700">
-   <h2 className="text-xl md:text-2xl font-bold mb-4 text-dark-950 dark:text-gray-50">
+  <div className="rounded-3xl shadow-2xl p-6 md:p-8 animate-slideUp flex flex-col transition-all duration-500 border-2 border-gray-400 dark:border-gray-700 relative w-full h-full bg-gray-100 dark:bg-gray-900">
+   <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 bg-linear-to-r from-orange-50/50 to-amber-50/50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-3xl"></div>
+   </div>
+   <h2 className="text-xl md:text-2xl font-bold mb-6 text-heading relative z-10">
     Benimle İletişime Geçin
    </h2>
 
    {submitted && (
-    <div className="mb-6 p-4 border rounded-xl flex items-center gap-3 animate-fadeIn bg-gray-800/20 dark:bg-gray-800/20 border-dark-500 dark:border-dark-500">
+    <div className="mb-6 p-4 border rounded-xl flex items-center gap-3 animate-fadeIn bg-gray-800/20 dark:bg-gray-800/20 border-dark-500 dark:border-dark-500 relative z-10">
      <CheckCircle2 className="w-6 h-6 shrink-0 text-gray-700 dark:text-gray-100" />
      <span className="font-semibold text-gray-700 dark:text-gray-100">Mesajınız başarıyla gönderildi!</span>
     </div>
    )}
 
-   <div className="space-y-5 flex-1 flex flex-col">
-    <div className="transform hover:scale-[1.01] transition-all duration-300">
+   <div className="flex flex-col gap-4 relative z-10 flex-1">
+    <div className="transform transition-all duration-300">
      <label
       htmlFor="name"
-      className="block font-semibold mb-2 text-base text-gray-600 dark:text-gray-300"
+      className="label-base"
      >
-      Adınız ve Soyadınız <span className="text-red-500">*</span>
+      Adınız ve Soyadınız: <span className="text-red-500">*</span>
      </label>
      <input
       type="text"
@@ -127,7 +161,7 @@ const ContactForm = () => {
       name="name"
       value={formData.name}
       onChange={handleChange}
-      className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 text-base bg-gray-200 dark:bg-dark-800 border-gray-400 dark:border-dark-500 text-dark-950 dark:text-gray-50"
+      className="input-base"
       placeholder="Adınız ve Soyadınız"
      />
      {errors.name && (
@@ -135,12 +169,12 @@ const ContactForm = () => {
      )}
     </div>
 
-    <div className="transform hover:scale-[1.01] transition-all duration-300">
+    <div className="transform  transition-all duration-300">
      <label
       htmlFor="email"
-      className="block font-semibold mb-2 text-base text-gray-600 dark:text-gray-300"
+      className="label-base"
      >
-      E-posta <span className="text-red-500">*</span>
+      E-posta: <span className="text-red-500">*</span>
      </label>
      <input
       type="email"
@@ -148,7 +182,7 @@ const ContactForm = () => {
       name="email"
       value={formData.email}
       onChange={handleChange}
-      className="w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 text-base bg-gray-200 dark:bg-dark-800 border-gray-400 dark:border-dark-500 text-dark-950 dark:text-gray-50"
+      className="input-base"
       placeholder="ornek@email.com"
      />
      {errors.email && (
@@ -156,46 +190,32 @@ const ContactForm = () => {
      )}
     </div>
 
-    <div className="transform hover:scale-[1.01] transition-all duration-300 relative" ref={dropdownRef}>
+    <div className="transform transition-all duration-300 relative z-50" ref={dropdownRef}>
      <label
       htmlFor="subject"
-      className="block font-semibold mb-2 text-base text-gray-600 dark:text-gray-300"
+      className="label-base"
      >
-      Konu <span className="text-red-500">*</span>
+      Konu: <span className="text-red-500">*</span>
      </label>
 
      <button
       type="button"
       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-      className="w-full px-4 py-3 pr-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 text-base cursor-pointer flex justify-between items-center bg-gray-200 dark:bg-dark-800 border-gray-400 dark:border-dark-500 text-dark-950 dark:text-gray-50"
+      className="input-base pr-4 cursor-pointer flex justify-between items-center"
      >
-      {formData.subject}
-      <svg
-       xmlns="http://www.w3.org/2000/svg"
-       width="24"
-       height="24"
-       viewBox="0 0 24 24"
-       fill="none"
-       stroke="currentColor"
-       strokeWidth="2"
-       strokeLinecap="round"
-       strokeLinejoin="round"
-       className={`transition-transform duration-300 text-gray-600 dark:text-gray-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
-      >
-       <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
+      <span className={formData.subject ? 'text-heading' : 'text-body'}>{formData.subject || 'Konu seçiniz'}</span>
+      <ChevronDown className={`w-5 h-5 transition-transform duration-300 text-primary dark:text-primary-dark ${isDropdownOpen ? 'rotate-180' : ''}`} />
      </button>
-
      {isDropdownOpen && (
-      <ul className="absolute z-10 w-full mt-2 rounded-2xl shadow-xl border max-h-60 overflow-y-auto animate-fadeIn bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-dark-500">
+      <ul className="absolute z-100 w-full mt-2 rounded-xl shadow-xl border max-h-52 overflow-y-auto animate-fadeIn bg-orange-a border-gray-400 dark:border-dark-500">
        {SUBJECT_OPTIONS.map(
         (option) => (
          <li
           key={option}
           onClick={() => handleSubjectSelect(option)}
-          className={`p-3 cursor-pointer transition-colors duration-200 text-base first:rounded-t-2xl last:rounded-b-2xl ${formData.subject === option
-           ? 'bg-gray-300 dark:bg-dark-800 text-dark-950 dark:text-gray-50'
-           : 'text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-700'
+          className={`px-3 py-2 cursor-pointer transition-all duration-200 text-sm first:rounded-t-xl last:rounded-b-xl relative z-10 ${formData.subject === option
+           ? 'bg-black/20 dark:bg-black/30 text-white dark:text-white font-semibold'
+           : 'text-white dark:text-white hover:bg-black/15 dark:hover:bg-black/25'
            }`}
          >
           {option}
@@ -210,19 +230,19 @@ const ContactForm = () => {
      )}
     </div>
 
-    <div className="transform hover:scale-[1.01] transition-all duration-300 flex-1 flex flex-col">
+    <div className="transform transition-all duration-300 flex flex-col flex-1">
      <label
       htmlFor="message"
-      className="block font-semibold mb-2 text-base text-gray-600 dark:text-gray-300"
+      className="label-base"
      >
-      Mesaj <span className="text-red-500">*</span>
+      Mesaj: <span className="text-red-500">*</span>
      </label>
      <textarea
       id="message"
       name="message"
       value={formData.message}
       onChange={handleChange}
-      className="w-full px-4 py-3 flex-1 min-h-[120px] border-2 rounded-xl focus:outline-none focus:ring-2 focus:border-transparent resize-none transition-all duration-300 text-base bg-gray-200 dark:bg-dark-800 border-gray-400 dark:border-dark-500 text-dark-950 dark:text-gray-50"
+      className="input-base flex-1 resize-none"
       placeholder="Mesajınızı buraya yazın..."
      ></textarea>
      {errors.message && (
@@ -230,16 +250,14 @@ const ContactForm = () => {
      )}
     </div>
 
-    <div className="mt-auto">
-     <button
-      onClick={handleSubmit}
-      disabled={isSubmitting}
-      className="w-full px-6 py-4 rounded-xl font-bold text-white hover:scale-105 hover:shadow-2xl transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed bg-gray-800 dark:bg-dark-950 hover:bg-gray-700 dark:hover:bg-dark-900"
-     >
-      <Send className="w-5 h-5" />
-      {isSubmitting ? 'Mesajınız gönderiliyor...' : 'Gönder'}
-     </button>
-    </div>
+    <button
+     onClick={handleSubmit}
+     disabled={isSubmitting}
+     className="w-full px-6 py-3 rounded-xl font-bold text-white hover:scale-103 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary-dark/50 focus:ring-offset-2 dark:focus:ring-primary-dark/50 transform transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-90 disabled:cursor-not-allowed bg-orange-a bg-cover bg-center relative overflow-hidden"
+    >
+     <Send className="w-5 h-5 relative z-10" />
+     <span className="relative z-10">{isSubmitting ? 'Mesajınız gönderiliyor...' : 'Gönder'}</span>
+    </button>
    </div>
   </div>
  );
